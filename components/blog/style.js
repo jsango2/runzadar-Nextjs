@@ -72,6 +72,9 @@ export const Card = styled.div`
   @media only screen and (max-width: 420px) {
     width: 100%;
   }
+  &:hover .coverPhoto2 {
+    transform: scale(1.03);
+  }
 `;
 export const Text = styled.div`
   font-size: 15px;
@@ -86,10 +89,10 @@ export const Button = styled.div`
   align-items: center;
   justify-content: center;
   right: 20px;
-  top: 42%;
+  top: 48%;
   font-style: normal;
   font-weight: 600;
-  font-size: 8.39654px;
+  font-size: 9.5px;
   line-height: 140%;
   text-align: right;
   text-transform: uppercase;
@@ -98,12 +101,14 @@ export const Button = styled.div`
   padding: 7px 10px;
 `;
 export const Naslov2 = styled.div`
-  font-size: 21px;
+  font-size: 18px;
   font-weight: normal;
   color: black;
+  margin-top: 10px;
 `;
 export const Foto = styled.div`
-  height: 55%;
+  height: 200px;
+  overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -26,7 +26,6 @@ export const WrapAll = styled.div`
 
   @media only screen and (max-width: 600px) {
     padding-top: 0;
-
     & .slick-next {
       right: 50px !important;
       height: 110px !important;
@@ -50,6 +49,9 @@ export const WrapTestimonial = styled.div`
   height: 469px;
   margin: 0 auto;
   display: flex;
+  @media only screen and (max-width: 600px) {
+    height: 550px;
+  }
 `;
 
 export const Card = styled.div`

@@ -46,6 +46,19 @@ const BlogFront = (posts) => {
     className: "testimonialSlider",
     responsive: [
       {
+        breakpoint: 1300,
+        settings: {
+          dots: true,
+          fade: true,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          lazyLoad: true,
+          arrows: true,
+          speed: 500,
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
           dots: true,
@@ -64,6 +77,7 @@ const BlogFront = (posts) => {
     <WrapAll>
       {/* <SEO /> */}
       <CrteCesta
+        className="crteBlogFront"
         style={{
           position: "absolute",
           top: "60px",
@@ -82,26 +96,42 @@ const BlogFront = (posts) => {
                 <Button className={post.node.categories.edges[0].node.name}>
                   {post.node.categories.edges[0].node.name}
                 </Button>
-                <Foto
-                  style={{
-                    backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
-                  }}
-                ></Foto>
+                <Foto>
+                  <div
+                    className="coverPhoto2"
+                    style={{
+                      backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
+                    }}
+                  ></div>
+                </Foto>
+
                 <Text>
                   <Naslov2>{post.node.title}</Naslov2>
                 </Text>
 
-                <Text
+                {/* <Text
                   dangerouslySetInnerHTML={{
                     __html: [post.node.excerpt.slice(0, 100) + "..."],
                   }}
-                />
+                /> */}
                 <ReadMore>PROČITAJ VIŠE</ReadMore>
               </Card>
             </Link>
           </WrapTestimonial>
         ))}
       </Slider>
+      {/* <Link href="/blog">
+        <div
+          style={{
+            textAlign: "right",
+            margin: "30px 150px 0 0",
+            cursor: "pointer",
+          }}
+          className="linkBack"
+        >
+          Pročitaj i ostale blogove
+        </div>
+      </Link> */}
     </WrapAll>
   );
 };

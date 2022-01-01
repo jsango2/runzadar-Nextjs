@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 // import Logo from "../images/logoRunZd.png"
-import Layout from "./../components/layout/layout";
+import Layout from "./../components/layout";
 
 function success() {
   return (
@@ -23,6 +24,11 @@ function success() {
             <p>
               Na vašu e-mail adresu će te uskoro dobiti sve potrebne informacije
             </p>
+            <div className="linkBack">
+              <Link href="/">
+                <div className="linkBack">Povratak na početnu stranicu</div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

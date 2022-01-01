@@ -6,6 +6,8 @@ import Button from "../button/button.js";
 import { WrapAll } from "./style.js";
 // import scrollTo from "gatsby-plugin-smoothscroll"
 // import { AnchorLink } from "gatsby-plugin-anchor-links"
+// import { HashLink } from "react-router-hash-link";
+import { Anchor } from "nextjs-anchor";
 
 const MeniMobile = ({ isOpen, setIsOpen }) => {
   // const history = useHistory()
@@ -41,7 +43,8 @@ const MeniMobile = ({ isOpen, setIsOpen }) => {
               setIsOpen(false);
             }}
           >
-            {/* <AnchorLink to="/#prijava" title="Our team">
+            {" "}
+            <Anchor href="/#prijava">
               <Button
                 title="Prijava"
                 width="81"
@@ -50,7 +53,7 @@ const MeniMobile = ({ isOpen, setIsOpen }) => {
                 fontSize="16"
                 fontWeight="600"
               />
-            </AnchorLink> */}
+            </Anchor>
           </div>
         </div>
       </div>

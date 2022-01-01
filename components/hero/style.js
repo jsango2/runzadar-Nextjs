@@ -16,7 +16,7 @@ export const HeroWrap = styled.div`
   justify-content: center;
   padding-left: 133px;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
   @media only screen and (max-width: 600px) {
     padding-left: 38px;
   }

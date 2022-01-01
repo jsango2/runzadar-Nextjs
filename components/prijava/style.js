@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 // import { HeroWrap } from "./style.js"
 export const WrapAll = styled.div`
@@ -11,7 +11,7 @@ export const WrapAll = styled.div`
   @media only screen and (max-width: 600px) {
     padding-bottom: 0;
   }
-`
+`;
 
 export const WrapForm = styled.div`
   position: relative;
@@ -38,7 +38,7 @@ export const WrapForm = styled.div`
     width: 100vw;
     border-radius: 0;
   }
-`
+`;
 export const Left = styled.div`
   position: relative;
   z-index: 10;
@@ -66,7 +66,7 @@ export const Left = styled.div`
     letter-spacing: 0.5px;
     color: #aea8b3;
     margin: 14px 0;
-    &:nth-child(5) {
+    &:nth-child(6) {
       margin-bottom: 0;
       padding-left: 0;
       padding-right: 0;
@@ -81,7 +81,7 @@ export const Left = styled.div`
       width: 95%;
       height: 47px;
       margin: 14px 0;
-      &:nth-child(5) {
+      &:nth-child(6) {
         margin-bottom: 0;
         padding-left: 0;
         padding-right: 0;
@@ -97,7 +97,7 @@ export const Left = styled.div`
       width: 95%;
       height: 47px;
       margin: 14px 0;
-      &:nth-child(5) {
+      &:nth-child(6) {
         margin-bottom: 0;
         padding-left: 0;
         padding-right: 0;
@@ -114,14 +114,14 @@ export const Left = styled.div`
       width: 100%;
       height: 47px;
       margin: 14px 0;
-      &:nth-child(5) {
+      &:nth-child(6) {
         margin-bottom: 0;
         padding-left: 0;
         padding-right: 0;
       }
     }
   }
-`
+`;
 export const Naslov2 = styled.h3`
   position: relative;
   font-family: "Montserrat", sans-serif;
@@ -136,7 +136,7 @@ export const Naslov2 = styled.h3`
   @media only screen and (max-width: 600px) {
     width: 67%;
   }
-`
+`;
 export const Right = styled.div`
   position: relative;
   width: 50%;
@@ -149,7 +149,7 @@ export const Right = styled.div`
   @media only screen and (max-width: 600px) {
     display: none;
   }
-`
+`;
 
 export const Foto = styled.div`
   width: 50%;
@@ -160,4 +160,4 @@ export const Foto = styled.div`
   @media only screen and (max-width: 600px) {
     width: 100%;
   }
-`
+`;

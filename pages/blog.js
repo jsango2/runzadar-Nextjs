@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "./../components/layout/layout";
+import Layout from "./../components/layout";
 import Sunset from "../images/sunset.png";
 import { getAllPostsForHome } from "../lib/api";
 
@@ -16,10 +16,10 @@ const Category = styled.div`
   align-items: center;
   justify-content: center;
   right: 20px;
-  top: 50%;
+  top: 55%;
   font-style: normal;
   font-weight: 600;
-  font-size: 8.39654px;
+  font-size: 10px;
   line-height: 140%;
   text-align: right;
   text-transform: uppercase;
@@ -32,11 +32,11 @@ const Category2 = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 20px;
+  left: 40px;
   top: 90%;
   font-style: normal;
   font-weight: 600;
-  font-size: 8.39654px;
+  font-size: 12px;
   line-height: 140%;
   text-align: right;
   text-transform: uppercase;
@@ -83,6 +83,9 @@ const Card = styled.div`
   @media only screen and (max-width: 420px) {
     width: 95%;
   }
+  &:hover .coverPhoto2 {
+    transform: scale(1.03);
+  }
 `;
 const Card2 = styled.div`
   position: relative;
@@ -90,13 +93,16 @@ const Card2 = styled.div`
   height: 550px;
   margin: 25px auto;
   border-radius: 39px;
-
+  cursor: pointer;
   display: flex;
   overflow: hidden;
   /* display: flex; */
   background: #fff4d8;
   @media only screen and (max-width: 600px) {
     flex-direction: column;
+  }
+  @media only screen and (max-width: 420px) {
+    width: 95%;
   }
 `;
 const Text = styled.div`
@@ -135,7 +141,8 @@ const Naslov3 = styled.div`
   }
 `;
 const Foto = styled.div`
-  height: 60%;
+  height: 240px;
+  overflow: hidden;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -172,21 +179,29 @@ const ReadMore2 = styled.div`
 
 export default function blog({ allPosts: { edges }, preview }) {
   const posts = edges;
-  console.log(posts);
   return (
     <Layout>
-      <Header />
+      {/* <Header /> */}
 
       <div
         style={{
           position: "relative",
           width: "100%",
-          height: "450px",
+          height: "475px",
           zIndex: "1",
           borderRadius: "39px 39px 0 0 ",
+          backgroundImage: `url(/sunset.png)`,
+          backgroundPosition: "50% 50%",
+          backgroundSize: "cover ",
         }}
       >
-        <Image src="/sunset.png" alt="" width={1400} height={500} />
+        {/* <Image
+          src="/sunset.png"
+          alt=""
+          objectFit="cover"
+          layout="fill"
+          priority
+        /> */}
         <WrapNaslovButton>
           <Naslov>
             <KosaCrta className="blogPostCrta" />
@@ -207,9 +222,9 @@ export default function blog({ allPosts: { edges }, preview }) {
           href={`/posts/${posts[0].node.slug}`}
         >
           <Card2>
-            {/* <Category2 className={posts[0].node.categories.edges[0].node.name}>
+            <Category2 className={posts[0].node.categories.edges[0].node.name}>
               {posts[0].node.categories.edges[0].node.name}
-            </Category2> */}
+            </Category2>
 
             <Foto2
               style={{
@@ -221,31 +236,34 @@ export default function blog({ allPosts: { edges }, preview }) {
                 <Naslov3>{posts[0].node.title}</Naslov3>
               </Text2>
 
-              {/* <Text2
+              <Text2
                 dangerouslySetInnerHTML={{
-                  __html: [posts[0].node.content.slice(0, 300) + "..."],
+                  __html: [posts[0].node.content.slice(0, 250) + "..."],
                 }}
-              /> */}
+              />
               <ReadMore2>PROČITAJ VIŠE</ReadMore2>
             </div>
           </Card2>
         </Link>
-        {posts.map((post) => (
+        {posts.slice(1, 50).map((post) => (
           <Link
             style={{ textDecoration: "none", color: "#212121" }}
             href={`/posts/${post.node.slug}`}
             key={post.node.slug}
           >
             <Card>
-              {/* <Category className={post.node.categories.edges[0].node.name}>
+              <Category className={post.node.categories.edges[0].node.name}>
                 {post.node.categories.edges[0].node.name}
-              </Category> */}
+              </Category>
 
-              <Foto
-                style={{
-                  backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
-                }}
-              ></Foto>
+              <Foto>
+                <div
+                  className="coverPhoto2"
+                  style={{
+                    backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
+                  }}
+                ></div>
+              </Foto>
               <Text>
                 <Naslov2>{post.node.title}</Naslov2>
               </Text>

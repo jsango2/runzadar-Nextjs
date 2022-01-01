@@ -10,14 +10,7 @@ import {
   WrapFrame,
   Slika,
 } from "./style.js";
-import Polaroid from "../../images/polaroidframe.png";
-import Trkac from "../../images/musapstan1.png";
-import Banina from "../../images/banina.png";
-import Banina2 from "../../images/banina2.png";
-import Nin from "../../images/ninzadar.png";
-import Sale from "../../images/sale.png";
-import Xmasrun from "../../images/xmasrun.png";
-import Skip from "../../images/znr2019.png";
+
 import Image from "next/image";
 
 // import { HeroWrap } from "./style.js"

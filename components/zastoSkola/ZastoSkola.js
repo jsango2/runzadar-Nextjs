@@ -189,7 +189,7 @@ const ZastoSkola = () => {
           <Parallax
             className="custom-class"
             // x={[-20, 20]}
-            y={[-45, -10]}
+            y={[-45, -28]}
           >
             <Image
               className="zrakeParallax"

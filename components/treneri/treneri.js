@@ -8,7 +8,6 @@ import {
   Text,
 } from "./style.js";
 import Pozadina from "../../svg/pozadinTreneri.svg";
-import LinijaUtrkeZuta from "../../svg/linijautrkezuta.svg";
 import Jure from "../../images/jure.png";
 import Tuta from "../../images/tuta.png";
 import KosaCrta from "../../svg/kosacrta.svg";
@@ -33,14 +32,16 @@ const Treneri = () => {
         tiltMaxAngleY={5}
       >
         <div
-        // style={{
-        //   position: "absolute",
-        //   top: "70px",
-        //   left: "0px",
-        //   zIndex: "-1",
-        // }}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "500px",
+            top: "0px",
+            left: "0px",
+            zIndex: "-1",
+          }}
         >
-          <LinijaUtrkeZuta style={{ width: "100%" }} />
+          <Image src="/linijautrke.svg" layout="fill" objectFit="cover" />
         </div>
       </Tilt>
 

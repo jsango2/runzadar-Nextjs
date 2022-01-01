@@ -4,8 +4,8 @@ import animacijaNaslova600 from "./animacijaNaslovaUsko";
 import { HeroTitle, HeroWrap } from "./style.js";
 import Button from "../button/button";
 // import HeroVideo from "../../video/kraciVideo.mp4";
-// import scrollTo from "gatsby-plugin-smoothscroll";
 import useWindowSize from "../helper/usewindowsize";
+import { Link as Veza } from "react-scroll";
 
 const Hero = () => {
   const size = useWindowSize();
@@ -23,18 +23,24 @@ const Hero = () => {
           loop={false}
         />
       </HeroTitle>
-      <div
-        style={{ position: "relative", zIndex: "10" }}
-        onClick={() => scrollTo("#prijava")}
+      <Veza
+        activeClass="active"
+        to="prijava"
+        spy={true}
+        smooth="easeInOutCubic"
+        offset={0}
+        duration={1800}
       >
-        <Button
-          title="Počni trenirati"
-          width="270"
-          height="61"
-          fontWeight="700"
-          colorText="black"
-        />
-      </div>
+        <div style={{ position: "relative", zIndex: "10", cursor: "pointer" }}>
+          <Button
+            title="Počni trenirati"
+            width="270"
+            height="61"
+            fontWeight="700"
+            colorText="black"
+          />
+        </div>
+      </Veza>
     </HeroWrap>
   );
 };

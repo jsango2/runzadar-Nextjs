@@ -8,7 +8,10 @@ export const WrapAll = styled.div`
   overflow: hidden;
   background-color: #151520;
   @media only screen and (max-width: 420px) {
-    height: 500px;
+    padding-top: 50px;
+    height: 625px;
+  }
+  @media only screen and (max-width: 420px) {
   }
 `;
 
@@ -93,6 +96,7 @@ export const Frame = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   @media only screen and (max-width: 600px) {
+    top: -423px;
     transform: rotate(-6deg);
     width: 91vw;
     height: 96vw;
