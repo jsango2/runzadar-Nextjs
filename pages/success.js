@@ -9,6 +9,7 @@ function success() {
         <div
           style={{
             width: "400px",
+            height: "600px",
             margin: "50px auto 60px auto",
             display: "flex",
             flexDirection: "column",
