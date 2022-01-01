@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 // import Logo from "../images/logoRunZd.png"
-import Layout from "./../components/layout/layout"
+import Layout from "./../components/layout/layout";
 
 function success() {
   return (
@@ -26,7 +26,7 @@ function success() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
-export default success
+export default success;
