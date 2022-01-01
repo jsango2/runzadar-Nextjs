@@ -21,6 +21,7 @@
     "react-parallax": "^3.3.0",
     "react-parallax-tilt": "^1.5.84",
     "react-scroll-parallax": "^2.4.2",
+    "react-slick": "^0.28.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
