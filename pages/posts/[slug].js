@@ -1,17 +1,86 @@
 import React, { useState, useEffect } from "react";
-
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import MoreStories from "../../components/more-stories";
-
-import SectionSeparator from "../../components/section-separator";
 import Layout from "../../components/layout";
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
-import { Naslov, WrapNaslovButton, Overlay, Text, WrapText } from "./style.js";
-
 import Image from "next/image";
+import styled from "styled-components";
+
+// import { HeroWrap } from "./style.js"
+const WrapAll = styled.div`
+  position: relative;
+  width: 100%;
+  height: 625px;
+  padding-top: 50px;
+  z-index: 3;
+  overflow: hidden;
+  background-color: #151520;
+`;
+
+const Naslov = styled.div`
+  position: relative;
+  font-style: italic;
+  width: 700px;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 120%;
+  margin-top: 0;
+  @media only screen and (max-width: 430px) {
+    font-size: 36px;
+    width: 90%;
+  }
+`;
+
+const WrapNaslovButton = styled.div`
+  position: absolute;
+  width: 868px;
+  height: auto;
+  bottom: 8%;
+  /* left: 16%; */
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  @media only screen and (max-width: 430px) {
+    font-size: 36px;
+    width: 90%;
+    margin: 0 auto 0 30px;
+  }
+`;
+const WrapText = styled.div`
+  margin: 20px auto 0 auto;
+  width: 868px;
+  font-size: 21px;
+  @media only screen and (max-width: 430px) {
+    width: 90%;
+  }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgb(0 0 0 / 20%);
+`;
+const Text = styled.div`
+  font-size: 21px;
+  line-height: 142.5%;
+  & img {
+    margin: 0 auto;
+    width: 100%;
+    object-fit: cover;
+  }
+  & p {
+    margin: 1.5rem 0;
+  }
+  @media only screen and (max-width: 430px) {
+    font-size: 16px;
+  }
+`;
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter();
