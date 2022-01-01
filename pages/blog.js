@@ -1,0 +1,272 @@
+import React from "react";
+import Layout from "./../components/layout/layout";
+import Sunset from "../images/sunset.png";
+import { getAllPostsForHome } from "../lib/api";
+
+import KosaCrta from "../svg/kosacrta.svg";
+import Button from "../components/button/button";
+import styled from "styled-components";
+import Link from "next/link";
+import Header from "../components/header";
+import Image from "next/image";
+
+const Category = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  top: 50%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8.39654px;
+  line-height: 140%;
+  text-align: right;
+  text-transform: uppercase;
+  color: #ffffff;
+  align-items: center;
+  padding: 7px 10px;
+`;
+const Category2 = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 20px;
+  top: 90%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 8.39654px;
+  line-height: 140%;
+  text-align: right;
+  text-transform: uppercase;
+  color: #ffffff;
+  align-items: center;
+  padding: 7px 10px;
+`;
+
+const Naslov = styled.div`
+  position: relative;
+  font-style: italic;
+  width: 700px;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 120%;
+  margin-top: 0;
+  @media only screen and (max-width: 420px) {
+    font-size: 54px;
+  }
+`;
+
+const WrapNaslovButton = styled.div`
+  position: absolute;
+  width: 82%;
+  height: auto;
+  bottom: 8%;
+  left: 10%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+`;
+
+const Card = styled.div`
+  position: relative;
+  width: 400px;
+  height: 350px;
+  margin: 25px auto;
+  border-radius: 39px;
+  overflow: hidden;
+  /* display: flex; */
+  background: #fff4d8;
+  cursor: pointer;
+  @media only screen and (max-width: 420px) {
+    width: 95%;
+  }
+`;
+const Card2 = styled.div`
+  position: relative;
+  width: 95%;
+  height: 550px;
+  margin: 25px auto;
+  border-radius: 39px;
+
+  display: flex;
+  overflow: hidden;
+  /* display: flex; */
+  background: #fff4d8;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+const Text = styled.div`
+  font-size: 15px;
+  font-weight: normal;
+  padding: 15px 0 0 20px;
+  width: 95%;
+  /* & figure {
+    width: 80%;
+  } */
+`;
+const Text2 = styled.div`
+  font-size: 15px;
+  font-weight: normal;
+  padding: 15px 0 0 20px;
+  width: 95%;
+  color: black;
+  /* & figure {
+    width: 80%;
+  } */
+
+  @media only screen and (max-width: 420px) {
+    width: 95%;
+  }
+`;
+const Naslov2 = styled.div`
+  color: black;
+  width: 100%;
+`;
+const Naslov3 = styled.div`
+  font-size: 31px;
+  font-weight: normal;
+  color: black;
+  @media only screen and (max-width: 420px) {
+    font-size: 22px;
+  }
+`;
+const Foto = styled.div`
+  height: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+const Foto2 = styled.div`
+  width: 50%;
+  height: 100%;
+  /* border-radius: 39px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    height: 50%;
+  }
+`;
+const ReadMore = styled.div`
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer;
+  right: 30px;
+  font-size: 12px;
+  color: #383691;
+`;
+const ReadMore2 = styled.div`
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer;
+  right: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+`;
+
+export default function blog({ allPosts: { edges }, preview }) {
+  const posts = edges;
+  console.log(posts);
+  return (
+    <Layout>
+      <Header />
+
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "450px",
+          zIndex: "1",
+          borderRadius: "39px 39px 0 0 ",
+        }}
+      >
+        <Image src="/sunset.png" alt="" width={1400} height={500} />
+        <WrapNaslovButton>
+          <Naslov>
+            <KosaCrta className="blogPostCrta" />
+            BLOG
+          </Naslov>
+        </WrapNaslovButton>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          flexWrap: "wrap",
+          margin: "50px 0",
+        }}
+      >
+        <Link
+          style={{ textDecoration: "none", color: "#212121" }}
+          href={`/posts/${posts[0].node.slug}`}
+        >
+          <Card2>
+            {/* <Category2 className={posts[0].node.categories.edges[0].node.name}>
+              {posts[0].node.categories.edges[0].node.name}
+            </Category2> */}
+
+            <Foto2
+              style={{
+                backgroundImage: `url(${posts[0].node.featuredImage.node.sourceUrl})`,
+              }}
+            ></Foto2>
+            <div className="wrapFeaturedBlogText">
+              <Text2>
+                <Naslov3>{posts[0].node.title}</Naslov3>
+              </Text2>
+
+              {/* <Text2
+                dangerouslySetInnerHTML={{
+                  __html: [posts[0].node.content.slice(0, 300) + "..."],
+                }}
+              /> */}
+              <ReadMore2>PROČITAJ VIŠE</ReadMore2>
+            </div>
+          </Card2>
+        </Link>
+        {posts.map((post) => (
+          <Link
+            style={{ textDecoration: "none", color: "#212121" }}
+            href={`/posts/${post.node.slug}`}
+            key={post.node.slug}
+          >
+            <Card>
+              {/* <Category className={post.node.categories.edges[0].node.name}>
+                {post.node.categories.edges[0].node.name}
+              </Category> */}
+
+              <Foto
+                style={{
+                  backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
+                }}
+              ></Foto>
+              <Text>
+                <Naslov2>{post.node.title}</Naslov2>
+              </Text>
+
+              {/* <Text
+                dangerouslySetInnerHTML={{
+                  __html: [post.node.content.slice(0, 100) + "..."],
+                }}
+              /> */}
+              <ReadMore>PROČITAJ VIŠE</ReadMore>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </Layout>
+  );
+}
+
+export async function getStaticProps({ preview = false }) {
+  const allPosts = await getAllPostsForHome(preview);
+  return {
+    props: { allPosts, preview },
+  };
+}
