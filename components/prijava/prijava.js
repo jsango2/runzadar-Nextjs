@@ -53,62 +53,62 @@ const Prijava = () => {
     setInputs((values) => ({ ...values, [name]: value }));
     console.log(inputs);
   }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // setIssubmiting(true);
-    console.log("Sending");
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // setIssubmiting(true);
+  //   console.log("Sending");
 
-    fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...inputs }),
-    }).then((res) => {
-      console.log("Response received");
-      if (res.status === 200) {
-        setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
-      }
-      // if (res.status === 200) {
-      //   setResult(res.data);
-      //   // setState({ Ime: "", mail: "", poruka: "" })
-      //   setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
-      //   setPoslano(
-      //     "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
-      //   );
-      //   // setIssubmiting(false);
-      //   setTimeout(function () {
-      //     setPoslano("");
-      //   }, 4000);
-      // }
-    });
-  };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   setIssubmiting(true);
-  //   axios
-  //     .post("/api/contact", { ...inputs })
-  //     .then((response) => {
-  //       setResult(response.data);
-  //       // setState({ Ime: "", mail: "", poruka: "" })
+  //   fetch("/api/contact", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json, text/plain, */*",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ ...inputs }),
+  //   }).then((res) => {
+  //     console.log("Response received");
+  //     if (res.status === 200) {
   //       setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
-  //       setPoslano(
-  //         "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
-  //       );
-  //       setIssubmiting(false);
-  //       setTimeout(function () {
-  //         setPoslano("");
-  //       }, 4000);
-  //     })
-  //     .catch((err) => {
-  //       setResult({
-  //         success: false,
-  //         message: "Something went wrong. Try again later.",
-  //       });
-  //       console.error(err);
-  //     });
+  //     }
+  //     // if (res.status === 200) {
+  //     //   setResult(res.data);
+  //     //   // setState({ Ime: "", mail: "", poruka: "" })
+  //     //   setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
+  //     //   setPoslano(
+  //     //     "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
+  //     //   );
+  //     //   // setIssubmiting(false);
+  //     //   setTimeout(function () {
+  //     //     setPoslano("");
+  //     //   }, 4000);
+  //     // }
+  //   });
   // };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIssubmiting(true);
+    axios
+      .post("/api/contact", { ...inputs })
+      .then((response) => {
+        setResult(response.data);
+        // setState({ Ime: "", mail: "", poruka: "" })
+        setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
+        setPoslano(
+          "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
+        );
+        setIssubmiting(false);
+        setTimeout(function () {
+          setPoslano("");
+        }, 4000);
+      })
+      .catch((err) => {
+        setResult({
+          success: false,
+          message: "Something went wrong. Try again later.",
+        });
+        console.error(err);
+      });
+  };
 
   return (
     <section id="prijava">
