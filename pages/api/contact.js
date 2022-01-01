@@ -8,8 +8,8 @@ export default function (req, res) {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: process.env.NEXT_PUBLIC_USER, // generated ethereal user
-      pass: process.env.NEXT_PUBLIC_PASS, // generated ethereal password
+      user: process.env.USER, // generated ethereal user
+      pass: process.env.PASS, // generated ethereal password
     },
   });
 
