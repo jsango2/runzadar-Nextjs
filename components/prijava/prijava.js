@@ -18,7 +18,6 @@ import animacijaIkona from "./animacijaIkona.js";
 import animacijaFotke1150 from "./animacijaFotke1150.js";
 import animacijaFotke600 from "./animacijaFotke600.js";
 import useWindowSize from "../helper/usewindowsize";
-import Button from "../button/button.js";
 
 // import { HeroWrap } from "./style.js"
 
@@ -53,62 +52,62 @@ const Prijava = () => {
     setInputs((values) => ({ ...values, [name]: value }));
     console.log(inputs);
   }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // setIssubmiting(true);
-  //   console.log("Sending");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setIssubmiting(true);
+    console.log("Sending");
 
-  //   fetch("/api/contact", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json, text/plain, */*",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ ...inputs }),
-  //   }).then((res) => {
-  //     console.log("Response received");
-  //     if (res.status === 200) {
-  //       setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
-  //     }
-  //     // if (res.status === 200) {
-  //     //   setResult(res.data);
-  //     //   // setState({ Ime: "", mail: "", poruka: "" })
-  //     //   setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
-  //     //   setPoslano(
-  //     //     "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
-  //     //   );
-  //     //   // setIssubmiting(false);
-  //     //   setTimeout(function () {
-  //     //     setPoslano("");
-  //     //   }, 4000);
-  //     // }
-  //   });
-  // };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIssubmiting(true);
-    axios
-      .post("/api/contact", { ...inputs })
-      .then((response) => {
-        setResult(response.data);
-        // setState({ Ime: "", mail: "", poruka: "" })
+    fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...inputs }),
+    }).then((res) => {
+      console.log("Response received");
+      if (res.status === 200) {
         setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
-        setPoslano(
-          "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
-        );
-        setIssubmiting(false);
-        setTimeout(function () {
-          setPoslano("");
-        }, 4000);
-      })
-      .catch((err) => {
-        setResult({
-          success: false,
-          message: "Something went wrong. Try again later.",
-        });
-        console.error(err);
-      });
+      }
+      // if (res.status === 200) {
+      //   setResult(res.data);
+      //   // setState({ Ime: "", mail: "", poruka: "" })
+      //   setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
+      //   setPoslano(
+      //     "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
+      //   );
+      //   // setIssubmiting(false);
+      //   setTimeout(function () {
+      //     setPoslano("");
+      //   }, 4000);
+      // }
+    });
   };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   setIssubmiting(true);
+  //   axios
+  //     .post("/api/contact", { ...inputs })
+  //     .then((response) => {
+  //       setResult(response.data);
+  //       // setState({ Ime: "", mail: "", poruka: "" })
+  //       setInputs({ ime: "" }, { prezime: "" }, { datum: "" }, { email: "" });
+  //       setPoslano(
+  //         "Poslano! Uskoro će te na Email dobiti sve potrebne informacije"
+  //       );
+  //       setIssubmiting(false);
+  //       setTimeout(function () {
+  //         setPoslano("");
+  //       }, 4000);
+  //     })
+  //     .catch((err) => {
+  //       setResult({
+  //         success: false,
+  //         message: "Something went wrong. Try again later.",
+  //       });
+  //       console.error(err);
+  //     });
+  // };
 
   return (
     <section id="prijava">
@@ -132,14 +131,20 @@ const Prijava = () => {
               />
               Prijava na besplatni prvi trening
             </Naslov2>
-            <form className="formular">
+            <form
+              className="formular"
+              name="contact"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <input
                 type="text"
                 placeholder="Ime"
                 name="ime"
                 // {...register("Ime", { required: true })}
-                value={inputs.ime || ""}
-                onChange={handleChange}
+
                 required
               />
               {/* {errors.Ime?.type === "required" && "Ime je obavezno"} */}
@@ -148,8 +153,7 @@ const Prijava = () => {
                 placeholder="Prezime"
                 name="prezime"
                 // {...register("Prezime", { required: true })}
-                value={inputs.prezime || ""}
-                onChange={handleChange}
+
                 required
               />
               {/* {errors.Prezime?.type === "required" && "Prezime je obavezno"} */}
@@ -158,8 +162,7 @@ const Prijava = () => {
                 placeholder="Datum rođenja"
                 name="datum"
                 // {...register("Datum", { required: true })}
-                value={inputs.datum || ""}
-                onChange={handleChange}
+
                 required
               />
               {/* <div style={{ color: "red" }}>
@@ -170,21 +173,16 @@ const Prijava = () => {
                 placeholder="Email"
                 name="email"
                 // {...register("Email", { required: true })}
-                value={inputs.email || ""}
-                onChange={handleChange}
+
                 required
               />
               {/* {errors.Ime?.Email === "required" && "Email je obavezan"} */}
-              <div style={{ marginTop: "20px" }} onClick={handleSubmit}>
-                <Button
-                  title="Prijava"
-                  width="181"
-                  height="40"
-                  colorText="black"
-                  fontSize="16"
-                  fontWeight="600"
-                />
-              </div>
+              <input
+                className="submitButton"
+                value="Prijava"
+                // onClick={handleSubmit}
+                type="submit"
+              />
               {issubmiting ? (
                 <div className="isSubmitinig">
                   <div>Šaljem prijavu....</div>
