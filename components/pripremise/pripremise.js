@@ -9,6 +9,7 @@ import {
   WrapAll,
 } from "./style.js";
 // import { graphql, useStaticQuery } from "gatsby"
+import { Link as Veza } from "react-scroll";
 
 import Button from "../button/button.js";
 // import BackgroundImage from "gatsby-background-image";
@@ -19,21 +20,6 @@ import vrataFosaUze from "../../images/vrataFosaUze.png";
 import { Parallax, Background } from "react-parallax";
 
 const PripremiSe = () => {
-  // const data = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       placeholderImage: file(relativePath: { eq: "vrataFosa.png" }) {
-  //         childImageSharp {
-  //           fluid(quality: 100, maxWidth: 1440) {
-  //             ...GatsbyImageSharpFluid_withWebp
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `
-  // )
-
-  // Set ImageData.
   return (
     <WrapAll>
       <Parallax strength={100} style={{ width: "100%" }}>
@@ -66,22 +52,35 @@ const PripremiSe = () => {
             </Utrka>
           </Utrke>
           <Buttons>
-            <Button
-              title="Počni trenirati"
-              width="270"
-              height="61"
-              fontWeight="700"
-              colorText="black"
-            />
-
-            <Button
-              title="Zadar Night Run"
-              width="270"
-              height="61"
-              fontWeight="700"
-              backgroundColor="#F1EBF5"
-              colorText="black"
-            />
+            <Veza
+              activeClass="active"
+              to="prijava"
+              spy={true}
+              smooth="easeInOutCubic"
+              offset={0}
+              duration={1800}
+            >
+              <Button
+                title="Počni trenirati"
+                width="270"
+                height="61"
+                fontWeight="700"
+                colorText="black"
+              />
+            </Veza>
+            <a
+              href="https://www.zadarnight.run"
+              style={{ textDecoration: "none" }}
+            >
+              <Button
+                title="Zadar Night Run"
+                width="270"
+                height="61"
+                fontWeight="700"
+                backgroundColor="#F1EBF5"
+                colorText="black"
+              />
+            </a>
           </Buttons>
           <Overlay />
           <OverlayGore />

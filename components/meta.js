@@ -49,10 +49,10 @@ export default function Meta() {
         content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
         key="desc"
       />
-      <meta
+      {/* <meta
         property="og:description"
         content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
-      />
+      /> */}
       <meta property="og:url" content="https://www.runzadar.com" />
       {/* <meta
         property="og:image"
@@ -61,6 +61,7 @@ export default function Meta() {
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="UTF-8" />
+      <meta property="og:type" content="website" />
     </Head>
   );
 }

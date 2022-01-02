@@ -27,6 +27,7 @@ const Category = styled.div`
   color: #ffffff;
   align-items: center;
   padding: 7px 10px;
+  z-index: 100;
 `;
 const Category2 = styled.div`
   position: absolute;
@@ -44,6 +45,7 @@ const Category2 = styled.div`
   color: #ffffff;
   align-items: center;
   padding: 7px 10px;
+  z-index: 100;
 `;
 
 const Naslov = styled.h1`

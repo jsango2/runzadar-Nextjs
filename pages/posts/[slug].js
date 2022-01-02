@@ -35,7 +35,7 @@ export default function Post({ post, posts, preview }) {
   //   }
   //   setDatum(formatDate(datumPosta));
   // }, []);
-
+  console.log(post.excerpt.slice(3, post.excerpt.length - 5));
   return (
     <Layout>
       {router.isFallback ? (
@@ -50,15 +50,28 @@ export default function Post({ post, posts, preview }) {
               content={`${post.title} - Škola trčanja Zadar`}
               key="title"
             />
-            <meta name="twitter:title" content={`${post.title}`} />
-            <meta name="twitter:description" content={`${post.excerpt}`} />
+            <meta
+              name="twitter:title"
+              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+            />
+            <meta
+              name="twitter:description"
+              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+            />
             <meta
               name="twitter:image"
               content={`${post.featuredImage.node.sourceUrl}`}
             />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="description" content={`${post.excerpt}`} key="desc" />
-            <meta property="og:description" content={`${post.excerpt}`} />
+            <meta
+              name="description"
+              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+              key="desc"
+            />
+            <meta
+              property="og:description"
+              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+            />
             <meta property="og:url" content="https://www.runzadar.com" />
             <meta
               property="og:image"

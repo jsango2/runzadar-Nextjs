@@ -99,6 +99,7 @@ export const Button = styled.div`
   color: #ffffff;
   align-items: center;
   padding: 7px 10px;
+  z-index: 100;
 `;
 export const Naslov2 = styled.div`
   font-size: 18px;
