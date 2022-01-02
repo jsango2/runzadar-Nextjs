@@ -35,7 +35,7 @@ const Treneri = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "500px",
+            height: "600px",
             top: "0px",
             left: "0px",
             zIndex: "-1",

@@ -49,7 +49,7 @@ const BlogFront = (posts) => {
         breakpoint: 1300,
         settings: {
           dots: true,
-          fade: true,
+          fade: false,
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
@@ -59,7 +59,7 @@ const BlogFront = (posts) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 900,
         settings: {
           dots: true,
           fade: true,

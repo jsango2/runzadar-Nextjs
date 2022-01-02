@@ -35,7 +35,7 @@ export const WrapDiv = styled.div`
     top: -50px;
   }
 `;
-export const Naslov = styled.h3`
+export const Naslov = styled.h1`
   width: 543px;
   position: relative;
   margin-left: 69px;
