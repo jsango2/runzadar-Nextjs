@@ -21,21 +21,21 @@ export default function Post({ post, posts, preview }) {
     return <ErrorPage statusCode={404} />;
   }
   const [datum, setDatum] = useState("-");
-  useEffect(() => {
-    let datumPosta = post.date;
-    function formatDate(date) {
-      var d = new Date(date),
-        month = "" + (d.getMonth() + 1),
-        day = "" + d.getDate(),
-        year = d.getFullYear();
+  // useEffect(() => {
+  //   let datumPosta = post.date;
+  //   function formatDate(date) {
+  //     var d = new Date(date),
+  //       month = "" + (d.getMonth() + 1),
+  //       day = "" + d.getDate(),
+  //       year = d.getFullYear();
 
-      if (month.length < 2) month = "0" + month;
-      if (day.length < 2) day = "0" + day;
+  //     if (month.length < 2) month = "0" + month;
+  //     if (day.length < 2) day = "0" + day;
 
-      return [day, month, year].join(".");
-    }
-    setDatum(formatDate(datumPosta));
-  }, []);
+  //     return [day, month, year].join(".");
+  //   }
+  //   setDatum(formatDate(datumPosta));
+  // }, []);
 
   return (
     <Layout>
@@ -107,9 +107,9 @@ export default function Post({ post, posts, preview }) {
               }}
             >
               <div style={{ fontSize: "0.8rem" }}>Autor: RunZadar.com</div>
-              <div style={{ fontSize: "0.8rem", marginRight: "1rem" }}>
+              {/* <div style={{ fontSize: "0.8rem", marginRight: "1rem" }}>
                 {datum}
-              </div>
+              </div> */}
             </div>
             <div />
             <div
