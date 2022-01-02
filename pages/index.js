@@ -42,6 +42,10 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
         <Head>
           <title>Škola trčanja Zadar</title>
           <meta property="og:title" content="Škola trčanja Zadar" key="title" />
+          <meta
+            property="og:image"
+            content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
+          />
         </Head>
         <Hero />
         <ZastoSkola />

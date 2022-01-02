@@ -39,10 +39,10 @@ export default function Meta() {
         name="twitter:description"
         content=" Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača."
       />
-      <meta
+      {/* <meta
         name="twitter:image"
         content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
-      />
+      /> */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="description"
@@ -54,10 +54,10 @@ export default function Meta() {
         content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
       />
       <meta property="og:url" content="https://www.runzadar.com" />
-      <meta
+      {/* <meta
         property="og:image"
         content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
-      />
+      /> */}
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="UTF-8" />

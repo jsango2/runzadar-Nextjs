@@ -9,6 +9,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Header from "../components/header";
 import Image from "next/image";
+import Head from "next/head";
 
 const Category = styled.div`
   position: absolute;
@@ -45,7 +46,7 @@ const Category2 = styled.div`
   padding: 7px 10px;
 `;
 
-const Naslov = styled.div`
+const Naslov = styled.h1`
   position: relative;
   font-style: italic;
   width: 700px;
@@ -182,7 +183,18 @@ export default function blog({ allPosts: { edges }, preview }) {
   return (
     <Layout>
       {/* <Header /> */}
-
+      <Head>
+        <title>Blog - Škola trčanja Zadar</title>
+        <meta
+          property="og:title"
+          content="Blog - Škola trčanja Zadar"
+          key="title"
+        />
+        <meta
+          property="og:image"
+          content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
+        />
+      </Head>
       <div
         style={{
           position: "relative",
