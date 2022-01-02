@@ -35,7 +35,6 @@ export default function Post({ post, posts, preview }) {
   //   }
   //   setDatum(formatDate(datumPosta));
   // }, []);
-  console.log(post.excerpt.slice(3, post.excerpt.length - 5));
   return (
     <Layout>
       {router.isFallback ? (
