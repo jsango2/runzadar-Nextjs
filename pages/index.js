@@ -19,7 +19,23 @@ import NightRun from "../components/NightRun/nightrun";
 import { getAllPostsForHome } from "../lib/api";
 
 export default function IndexPage({ allPosts: { edges }, preview }) {
-  // console.log(edges.map((post) => post.node.date));
+  // console.log(
+  //   edges.map((post) => {
+  //     let datumPosta = post.date;
+  //     function formatDate(date) {
+  //       var d = new Date(date),
+  //         month = "" + (d.getMonth() + 1),
+  //         day = "" + d.getDate(),
+  //         year = d.getFullYear();
+
+  //       if (month.length < 2) month = "0" + month;
+  //       if (day.length < 2) day = "0" + day;
+
+  //       return [day, month, year].join(".");
+  //     }
+  //     return formatDate(datumPosta);
+  //   })
+  // );
   return (
     <ParallaxProvider>
       <Layout>
