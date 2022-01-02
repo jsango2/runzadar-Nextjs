@@ -32,11 +32,35 @@ export default function Meta() {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+
+      <link rel="canonical" href="https://www.runzadar.com" key="canonical" />
+      <meta name="twitter:title" content="Škola trčanja Zadar" />
+      <meta
+        name="twitter:description"
+        content=" Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača."
+      />
+      <meta
+        name="twitter:image"
+        content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
+      />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
+        content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
+        key="desc"
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta
+        property="og:description"
+        content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
+      />
+      <meta property="og:url" content="https://www.runzadar.com" />
+      <meta
+        property="og:image"
+        content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
+      />
+      <meta name="robots" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="UTF-8" />
     </Head>
   );
 }

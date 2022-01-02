@@ -39,6 +39,21 @@ export default function Post({ post, posts, preview }) {
 
   return (
     <Layout>
+      <Head>
+        <title>{post.title}</title>
+        <meta property="og:title" content={post.title} key="title" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta
+          name="twitter:image"
+          content={post.featuredImage.node.sourceUrl}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="description" content={post.excerpt} key="desc" />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content="https://www.runzadar.com" />
+        <meta property="og:image" content={post.featuredImage.node.sourceUrl} />
+      </Head>
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
