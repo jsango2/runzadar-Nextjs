@@ -9,6 +9,9 @@ export const WrapAll = styled.div`
   height: 987px;
   z-index: 3;
   background-color: #151520;
+  @media only screen and (max-width: 600px) {
+    height: 1207px;
+  }
   @media only screen and (max-width: 420px) {
     height: 1307px;
   }
@@ -147,7 +150,7 @@ export const Raspored = styled.div`
   background: linear-gradient(0deg, #d75733, #d75733);
   z-index: 0;
   @media only screen and (max-width: 600px) {
-    height: 390px;
+    height: 590px;
   }
   @media only screen and (max-width: 420px) {
     height: 590px;

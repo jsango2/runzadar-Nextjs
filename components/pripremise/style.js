@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import vrataFosa from "../../images/vrataFosa.png"
+import styled from "styled-components";
+import vrataFosa from "../../images/vrataFosa.png";
 
 // import { HeroWrap } from "./style.js"
 export const WrapAll = styled.div`
@@ -16,7 +16,10 @@ export const WrapAll = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #151520; */
-`
+  @media only screen and (max-width: 600px) {
+    height: 758px;
+  }
+`;
 
 export const Naslov = styled.div`
   width: 70%;
@@ -31,13 +34,15 @@ export const Naslov = styled.div`
   line-height: 120%;
   z-index: 5;
   @media only screen and (max-width: 600px) {
+    font-size: 36px;
+
     margin-top: 350px;
   }
   @media only screen and (max-width: 420px) {
     width: 80%;
     font-size: 36px;
   }
-`
+`;
 
 export const Utrke = styled.div`
   position: relative;
@@ -47,10 +52,11 @@ export const Utrke = styled.div`
   display: flex;
   justify-content: center;
   color: #ffffff;
-  @media only screen and (max-width: 420px) {
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
+    text-align: center;
   }
-`
+`;
 export const Utrka = styled.div`
   font-size: 21px;
   margin: 0px 20px 5px 20px;
@@ -63,7 +69,7 @@ export const Utrka = styled.div`
     text-align: center;
     font-size: 16px;
   }
-`
+`;
 export const Buttons = styled.div`
   position: relative;
   width: 570px;
@@ -73,12 +79,17 @@ export const Buttons = styled.div`
   z-index: 1;
   justify-content: space-between;
   @media only screen and (max-width: 600px) {
-    div:nth-child(2) {
+    a:nth-child(2) {
       display: none;
     }
+    height: 165px;
+
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 0px;
   }
-`
+`;
 export const Overlay = styled.div`
   position: absolute;
   height: 192px;
@@ -89,9 +100,9 @@ export const Overlay = styled.div`
   background: linear-gradient(180deg, #0f162b 18.24%, rgba(15, 21, 43, 0) 100%);
   transform: rotate(-180deg);
   @media only screen and (max-width: 600px) {
-    bottom: 10px;
+    bottom: 0px;
   }
-`
+`;
 export const OverlayGore = styled.div`
   position: absolute;
   height: 192px;
@@ -101,4 +112,4 @@ export const OverlayGore = styled.div`
 
   background: linear-gradient(180deg, #191c26 14.59%, rgba(25, 28, 38, 0) 100%);
   transform: matrix(-1, 0, 0, 1, 0, 0);
-`
+`;

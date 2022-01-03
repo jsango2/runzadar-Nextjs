@@ -33,6 +33,7 @@ const PripremiSe = () => {
             alignItems: "center",
             justifyContent: "center",
             zIndex: "2",
+            paddingBottom: "20px",
           }}
         >
           <Naslov>PRIPREMI SE ZA IDUĆU UTRKU!</Naslov>
@@ -59,6 +60,7 @@ const PripremiSe = () => {
               smooth="easeInOutCubic"
               offset={0}
               duration={1800}
+              style={{ textDecoration: "none", marginTop: "15px" }}
             >
               <Button
                 title="Počni trenirati"
@@ -70,7 +72,7 @@ const PripremiSe = () => {
             </Veza>
             <a
               href="https://www.zadarnight.run"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", marginTop: "15px" }}
             >
               <Button
                 title="Zadar Night Run"

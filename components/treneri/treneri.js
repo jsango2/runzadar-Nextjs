@@ -52,14 +52,14 @@ const Treneri = () => {
               src="/jure.png"
               alt="coach Jure"
               layout="fill"
-              objectFit="contain"
+              objectFit="cover"
             />
           </div>
           <Naslov2>
             <KosaCrta
               style={{
                 position: "absolute",
-                transform: "translate(-25px,0",
+                transform: "translate(-25px,0)",
               }}
             />
             JURE ŠANGO
@@ -83,7 +83,7 @@ const Treneri = () => {
               src="/tuta.png"
               alt="coach Tuta"
               layout="fill"
-              objectFit="contain"
+              objectFit="cover"
             />
           </div>
 

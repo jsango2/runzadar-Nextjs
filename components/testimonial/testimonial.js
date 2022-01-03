@@ -77,7 +77,7 @@ const Testimonial = () => {
           <Card>
             <Left>
               <Image
-                src="/musapstan1.png"
+                src="/sanja.png"
                 width={800}
                 height={700}
                 objectFit="cover"
@@ -87,12 +87,16 @@ const Testimonial = () => {
               <Zarez className="zarezTestimonial" />
               <Text>
                 {" "}
-                "Škola trčanja mi je u potpunosti promijenila lifestyle. Postao
-                sam aktivna osoba, sportaš rekreativac, trkač na duge pruge, a
-                prije samo 3 godine bio sam bez energije, bez snage i što je
-                najvažnije bez poleta i elana. "
+                "U Školi trčanja Zadar, kao u svakoj školi, naučiš štošta
+                korisnoga – što na vlastitim, što na tuđim pogreškama. U ovoj
+                sam školi naučila da trkač možeš postati u bilo kojoj životnoj
+                dobi i da trkačke staze nemaju kraja. Zbog svega ovoga moja je
+                trkačka priča od početnih uspuhanih ali istrčanih 200 metara do
+                još uspuhanijih ali istrčanih 42 kilometra tako slatka i
+                vrijedna da se vremena kad nisam trčala gotovo više i ne
+                sjećam."
               </Text>
-              <Ime>Mate (47)</Ime>
+              <Ime>Sanja</Ime>
             </Right>
             <Swish style={{ position: "absolute", right: "0px" }} />
           </Card>
@@ -101,7 +105,7 @@ const Testimonial = () => {
           <Card>
             <Left>
               <Image
-                src="/sanja.png"
+                src="/musapstan1.png"
                 objectFit="cover"
                 width={800}
                 height={700}
@@ -111,12 +115,16 @@ const Testimonial = () => {
               <Zarez className="zarezTestimonial" />
               <Text>
                 {" "}
-                "Škola trčanja mi je u potpunosti promijenila lifestyle. Postao
-                sam aktivna osoba, sportaš rekreativac, trkač na duge pruge, a
-                prije samo 3 godine bio sam bez energije, bez snage i što je
-                najvažnije bez poleta i elana. "
+                "U početku sam bio vrlo skeptičan oko upisa u školu trčanja ali
+                nakon što sam se odvažio na taj korak, život mi se u pozitivnom
+                smislu preokrenuo na mnogim poljima. Otrčao sam razne utrke,
+                cestovne i trailove, kratke i duge i usput postao zdravija i
+                vedrija osoba, puna energije… Pozitivan, zabavan i poticajan duh
+                koji sa sobom nosi trčanje u Školi, doveo je u moj život i
+                brojne nove osobe, koje danas mogu nazvati i svojim
+                prijateljima. Danas trčim s radošću i osmijehom na licu. "
               </Text>
-              <Ime>Mate (47)</Ime>
+              <Ime>Mate</Ime>
             </Right>
             <Swish style={{ position: "absolute", right: "0px" }} />
           </Card>

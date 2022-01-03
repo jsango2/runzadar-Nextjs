@@ -121,7 +121,7 @@ const ZastoSkola = () => {
                     }}
                   >
                     <LocationIcon style={{ marginRight: "10px" }} />{" "}
-                    <p className="lokacija">PARK V. NAZORA</p>
+                    <p className="lokacija">STAZA VIŠNJIK</p>
                   </div>
                 </div>
               </Box>
@@ -187,9 +187,9 @@ const ZastoSkola = () => {
             </RasporedWrap>
           </WrapNaslovRaspored>
           <Parallax
-            className="custom-class"
+            className="zrakeParallaxRaspored"
             // x={[-20, 20]}
-            y={[-45, -28]}
+            y={[-45, -18]}
           >
             <Image
               className="zrakeParallax"

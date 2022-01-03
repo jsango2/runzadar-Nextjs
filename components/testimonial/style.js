@@ -26,6 +26,7 @@ export const WrapAll = styled.div`
 
   @media only screen and (max-width: 600px) {
     padding-top: 0;
+    height: 820px;
     & .slick-next {
       right: 50px !important;
       height: 110px !important;
@@ -40,7 +41,7 @@ export const WrapAll = styled.div`
     }
   }
   @media only screen and (max-width: 420px) {
-    height: 550px;
+    height: 650px;
   }
 `;
 
@@ -50,7 +51,7 @@ export const WrapTestimonial = styled.div`
   margin: 0 auto;
   display: flex;
   @media only screen and (max-width: 600px) {
-    height: 550px;
+    height: 680px;
   }
 `;
 
@@ -67,6 +68,11 @@ export const Card = styled.div`
     #c2c2c2 0%,
     #838383 100%
   );
+  @media only screen and (max-width: 750px) {
+    width: 100%;
+    border-radius: 0;
+    flex-direction: column;
+  }
   @media only screen and (max-width: 600px) {
     width: 100%;
     border-radius: 0;
@@ -74,7 +80,6 @@ export const Card = styled.div`
   @media only screen and (max-width: 430px) {
     width: 100%;
     border-radius: 0;
-    flex-direction: column;
   }
 `;
 export const Right = styled.div`
@@ -86,13 +91,15 @@ export const Right = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media only screen and (max-width: 600px) {
-    width: 60%;
+  @media only screen and (max-width: 750px) {
+    width: 100%;
     border-radius: 0;
+    flex-direction: column;
   }
+
   @media only screen and (max-width: 430px) {
     width: 100%;
-    height: 50%;
+    height: 58%;
     padding-bottom: 20px;
   }
 `;
@@ -103,13 +110,17 @@ export const Left = styled.div`
   width: 50%;
   height: 100%;
   position: relative;
-  @media only screen and (max-width: 600px) {
-    width: 40%;
+  @media only screen and (max-width: 750px) {
+    width: 100%;
     border-radius: 0;
+    height: 60%;
+
+    flex-direction: column;
   }
+
   @media only screen and (max-width: 430px) {
     width: 100%;
-    height: 50%;
+    height: 40%;
   }
 `;
 export const Text = styled.div`
@@ -119,6 +130,15 @@ export const Text = styled.div`
   font-weight: normal;
   width: 432px;
   line-height: 122.5%;
+  @media only screen and (max-width: 1000px) {
+    margin-top: 80px;
+    width: 90%;
+    font-size: 16px;
+  }
+
+  @media only screen and (max-width: 750px) {
+    margin-top: 10px;
+  }
   @media only screen and (max-width: 600px) {
     width: 85%;
     border-radius: 0;
@@ -137,11 +157,18 @@ export const Ime = styled.div`
   line-height: 120%;
   text-align: right;
   color: #151520;
+  @media only screen and (max-width: 1000px) {
+    margin-right: 120px;
+    text-align: right;
+  }
   @media only screen and (max-width: 600px) {
     margin-left: 60px;
     text-align: center;
   }
   @media only screen and (max-width: 430px) {
     font-size: 22px;
+    text-align: right;
+
+    margin-right: 230px;
   }
 `;

@@ -7,6 +7,9 @@ export const WrapAll = styled.div`
   z-index: 3;
   overflow: hidden;
   background-color: #151520;
+  @media only screen and (max-width: 1000px) {
+    height: 710px;
+  }
   @media only screen and (max-width: 420px) {
     padding-top: 50px;
     height: 625px;
@@ -25,7 +28,7 @@ export const Naslov = styled.div`
   text-align: center;
   color: #d75733;
   z-index: 11;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1000px) {
     display: none;
   }
 `;
@@ -47,6 +50,16 @@ export const Text = styled.div`
   font-size: 61px;
   font-weight: normal;
   width: 272px;
+  @media only screen and (max-width: 1000px) {
+    /* display: none; */
+    position: absolute;
+    top: -207px;
+    left: 50%;
+    width: 456px;
+    text-align: center;
+    transform: translate(-46%, 0);
+    font-size: 56px;
+  }
   @media only screen and (max-width: 600px) {
     /* display: none; */
     position: absolute;
@@ -64,6 +77,9 @@ export const Text2 = styled.div`
   font-size: 61px;
   font-weight: normal;
   width: 272px;
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
   @media only screen and (max-width: 600px) {
     display: none;
   }
@@ -80,6 +96,9 @@ export const PozadinaLinija = styled.div`
   width: 110%;
   transform: rotate(-2.48deg);
   z-index: 10;
+  @media only screen and (max-width: 1000px) {
+    top: 220px;
+  }
   @media only screen and (max-width: 420px) {
     left: -20px;
     justify-content: flex-start;

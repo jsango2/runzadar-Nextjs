@@ -1,22 +1,21 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 // import { HeroWrap } from "./style.js"
 export const WrapAll = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 1052px;
+  height: auto;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   background-color: #151520;
-  @media only screen and (max-width: 600px) {
-    height: auto;
+  @media only screen and (max-width: 700px) {
     padding-bottom: 40px;
   }
-`
+`;
 
 export const Naslov = styled.h3`
   position: relative;
@@ -34,7 +33,7 @@ export const Naslov = styled.h3`
   @media only screen and (max-width: 420px) {
     font-size: 26px;
   }
-`
+`;
 export const Naslov2 = styled.h3`
   position: relative;
   font-family: "Montserrat", sans-serif;
@@ -49,42 +48,47 @@ export const Naslov2 = styled.h3`
     font-size: 20px;
     margin: 54px 0 0 10px;
   }
-`
+`;
 
 export const WrapTreneri = styled.div`
   position: relative;
-  width: 1186px;
-  height: 649px;
-  margin-top: 125px;
+  width: 90%;
+  height: auto;
+  margin: 125px auto 0 auto;
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  @media only screen and (max-width: 600px) {
+
+  @media only screen and (max-width: 700px) {
     flex-direction: column;
     height: auto;
     width: 95vw;
     margin: 125 auto 0 auto;
     align-items: center;
   }
-`
+`;
 export const Trener = styled.div`
   position: relative;
-  width: 537px;
-  height: 100%;
+  width: 45vw;
+  max-width: 570px;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   color: #ffffff;
   transition: opacity 2s ease-in;
+  margin: 0 15px;
+  @media only screen and (max-width: 700px) {
+    margin-top: 50px;
+  }
   @media only screen and (max-width: 600px) {
     width: 90%;
-    margin-top: 20px;
     margin-bottom: 60px;
   }
   @media only screen and (max-width: 420px) {
     width: 100%;
     padding: 0 25px;
   }
-`
+`;
 export const Text = styled.div`
   font-family: Montserrat, sans-serif;
 
@@ -95,7 +99,8 @@ export const Text = styled.div`
   letter-spacing: 0.5px;
   color: #ffffff;
   margin-top: 20px;
+  width: 100%;
   @media only screen and (max-width: 420px) {
     margin-left: 10px;
   }
-`
+`;
