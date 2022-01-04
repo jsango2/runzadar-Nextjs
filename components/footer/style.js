@@ -37,7 +37,7 @@ export const Social = styled.div`
   color: #ffffff;
 
   cursor: pointer;
-  @media only screen and (max-width: 420px) {
+  @media only screen and (max-width: 520px) {
     flex-direction: column;
     width: 90%;
     text-align: center;

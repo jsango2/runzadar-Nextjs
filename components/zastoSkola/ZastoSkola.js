@@ -19,10 +19,12 @@ import KosaCrta from "../../svg/kosacrta.svg";
 import { Parallax } from "react-scroll-parallax";
 import nightRunZrake from "../../images/Vector.png";
 import Image from "next/image";
+import useWindowSize from "../helper/usewindowsize";
 
 // import { HeroWrap } from "./style.js"
 
 const ZastoSkola = () => {
+  const size = useWindowSize();
   return (
     <WrapAll>
       <WrapDiv>
@@ -186,19 +188,35 @@ const ZastoSkola = () => {
               </Box>
             </RasporedWrap>
           </WrapNaslovRaspored>
-          <Parallax
-            // className="zrakeParallaxRaspored"
-            y={[-55, -8]}
-          >
-            <Image
-              className="zrakeParallax"
-              src="/Vector.png"
-              alt=""
-              width={1200}
-              height={700}
-              layout="fixed"
-            />
-          </Parallax>
+          {size.width < 600 ? (
+            <Parallax
+              // className="zrakeParallaxRaspored"
+              y={[-95, -15]}
+            >
+              <Image
+                className="zrakeParallax"
+                src="/Vector.png"
+                alt=""
+                width={800}
+                height={700}
+                layout="fixed"
+              />
+            </Parallax>
+          ) : (
+            <Parallax
+              // className="zrakeParallaxRaspored"
+              y={[-65, -18]}
+            >
+              <Image
+                className="zrakeParallax"
+                src="/Vector.png"
+                alt=""
+                width={1200}
+                height={700}
+                layout="fixed"
+              />
+            </Parallax>
+          )}
         </Raspored>
         <Clanarina>
           <div style={{ margin: "auto" }}>

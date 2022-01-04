@@ -31,7 +31,7 @@ const Footer = (posts) => {
         style={{
           position: "relative",
           zIndex: "2",
-          marginTop: "30px",
+          marginTop: "10px",
           textAlign: "center",
         }}
       />
