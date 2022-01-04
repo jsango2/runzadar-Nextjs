@@ -54,7 +54,7 @@ export const WrapTreneri = styled.div`
   position: relative;
   width: 90%;
   height: auto;
-  margin: 125px auto 0 auto;
+  margin: 125px auto 100px auto;
   z-index: 2;
   display: flex;
   justify-content: space-between;
@@ -63,7 +63,7 @@ export const WrapTreneri = styled.div`
     flex-direction: column;
     height: auto;
     width: 95vw;
-    margin: 125 auto 0 auto;
+    margin: 125px auto 0 auto;
     align-items: center;
   }
 `;

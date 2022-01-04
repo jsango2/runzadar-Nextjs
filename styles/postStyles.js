@@ -19,7 +19,7 @@ export const Naslov = styled.div`
   font-size: 72px;
   line-height: 120%;
   margin-top: 0;
-  @media only screen and (max-width: 430px) {
+  @media only screen and (max-width: 600px) {
     font-size: 36px;
     width: 90%;
   }
@@ -35,7 +35,7 @@ export const WrapNaslovButton = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  @media only screen and (max-width: 430px) {
+  @media only screen and (max-width: 900px) {
     font-size: 36px;
     width: 90%;
     margin: 0 auto 0 30px;

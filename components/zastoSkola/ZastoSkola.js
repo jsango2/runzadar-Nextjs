@@ -187,26 +187,26 @@ const ZastoSkola = () => {
             </RasporedWrap>
           </WrapNaslovRaspored>
           <Parallax
-            className="zrakeParallaxRaspored"
-            // x={[-20, 20]}
-            y={[-45, -18]}
+            // className="zrakeParallaxRaspored"
+            y={[-55, -8]}
           >
             <Image
               className="zrakeParallax"
               src="/Vector.png"
               alt=""
-              width={2000}
-              height={1400}
+              width={1200}
+              height={700}
+              layout="fixed"
             />
           </Parallax>
         </Raspored>
         <Clanarina>
-          Povoljna članarina od{" "}
-          <span style={{ fontWeight: "bold" }}>
-            180 kn/mjesečno osigurava 3 treninga tjedno
-          </span>
-          vrhunskog trenažnog procesa, osmišljenog da vas dovede do vaših
-          maksimalnih trkačkih mogućnosti.
+          <div style={{ margin: "auto" }}>
+            Povoljna članarina{" "}
+            <b>od 180 kn/mjesečno osigurava 3 treninga tjedno</b>
+            vrhunskog trenažnog procesa, osmišljenog da vas dovede do vaših
+            maksimalnih trkačkih mogućnosti.
+          </div>
         </Clanarina>
       </WrapDiv>
     </WrapAll>

@@ -35,6 +35,7 @@ export const Social = styled.div`
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #ffffff;
+
   cursor: pointer;
   @media only screen and (max-width: 420px) {
     flex-direction: column;
@@ -42,4 +43,15 @@ export const Social = styled.div`
     text-align: center;
     height: 80px;
   }
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+`;
+
+export const AnimationWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;

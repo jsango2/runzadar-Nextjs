@@ -181,7 +181,7 @@ export const Clanarina = styled.div`
   font-family: "Montserrat", sans-serif;
   font-size: 21px;
   text-align: center;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

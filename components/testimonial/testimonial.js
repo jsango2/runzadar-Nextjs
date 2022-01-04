@@ -87,14 +87,13 @@ const Testimonial = () => {
               <Zarez className="zarezTestimonial" />
               <Text>
                 {" "}
-                "U Školi trčanja Zadar, kao u svakoj školi, naučiš štošta
+                U Školi trčanja Zadar, kao u svakoj školi, naučiš štošta
                 korisnoga – što na vlastitim, što na tuđim pogreškama. U ovoj
                 sam školi naučila da trkač možeš postati u bilo kojoj životnoj
                 dobi i da trkačke staze nemaju kraja. Zbog svega ovoga moja je
                 trkačka priča od početnih uspuhanih ali istrčanih 200 metara do
                 još uspuhanijih ali istrčanih 42 kilometra tako slatka i
-                vrijedna da se vremena kad nisam trčala gotovo više i ne
-                sjećam."
+                vrijedna da se vremena kad nisam trčala gotovo više i ne sjećam.
               </Text>
               <Ime>Sanja</Ime>
             </Right>
@@ -115,16 +114,43 @@ const Testimonial = () => {
               <Zarez className="zarezTestimonial" />
               <Text>
                 {" "}
-                "U početku sam bio vrlo skeptičan oko upisa u školu trčanja ali
-                nakon što sam se odvažio na taj korak, život mi se u pozitivnom
-                smislu preokrenuo na mnogim poljima. Otrčao sam razne utrke,
-                cestovne i trailove, kratke i duge i usput postao zdravija i
-                vedrija osoba, puna energije… Pozitivan, zabavan i poticajan duh
-                koji sa sobom nosi trčanje u Školi, doveo je u moj život i
-                brojne nove osobe, koje danas mogu nazvati i svojim
-                prijateljima. Danas trčim s radošću i osmijehom na licu. "
+                Iako u početku skeptičan, odvažio sam se na upis u Školu. Život
+                mi se u pozitivnom smislu preokrenuo na mnogim poljima. Otrčao
+                sam razne utrke, cestovne i trailove, kratke i duge i usput
+                postao zdravija i vedrija osoba, puna energije… Pozitivan,
+                zabavan i poticajan duh koji sa sobom nosi trčanje u Školi,
+                doveo je u moj život i brojne nove osobe, koje danas mogu
+                nazvati i svojim prijateljima. Danas trčim s radošću i osmijehom
+                na licu.
               </Text>
               <Ime>Mate</Ime>
+            </Right>
+            <Swish style={{ position: "absolute", right: "0px" }} />
+          </Card>
+        </WrapTestimonial>
+        <WrapTestimonial>
+          <Card>
+            <Left>
+              <Image
+                src="/musapstan1.png"
+                objectFit="cover"
+                width={800}
+                height={700}
+              />
+            </Left>
+            <Right>
+              <Zarez className="zarezTestimonial" />
+              <Text>
+                {" "}
+                Krenuo sam u Školu trčanja u lipnju 2018. godine sa 130 kg ali
+                sa željom da promijenim svoje navike. Uz pomoć trenera, spremio
+                sam se za svoj prvi polumaraton te sam putem izgubio 40 kg. Bez
+                stručne pomoći trenera iz škole trčanja nikad ne bi uspio
+                promijeniti svoje navike koje su ključne u ovom procesu, jer uz
+                pomoć brzih dijeta možete izgubiti i preko desetak kilograma,
+                ali ako ne promijenite loše navike nećete napraviti ništa.
+              </Text>
+              <Ime>Stipe</Ime>
             </Right>
             <Swish style={{ position: "absolute", right: "0px" }} />
           </Card>

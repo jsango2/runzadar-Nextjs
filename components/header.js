@@ -11,6 +11,7 @@ import MeniMobile from "./meni/meniMobile";
 import { Link as Veza } from "react-scroll";
 // import scrollTo from "gatsby-plugin-smoothscroll"
 import Script from "next/script";
+import { Anchor } from "nextjs-anchor";
 
 const Header = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,14 +54,15 @@ const Header = ({ siteTitle }) => {
               <a className="navLink" href="http://www.zadarnight.run">
                 ZadarNight.run
               </a>
-              <Veza
+              {/* <Veza
                 activeClass="active"
                 to="prijava"
                 spy={true}
                 smooth="easeInOutCubic"
                 offset={0}
                 duration={1800}
-              >
+              > */}
+              <Anchor href="/#prijava">
                 <Button
                   title="Prijava"
                   width="81"
@@ -69,7 +71,8 @@ const Header = ({ siteTitle }) => {
                   fontSize="16"
                   fontWeight="600"
                 />
-              </Veza>
+              </Anchor>
+              {/* </Veza> */}
             </div>
           </div>
         </div>

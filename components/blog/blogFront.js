@@ -114,7 +114,7 @@ const BlogFront = (posts) => {
                     __html: [post.node.excerpt.slice(0, 100) + "..."],
                   }}
                 /> */}
-                <ReadMore>PROČITAJ VIŠE</ReadMore>
+                <ReadMore>PROČITAJ VIŠE ></ReadMore>
               </Card>
             </Link>
           </WrapTestimonial>

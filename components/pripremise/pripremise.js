@@ -18,13 +18,19 @@ import vrataFosaUze from "../../images/vrataFosaUze.png";
 
 // import { Parallax } from "react-scroll-parallax"
 import { Parallax, Background } from "react-parallax";
+import Image from "next/image";
 
 const PripremiSe = () => {
   return (
     <WrapAll>
       <Parallax strength={100} style={{ width: "100%" }}>
         <Background className="custom-bg">
-          <img src="/vrataFosa.png" alt="Fosa" />
+          <Image
+            src="/vrataFosa.png"
+            width={1440}
+            height={1200}
+            layout="fixed"
+          />
         </Background>
         <div
           style={{

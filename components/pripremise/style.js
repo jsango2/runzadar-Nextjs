@@ -58,7 +58,8 @@ export const Utrke = styled.div`
   }
 `;
 export const Utrka = styled.div`
-  font-size: 21px;
+  font-size: 18px;
+  text-align: center;
   margin: 0px 20px 5px 20px;
   & a {
     text-decoration: none;

@@ -104,7 +104,7 @@ export const Button = styled.div`
 export const Naslov2 = styled.div`
   font-size: 18px;
   font-weight: normal;
-  color: black;
+  color: #212121;
   margin-top: 10px;
 `;
 export const Foto = styled.div`
@@ -120,5 +120,6 @@ export const ReadMore = styled.div`
   cursor: pointer;
   right: 30px;
   font-size: 12px;
+  font-weight: 600;
   color: #383691;
 `;
