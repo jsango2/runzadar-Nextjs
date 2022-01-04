@@ -10,6 +10,7 @@ export const WrapAll = styled.div`
   background-color: #151520;
   @media only screen and (max-width: 600px) {
     padding-bottom: 0;
+    height: 615px;
   }
 `;
 
@@ -37,6 +38,7 @@ export const WrapForm = styled.div`
   @media only screen and (max-width: 600px) {
     width: 100vw;
     border-radius: 0;
+    top: -250px;
   }
 `;
 export const Left = styled.div`

@@ -191,28 +191,28 @@ const ZastoSkola = () => {
           {size.width < 600 ? (
             <Parallax
               // className="zrakeParallaxRaspored"
-              y={[-95, -15]}
+              y={[-125, -15]}
             >
               <Image
                 className="zrakeParallax"
                 src="/Vector.png"
                 alt=""
-                width={800}
-                height={700}
+                width={1100}
+                height={1000}
                 layout="fixed"
               />
             </Parallax>
           ) : (
             <Parallax
               // className="zrakeParallaxRaspored"
-              y={[-65, -18]}
+              y={[-65, 8]}
             >
               <Image
                 className="zrakeParallax"
                 src="/Vector.png"
                 alt=""
                 width={1200}
-                height={700}
+                height={1100}
                 layout="fixed"
               />
             </Parallax>
@@ -221,7 +221,7 @@ const ZastoSkola = () => {
         <Clanarina>
           <div style={{ margin: "auto" }}>
             Povoljna članarina{" "}
-            <b>od 180 kn/mjesečno osigurava 3 treninga tjedno</b>
+            <b>od 180 kn/mjesečno osigurava 3 treninga tjedno </b>
             vrhunskog trenažnog procesa, osmišljenog da vas dovede do vaših
             maksimalnih trkačkih mogućnosti.
           </div>

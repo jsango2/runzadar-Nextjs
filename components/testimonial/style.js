@@ -51,7 +51,7 @@ export const WrapTestimonial = styled.div`
   margin: 0 auto;
   display: flex;
   @media only screen and (max-width: 600px) {
-    height: 680px;
+    height: 632px;
   }
 `;
 

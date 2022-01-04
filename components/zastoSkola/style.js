@@ -15,6 +15,9 @@ export const WrapAll = styled.div`
   @media only screen and (max-width: 420px) {
     height: 1307px;
   }
+  & .parallax-inner {
+    height: 466px !important;
+  }
 `;
 
 export const WrapDiv = styled.div`
