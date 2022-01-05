@@ -10,6 +10,7 @@ body {
   background-color: #191b26;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0 !important;
 }
 html {
   font-family: "Montserrat", sans-serif;
@@ -131,8 +132,10 @@ p {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-
+  position: relative;
+  background-color: #191b26;
   padding-left: 15px;
+  z-index: 1;
 }
 .navBar a {
   text-decoration: none;
@@ -311,30 +314,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: center;
 } */
 .closedMenu {
-  /* position: relative; */
-  transform: translate(50%, -500px) !important;
-
-  /* transition: all 0.3s linear; */
-  visibility: hidden;
+  /* transform: translateY(-100%); */
+  transition: all 0.3s ease-in-out;
 }
 .openMenu {
-  /* position: relative; */
+  transform: translate(50%, 0%) !important;
 
-  transform: translate(50%, 0px) !important;
-  /* transition: all 0.3s linear; */
   visibility: show;
+  transition: all 0.3s ease-in-out;
 }
-.openMenu div {
-}
-.openMenu a {
-  text-decoration: none;
+.testimonialSlider {
 }
 .menu {
   height: 400px;
   position: absolute;
-  transform: translateX(50%);
+  /* transform: translateY(-100%); */
+  transform: translate(50%, -100%);
   top: 55px;
-  z-index: 12;
+  z-index: 1;
   right: 50%;
   width: 80vw;
   border-radius: 0 0 39px 39px;
@@ -343,6 +340,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.menu a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .trenerImg {

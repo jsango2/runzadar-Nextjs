@@ -205,7 +205,7 @@ const ZastoSkola = () => {
           ) : (
             <Parallax
               // className="zrakeParallaxRaspored"
-              y={[-65, 8]}
+              y={[-120, 20]}
             >
               <Image
                 className="zrakeParallax"

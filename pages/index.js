@@ -17,6 +17,7 @@ import Blast from "../components/blast/blast";
 import BlogFront from "../components/blog/blogFront";
 import NightRun from "../components/NightRun/nightrun";
 import { getAllPostsForHome } from "../lib/api";
+import Partneri from "../components/partneri/partneri";
 
 export default function IndexPage({ allPosts: { edges }, preview }) {
   // console.log(
@@ -62,6 +63,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
         {/* <Ponosni />
         <Utrke /> */}
         <NightRun />
+        <Partneri />
         <BlogFront posts={edges} />
       </Layout>
     </ParallaxProvider>

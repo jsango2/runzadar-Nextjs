@@ -31,6 +31,12 @@ export const WrapAll = styled.div`
   .slick-prev:before {
     display: none;
   }
+  @media only screen and (max-width: 600px) {
+    & .slick-slider {
+      width: 95% !important;
+      margin: 0 auto !important;
+    }
+  }
 `;
 
 export const WrapTestimonial = styled.div`

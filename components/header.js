@@ -29,6 +29,7 @@ const Header = ({ siteTitle }) => {
       <Script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js" />
 
       <header>
+        <MeniMobile isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className="navBar">
           <div>
             <Link href="/" className="navLink navTitle">
@@ -36,7 +37,6 @@ const Header = ({ siteTitle }) => {
             </Link>
           </div>
 
-          <MeniMobile isOpen={isOpen} setIsOpen={setIsOpen} />
           <div>
             <GiHamburgerMenu
               className="hamburgerMenu"

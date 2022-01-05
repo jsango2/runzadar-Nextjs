@@ -48,6 +48,10 @@ const Footer = (posts) => {
           <a href="http://www.instagram.com/skola_trcanja_zadar">instagram </a>
         </div>
       </Social>
+      <Social style={{ textAlign: "center" }}>
+        Sport Zone j.d.o.o. Ante Starčevića 8, Zadar IBAN: HR4924840081135097153
+        BIC: RZBHHR2X info@runzadar.com
+      </Social>
       <Social>
         <AnimationWrap>
           <a href="https://www.sutra.hr">

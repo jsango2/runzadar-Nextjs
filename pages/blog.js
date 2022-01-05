@@ -202,7 +202,7 @@ export default function blog({ allPosts: { edges }, preview }) {
           position: "relative",
           width: "100%",
           height: "475px",
-          zIndex: "1",
+          zIndex: "-1",
           borderRadius: "39px 39px 0 0 ",
           backgroundImage: `url(/sunset.png)`,
           backgroundPosition: "50% 50%",

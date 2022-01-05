@@ -62,7 +62,7 @@ const BlogFront = (posts) => {
         breakpoint: 900,
         settings: {
           dots: true,
-          fade: false,
+          fade: true,
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
@@ -114,7 +114,7 @@ const BlogFront = (posts) => {
                     __html: [post.node.excerpt.slice(0, 100) + "..."],
                   }}
                 /> */}
-                <ReadMore>PROČITAJ VIŠE ></ReadMore>
+                <ReadMore>PROČITAJ VIŠE </ReadMore>
               </Card>
             </Link>
           </WrapTestimonial>
