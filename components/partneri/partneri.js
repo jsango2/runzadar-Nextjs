@@ -70,7 +70,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
-            src="/logo bijeli.png"
+            src="/logobijeli.png"
             // width={20}
             // height={20}
             layout="fill"

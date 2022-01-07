@@ -29,7 +29,7 @@ export const Naslov = styled.h3`
   line-height: 120%;
   z-index: 5;
   background: #151520;
-  width: 300px;
+  width: 400px;
   @media only screen and (max-width: 420px) {
     font-size: 26px;
   }
@@ -38,12 +38,15 @@ export const Naslov = styled.h3`
 export const WrapSponzori = styled.div`
   margin: 70px 0;
   position: relative;
-  width: 80%;
+  width: 90%;
   height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background-color: #171722;
+  border-radius: 20px;
+  padding: 30px;
   /* @media only screen and (max-width: 700px) {
     flex-direction: column;
     height: auto;

@@ -12,6 +12,7 @@ import { Link as Veza } from "react-scroll";
 // import scrollTo from "gatsby-plugin-smoothscroll"
 import Script from "next/script";
 import { Anchor } from "nextjs-anchor";
+import Image from "next/image";
 
 const Header = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +32,9 @@ const Header = ({ siteTitle }) => {
       <header>
         <MeniMobile isOpen={isOpen} setIsOpen={setIsOpen} />
         <div className="navBar">
-          <div>
-            <Link href="/" className="navLink navTitle">
-              ŠKOLA TRČANJA ZADAR
-            </Link>
-          </div>
+          <Link href="/" className="navLink navTitle">
+            ŠKOLA TRČANJA ZADAR
+          </Link>
 
           <div>
             <GiHamburgerMenu
@@ -50,7 +49,9 @@ const Header = ({ siteTitle }) => {
               <Link className="navLink" href="/blog">
                 Blog
               </Link>
-
+              <Link className="navLink" href="/kalkulator">
+                Kalkulator
+              </Link>
               <a className="navLink" href="http://www.zadarnight.run">
                 ZadarNight.run
               </a>

@@ -143,7 +143,7 @@ p {
   font-weight: 600;
 }
 .navLinks {
-  width: 380px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -285,6 +285,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0.1;
   z-index: 2;
 }
+.zrakeParallaxCalc {
+  position: absolute;
+  left: -100px !important;
+  opacity: 0.04;
+  transform: rotate(-23deg);
+}
 .custom-bg {
   position: relative;
   top: -315px;
@@ -323,8 +329,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   visibility: show;
   transition: all 0.3s ease-in-out;
 }
-.testimonialSlider {
-}
+
 .menu {
   height: 400px;
   position: absolute;
@@ -344,6 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .menu a {
   color: white;
+  margin-top: 20px;
   font-weight: 600;
   text-decoration: none;
 }
@@ -367,6 +373,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
 }
 .mobileLinks {
+  cursor: pointer;
+  font-weight: 700;
   text-decoration: none;
   color: #ffffff;
   margin: 20px 0;
@@ -416,18 +424,119 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 300px !important;
   height: 300px !important;
 }
-.poslanoForm {
-  /* position: absolute;
+/* .formCalc input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 230px;
+} */
+.formCalc {
   display: flex;
-  color: #191b26;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin: 10px auto 0 auto;
+  /* background-color: #1d1d2e8f; */
+
+  /* padding: 40px; */
+  border-radius: 39px;
+}
+.formCalc input,
+select {
+  background: #ffffff;
+  border: 1px solid #aea8b3;
+  box-shadow: 0px 4px 8px rgba(28, 37, 44, 0.08);
+  border-radius: 20px;
+  width: 260px;
+  height: 47px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 145%;
+  padding-left: 20px;
+  padding-right: 20px;
+  letter-spacing: 0.5px;
+  color: #aea8b3;
+  margin: 14px 0;
+}
+.formCalc input[type="submit"] {
+  background: #f9ff00;
+  color: #191b26;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.naslovKalkulatora {
+  width: 500px;
   text-align: center;
-  margin-left: 20px;
-  margin-top: 0px;
-  width: 452px;
-  height: 303px; */
-  /* backdrop-filter: blur(6px); */
+}
+/* .wrapBoxResultCalc {
+  background-color: #0b243865;
+  border-radius: 39px;
+  padding: 30px;
+  height: 400px;
+  width: 800px;
+} */
+/* .dateclass {
+  width: 100%;
+}
+
+.dateclass.placeholderclass::before {
+  width: 100%;
+  content: attr(placeholder);
+}
+
+.dateclass.placeholderclass:hover::before {
+  width: 0%;
+  content: "";
+} */
+.wrapResultCalc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.wrapResultCalcZone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 80%;
+}
+.wrapCijeliKalkulator {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapFormCalc {
+  display: flex;
+  align-items: center;
+  width: 888px;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+.wrapFormCalcZone {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+.formCalcSubmit {
+  margin-top: 20px;
+}
+.ispisCalc,
+.ispisCalcZone {
+  font-size: 40px;
+  font-weight: 900;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 .blogPostCrta {
   height: 50px;
@@ -450,6 +559,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   left: 50%;
   transform: translate(-50%, -25px);
 }
+.allKalkulatorWrap {
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+  padding-bottom: 100px;
+  padding-top: 50px;
+  background-color: rgba(36, 34, 105, 0.26);
+  width: 90%;
+  margin: 0 auto 50px auto;
+  border-radius: 39px;
+}
 /* .zrakeParallaxRaspored {
   width: 100%;
 } */
@@ -459,6 +583,62 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 @media only screen and (max-width: 900px) {
+  .ispisCalcZone {
+    font-size: 27px;
+    font-weight: 900;
+    /* display: flex; */
+    text-align: center;
+    /* justify-content: center;
+    align-items: center; */
+    width: 300px;
+  }
+  .naslovKalkulatora {
+    width: 90%;
+  }
+  .zrakeParallaxCalc {
+    display: none !important;
+  }
+  .wrapResultCalc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    position: absolute;
+    top: -77px;
+    background: #191b26;
+    padding: 221px 270px;
+  }
+  .wrapResultCalcZone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    position: absolute;
+    top: -90px;
+    background: #191b26;
+    padding: 221px 450px;
+  }
+  .wrapFormCalc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+  .wrapFormCalcZone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+    margin-top: 30px;
+    justify-content: space-between;
+  }
+  .formCalc {
+    flex-direction: column-reverse;
+  }
   .navLinks {
     display: none;
   }

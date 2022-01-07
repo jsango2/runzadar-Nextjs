@@ -1,5 +1,5 @@
 import React from "react";
-import { WrapAll, Overlay, Social, AnimationWrap } from "./style.js";
+import { WrapAll, Overlay, Social, Social2, AnimationWrap } from "./style.js";
 import FooterBg from "../../svg/footerbg.svg";
 import Runzadar from "../../svg/runzadar.svg";
 import Lottie from "lottie-react";
@@ -48,11 +48,18 @@ const Footer = (posts) => {
           <a href="http://www.instagram.com/skola_trcanja_zadar">instagram </a>
         </div>
       </Social>
-      <Social style={{ textAlign: "center" }}>
-        Sport Zone j.d.o.o. Ante Starčevića 8, Zadar IBAN: HR4924840081135097153
-        BIC: RZBHHR2X info@runzadar.com
-      </Social>
-      <Social>
+      <Social2
+        style={{
+          textAlign: "center",
+          fontSize: "9px",
+          maxWidth: "250px",
+        }}
+      >
+        Sport Zone j.d.o.o. <br />
+        Ante Starčevića 8, Zadar <br />
+        IBAN: HR4924840081135097153 BIC: RZBHHR2X info@runzadar.com
+      </Social2>
+      <Social style={{ marginTop: "auto" }}>
         <AnimationWrap>
           <a href="https://www.sutra.hr">
             <Lottie

@@ -28,6 +28,15 @@ const MeniMobile = ({ isOpen, setIsOpen }) => {
         >
           Blog
         </Link>
+        <Link
+          className="mobileLinks"
+          href="/kalkulator"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          Kalkulator
+        </Link>
         <a className="mobileLinks" href="http://www.zadarnight.run">
           ZadarNight.run
         </a>
