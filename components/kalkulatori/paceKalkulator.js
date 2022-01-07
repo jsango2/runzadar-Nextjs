@@ -12,6 +12,7 @@ import {
   WrapNaslovButton,
   TextNaslovni,
 } from "../../styles/calcStyles";
+import Cleave from "cleave.js/react";
 
 import KosaCrta from "../../svg/kosacrta.svg";
 
@@ -26,28 +27,18 @@ export default function PaceKalkulator() {
   const [hours, setHours] = useState();
   const [minutes, setMinutes] = useState();
   const [udaljenost, setUdaljenost] = useState("");
-
+  const handleTimeChange = (event) => {
+    setVrijemeTrcanja(event.target.value);
+  };
+  const handlePaceChange = (event) => {
+    setTempo(event.target.value);
+  };
   const handleSubmit = (evt) => {
     let varTempo;
     let varUdaljenost;
     let varVrijemeTrcanja;
     evt.preventDefault();
-    if (tempo == "") {
-      if (vrijemeTrcanja == "") {
-        console.log("Unesi temp ili T");
-      }
-    }
 
-    if (tempo == "") {
-      if (udaljenost == "") {
-        console.log("Unesi temp ili D");
-      }
-    }
-    if (vrijemeTrcanja == "") {
-      if (udaljenost == "") {
-        console.log("Unesi T ili D");
-      }
-    }
     if (tempo !== "") {
       if (vrijemeTrcanja !== "") {
         if (udaljenost == "") {
@@ -74,12 +65,18 @@ export default function PaceKalkulator() {
       if (udaljenost !== "") {
         if (tempo == "") {
           var minute = (timeStringToFloat(vrijemeTrcanja) / udaljenost) * 60;
-
+          console.log("u dec:", timeStringToFloat(vrijemeTrcanja));
+          //   console.log(udaljenost);
+          //   console.log(minute);
           setIspisTempo(minTommss(minute));
           function minTommss(minutes) {
             var sign = minutes < 0 ? "-" : "";
             var min = Math.floor(Math.abs(minutes));
             var sec = Math.floor((Math.abs(minutes) * 60) % 60);
+            // var min = Math.abs(minutes);
+            // var sec = (Math.abs(minutes) * 60) % 60;
+            // var min = Math.round(Math.abs(minutes));
+            // var sec = Math.round((Math.abs(minutes) * 60) % 60);
             return (
               sign +
               (min < 10 ? "0" : "") +
@@ -97,14 +94,29 @@ export default function PaceKalkulator() {
         if (tempo !== "") console.log("Previše unesenih polja");
       }
     }
-
-    function timeStringToFloat(time) {
-      var hoursMinutes = time.split(/[.:]/);
-      var hours = parseInt(hoursMinutes[0], 10);
-      var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
-      var seconds = hoursMinutes[2] ? parseInt(hoursMinutes[2], 10) : 0;
-      return hours + minutes / 60 + seconds / 600;
+    function timeStringToFloat(t) {
+      var arr = t.split(":").map(Number);
+      return (arr[0] + arr[1] / 60 + arr[2] / 3600).toFixed(4);
     }
+
+    // function timeStringToFloat(t) {
+    //   var arr = t.split(":");
+    //   console.log(arr);
+    //   //   var dec = parseInt((arr[1] / 6) * 10, 10);
+    //   //   console.log((arr[1] / 6) * 10);
+    //   var dec = (arr[1] / 6) * 10;
+    //   //   console.log(dec);
+    //   return parseFloat(
+    //     parseInt(arr[0], 10) + "." + (dec < 10 ? "0" : "") + dec
+    //   );
+    // }
+    // function timeStringToFloat(time) {
+    //   var hoursMinutes = time.split(/[.:]/);
+    //   var hours = parseInt(hoursMinutes[0], 10);
+    //   var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+    //   var seconds = hoursMinutes[2] ? parseInt(hoursMinutes[2], 10) : 0;
+    //   return hours + minutes / 60 + seconds / 600;
+    // }
   };
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
@@ -130,13 +142,11 @@ export default function PaceKalkulator() {
                   >
                     Vrijeme
                   </div>
-                  <input
-                    type="time"
+                  <Cleave
                     value={vrijemeTrcanja}
-                    onChange={(e) => setVrijemeTrcanja(e.target.value)}
-                    step="2"
                     placeholder="hh:mm:ss"
-                    className="dateclass placeholderclass"
+                    options={{ time: true, timePattern: ["h", "m", "s"] }}
+                    onChange={handleTimeChange}
                   />
                 </div>
               </div>
@@ -159,12 +169,11 @@ export default function PaceKalkulator() {
                     Tempo
                   </div>
 
-                  <input
-                    type="time"
+                  <Cleave
+                    placeholder="mm:ss /km"
                     value={tempo}
-                    onChange={(e) => setTempo(e.target.value)}
-                    placeholder="min/km"
-                    className="dateclass placeholderclass"
+                    options={{ time: true, timePattern: ["m", "s"] }}
+                    onChange={handlePaceChange}
                   />
                 </div>
               </div>
