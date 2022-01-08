@@ -122,7 +122,7 @@ export default function ZoneKalkulator() {
   };
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
-      <div className="allKalkulatorWrap">
+      <div className="allKalkulatorWrapZone">
         <h2 className="naslovKalkulatora">Kalkulator trenažnih zona</h2>
         <p style={{ marginTop: "10px", textAlign: "center" }}>
           Unesi najbolje vrijeme otrčano na standardnoj dužini
@@ -195,7 +195,7 @@ export default function ZoneKalkulator() {
             <div className="ispisCalcZone">Zona1: {zona1} min/km</div>
             <div className="ispisCalcZone">Zona2: {zona2} min/km</div>
             <div className="ispisCalcZone">Zona3: {zona3} min/km</div>
-            <div className="ispisCalcZone">Zona4 {zona4} min/km</div>
+            <div className="ispisCalcZone">Zona4: {zona4} min/km</div>
             <div className="ispisCalcZone">Zona5: {zona5} min/km</div>
             <div
               style={{ margin: "30px 0" }}
