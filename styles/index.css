@@ -647,6 +647,9 @@ select {
   }
 }
 @media only screen and (max-width: 900px) {
+  .allKalkulatorWrap {
+    height: 693px;
+  }
   .ispisCalcZone {
     font-size: 27px;
     font-weight: 900;
@@ -680,7 +683,7 @@ select {
     align-items: center;
     margin-top: 60px;
     position: absolute;
-    top: -90px;
+    top: -280px;
     background: #191b26;
     padding: 221px 450px;
   }

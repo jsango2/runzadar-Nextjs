@@ -24,7 +24,7 @@ export const WrapForm = styled.div`
   display: flex;
 
   @media only screen and (max-width: 900px) {
-    height: 425px;
+    height: 330px;
     justify-content: center;
   }
   /* @media only screen and (max-width: 600px) {
