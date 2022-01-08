@@ -114,7 +114,7 @@ export default function Kalkulator() {
         style={{
           position: "relative",
           width: "100%",
-          height: "475px",
+          height: "375px",
           zIndex: "-1",
           borderRadius: "39px 39px 0 0 ",
           backgroundImage: `url(/slikatartana.png)`,
@@ -124,7 +124,9 @@ export default function Kalkulator() {
       >
         <WrapNaslovButton>
           <Naslov>
-            <KosaCrta className="blogPostCrta" />
+            <div className="blogPostCrta">
+              <Image src="/kosacrta.svg" layout="fill" />
+            </div>
             KALKULATOR TRČANJA
           </Naslov>
         </WrapNaslovButton>

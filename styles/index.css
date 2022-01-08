@@ -388,12 +388,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 15px;
 }
 .coverPhoto2 {
+  position: relative;
+  z-index: 1;
   height: 100%;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   transition: all 0.8s ease;
+  /* display: none; */
+}
+.placeholder {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  height: 56%;
+  width: 100%;
 }
 .blogCrta {
   height: 50px;
@@ -443,7 +455,10 @@ select {
   background: #ffffff;
   border: 1px solid #aea8b3;
   box-shadow: 0px 4px 8px rgba(28, 37, 44, 0.08);
-  border-radius: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
   width: 260px;
   height: 47px;
   font-family: "Montserrat", sans-serif;
@@ -456,6 +471,15 @@ select {
   letter-spacing: 0.5px;
   color: #aea8b3;
   margin: 14px 0;
+}
+.rc-slider-handle {
+  width: 28px !important;
+  height: 28px !important;
+  margin-top: -10px !important;
+}
+.rc-slider-track {
+  /* height: 8px !important;
+  background-color: #f9ff00 !important; */
 }
 .formCalc input[type="submit"] {
   background: #f9ff00;
@@ -489,12 +513,51 @@ select {
   width: 0%;
   content: "";
 } */
+.xyz {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  background: rgb(85, 46, 190);
+  border-radius: 50%;
+  height: 0px;
+  width: 0px;
+  opacity: 0;
+  transition: width 0.7s, height 0.7s, opacity 1.2s;
+}
+.xyzText {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  background: rgb(85, 46, 190);
+  border-radius: 50%;
+  height: 0px;
+  width: 0px; */
+  font-size: 40px;
+  font-weight: 900;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: width 0.7s, height 0.7s, opacity 1.2s;
+  transition-delay: 0.5s;
+}
 .wrapResultCalc {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  background: red;
+  border-radius: 50%;
+  height: 350px;
+  width: 350px;
+  opacity: 1;
+  /* transition: all 0.7s ease-in-out; */
 }
 .wrapResultCalcZone {
   display: flex;
@@ -537,6 +600,7 @@ select {
   text-align: center;
   justify-content: center;
   align-items: center;
+  opacity: 1;
 }
 .blogPostCrta {
   height: 50px;

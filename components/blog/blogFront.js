@@ -16,6 +16,7 @@ import Livo from "../../svg/STRELICALIVO.svg";
 import Desno from "../../svg/STRELICADESNO.svg";
 import Slider from "react-slick";
 import Link from "next/link";
+import Image from "next/image";
 // import SEO from "../seo.js"
 // import "slick-carousel/slick/slick.css"
 // import "slick-carousel/slick/slick-theme.css"
@@ -97,6 +98,14 @@ const BlogFront = (posts) => {
                   {post.node.categories.edges[0].node.name}
                 </Button>
                 <Foto>
+                  <div className="placeholder">
+                    <Image
+                      src="/runzadar.svg"
+                      width={100}
+                      height={100}
+                      objectFit="contain"
+                    />
+                  </div>
                   <div
                     className="coverPhoto2"
                     style={{

@@ -93,7 +93,7 @@ const Card = styled.div`
 const Card2 = styled.div`
   position: relative;
   width: 95%;
-  height: 550px;
+  height: 450px;
   margin: 25px auto;
   border-radius: 39px;
   cursor: pointer;
@@ -201,7 +201,7 @@ export default function blog({ allPosts: { edges }, preview }) {
         style={{
           position: "relative",
           width: "100%",
-          height: "475px",
+          height: "375px",
           zIndex: "-1",
           borderRadius: "39px 39px 0 0 ",
           backgroundImage: `url(/sunset.png)`,
@@ -218,7 +218,9 @@ export default function blog({ allPosts: { edges }, preview }) {
         /> */}
         <WrapNaslovButton>
           <Naslov>
-            <KosaCrta className="blogPostCrta" />
+            <div className="blogPostCrta">
+              <Image src="/kosacrta.svg" layout="fill" />
+            </div>
             BLOG
           </Naslov>
         </WrapNaslovButton>

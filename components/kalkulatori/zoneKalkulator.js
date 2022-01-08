@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "../button/button";
 import { WrapForm } from "../../styles/calcStyles";
 import Cleave from "cleave.js/react";
+import { timeStringToFloat } from "./formule";
+
 export default function ZoneKalkulator() {
   const [vrijemeTrcanja, setVrijemeTrcanja] = useState("");
   const [procjena5, setProcjena5] = useState("");
@@ -18,19 +20,6 @@ export default function ZoneKalkulator() {
   const [hours, setHours] = useState();
   const [minutes, setMinutes] = useState();
   const [udaljenost, setUdaljenost] = useState("");
-
-  // var DECIMAL_REGEXP = /(?<=^.{2}$)/g;
-  // function handleKeyUp(e) {
-  //   var target = e.target;
-  //   var charCode = e.which || e.keyCode;
-  //   if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-  //     return false;
-  //   }
-  //   target.value = target.value.replace(DECIMAL_REGEXP, ":");
-  //   return true;
-  // }
-
-  // Collapse double colons after keydown
 
   function converter(decimalTime) {
     decimalTime = decimalTime * 60 * 60;
@@ -58,7 +47,7 @@ export default function ZoneKalkulator() {
     evt.preventDefault();
     if (udaljenost == 5) {
       if (vrijemeTrcanja !== "") {
-        var minute = timeToDecimal(vrijemeTrcanja);
+        var minute = timeStringToFloat(vrijemeTrcanja);
         var procjena10k = minute * 2.0817;
         var procjena21k = minute * 4.6;
         var procjena42k = minute * 9.45;
@@ -66,16 +55,6 @@ export default function ZoneKalkulator() {
         setProcjena21(converter(procjena21k));
         setProcjena42(converter(procjena42k));
         setProcjena5(vrijemeTrcanja);
-        // var izracunBodova =
-        //   -651.26 * Math.pow(minute, 3) +
-        //   1126.8 * Math.pow(minute, 2) -
-        //   709.76 * minute +
-        //   185.43;
-        // if (minute < 0.81) {
-        //   setIspisVdot(Math.round(izracunBodova));
-        // } else {
-        //   setIspisVdot("Pre spori ste za naš kalkulator");
-        // }
         setZona1(converter(procjena10k / 8.05));
         setZona2(converter(procjena10k / 9.2));
         setZona3(converter(procjena10k / 10.15));
@@ -87,30 +66,26 @@ export default function ZoneKalkulator() {
     if (udaljenost == 10) {
       console.log("DESTEKA");
       if (vrijemeTrcanja !== "") {
-        var minute = timeToDecimal(vrijemeTrcanja);
+        var minute = timeStringToFloat(vrijemeTrcanja);
         var procjena5k = minute / 2.0867;
         var procjena21k = minute * 2.2;
-        var procjena42k = minute * 9.45;
+        var procjena42k = minute * 4.61;
         setProcjena10(vrijemeTrcanja);
         setProcjena21(converter(procjena21k));
         setProcjena42(converter(procjena42k));
         setProcjena5(converter(procjena5k));
-        // console.log(minute);
-        // var izracunBodova =
-        //   47.244 * Math.pow(minute, 2) - 139.17 * minute + 123.96;
-        // if (minute < 1.5) {
-        //   setIspisVdot(Math.round(izracunBodova));
-        // } else {
-        //   setIspisVdot("Pre spori ste za naš kalkulator");
-        // }
+        setZona1(converter(minute / 8.05));
+        setZona2(converter(minute / 9.2));
+        setZona3(converter(minute / 10.15));
+        setZona4(converter(minute / 10.58));
+        setZona5(converter(minute / 11.65));
       }
     }
     if (udaljenost == 21) {
       console.log("HALF");
       if (vrijemeTrcanja !== "") {
-        var minute = timeToDecimal(vrijemeTrcanja);
-        console.log(minute);
-        var minute = timeToDecimal(vrijemeTrcanja);
+        var minute = timeStringToFloat(vrijemeTrcanja);
+        var minute = timeStringToFloat(vrijemeTrcanja);
         var procjena5k = minute / 4.59;
         var procjena10k = minute / 2.215;
         var procjena42k = minute * 2.0826;
@@ -118,21 +93,18 @@ export default function ZoneKalkulator() {
         setProcjena21(vrijemeTrcanja);
         setProcjena42(converter(procjena42k));
         setProcjena5(converter(procjena5k));
-        // var izracunBodova =
-        //   11.435 * Math.pow(minute, 2) - 70.13 * minute + 130.88;
-        // if (minute < 3) {
-        //   setIspisVdot(Math.round(izracunBodova));
-        // } else {
-        //   setIspisVdot("Pre spori ste za naš kalkulator");
-        // }
+        setZona1(converter(procjena10k / 8.05));
+        setZona2(converter(procjena10k / 9.2));
+        setZona3(converter(procjena10k / 10.15));
+        setZona4(converter(procjena10k / 10.58));
+        setZona5(converter(procjena10k / 11.65));
       }
     }
     if (udaljenost == 42) {
       console.log("FULL");
       if (vrijemeTrcanja !== "") {
-        var minute = timeToDecimal(vrijemeTrcanja);
-        console.log(minute);
-        var minute = timeToDecimal(vrijemeTrcanja);
+        var minute = timeStringToFloat(vrijemeTrcanja);
+        var minute = timeStringToFloat(vrijemeTrcanja);
         var procjena5k = minute / 9.56;
         var procjena10k = minute / 4.61;
         var procjena21k = minute / 2.0826;
@@ -140,20 +112,13 @@ export default function ZoneKalkulator() {
         setProcjena21(converter(procjena21k));
         setProcjena42(vrijemeTrcanja);
         setProcjena5(converter(procjena5k));
-        // var izracunBodova =
-        //   11.435 * Math.pow(minute, 2) - 70.13 * minute + 130.88;
-        // if (minute < 3) {
-        //   setIspisVdot(Math.round(izracunBodova));
-        // } else {
-        //   setIspisVdot("Pre spori ste za naš kalkulator");
-        // }
+        setZona1(converter(procjena10k / 8.05));
+        setZona2(converter(procjena10k / 9.2));
+        setZona3(converter(procjena10k / 10.15));
+        setZona4(converter(procjena10k / 10.58));
+        setZona5(converter(procjena10k / 11.65));
       }
     }
-    function timeToDecimal(t) {
-      var arr = t.split(":").map(Number);
-      return (arr[0] + arr[1] / 60 + arr[2] / 3600).toFixed(4);
-    }
-    // setUdaljenost("");
   };
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
@@ -180,17 +145,6 @@ export default function ZoneKalkulator() {
                   >
                     Vrijeme
                   </div>
-                  {/* <input
-                    id="duration-input2"
-                    type="text"
-                    pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}"
-                    title="Write a duration in the format hh:mm:ss:ms"
-                    value={vrijemeTrcanja}
-                    placeholder="00:00:00"
-                    onChange={(e) => setVrijemeTrcanja(e.target.value)}
-                    step="1"
-                    onKeyPress={(event) => handleKeyUp(event)}
-                  /> */}
                   <Cleave
                     value={vrijemeTrcanja}
                     placeholder="hh:mm:ss"
@@ -199,35 +153,6 @@ export default function ZoneKalkulator() {
                   />
                 </div>
               </div>
-
-              {/* <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  margin: "10px 0",
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      textAlign: "left",
-                      fontWeight: "600",
-                      marginLeft: "18px",
-                    }}
-                  >
-                    Tempo
-                  </div>
-
-                  <input
-                    type="time"
-                    value={tempo}
-                    onChange={(e) => setTempo(e.target.value)}
-                    placeholder="min/km"
-                    className="dateclass placeholderclass"
-                  />
-                </div>
-              </div> */}
-
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
                   <div
@@ -239,16 +164,10 @@ export default function ZoneKalkulator() {
                   >
                     Udaljenost
                   </div>
-
-                  {/* <input
-                    type="number"
-                    value={udaljenost}
-                    onChange={(e) => setUdaljenost(e.target.value)}
-                    placeholder="km"
-                  /> */}
                   <select
                     value={udaljenost}
                     onChange={(e) => setUdaljenost(e.target.value)}
+                    className="rounded"
                   >
                     <option value=""></option>
                     <option value="5">5k</option>
@@ -273,11 +192,11 @@ export default function ZoneKalkulator() {
             <div className="ispisCalcZone" style={{ margin: "25px 0 15px 0" }}>
               Projekcije Zona:
             </div>
-            <div className="ispisCalcZone">Zona1: {zona1}</div>
-            <div className="ispisCalcZone">Zona2: {zona2}</div>
-            <div className="ispisCalcZone">Zona3: {zona3}</div>
-            <div className="ispisCalcZone">Zona4 {zona4}</div>
-            <div className="ispisCalcZone">Zona5: {zona5}</div>
+            <div className="ispisCalcZone">Zona1: {zona1} min/km</div>
+            <div className="ispisCalcZone">Zona2: {zona2} min/km</div>
+            <div className="ispisCalcZone">Zona3: {zona3} min/km</div>
+            <div className="ispisCalcZone">Zona4 {zona4} min/km</div>
+            <div className="ispisCalcZone">Zona5: {zona5} min/km</div>
             <div
               style={{ margin: "30px 0" }}
               onClick={() => {
