@@ -36,8 +36,9 @@ export const WrapForm = styled.div`
 
 export const TextNaslovni = styled.div`
   position: relative;
-  font-size: 21px;
+  font-size: 26px;
   width: 900px;
+  text-align: center;
   height: auto;
   margin: 50px auto 60px auto;
   /* display: flex; */

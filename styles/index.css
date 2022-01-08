@@ -490,7 +490,7 @@ select {
   padding-right: 0;
 }
 .naslovKalkulatora {
-  width: 500px;
+  width: 650px;
   text-align: center;
 }
 /* .wrapBoxResultCalc {
@@ -559,6 +559,17 @@ select {
   opacity: 1;
   /* transition: all 0.7s ease-in-out; */
 }
+.tempoCircleIspis {
+  background-color: #91292f;
+  margin-top: 80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .wrapResultCalcZone {
   display: flex;
   flex-direction: column;
@@ -595,6 +606,25 @@ select {
 .ispisCalc,
 .ispisCalcZone {
   font-size: 40px;
+  font-weight: 900;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.ispisCalcCircle {
+  font-size: 24px;
+  font-weight: 900;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.ispisCalcTempoBroj {
+  font-size: 62px;
   font-weight: 900;
   display: flex;
   text-align: center;
@@ -662,11 +692,22 @@ select {
   }
 }
 @media only screen and (max-width: 900px) {
+  .tempoCircleIspis {
+    background-color: #91292f;
+    margin-top: 80px;
+    width: 232px;
+    height: 232px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .allKalkulatorWrap {
-    height: 693px;
+    height: 968px;
   }
   .allKalkulatorWrapZone {
-    height: 600px;
+    height: 795px;
   }
   .ispisCalcZone {
     font-size: 22px;
@@ -701,9 +742,9 @@ select {
     align-items: center;
     margin-top: 60px;
     position: absolute;
-    top: -170px;
+    top: -134px;
     background: #191b26;
-    padding: 221px 450px;
+    padding: 321px 450px;
   }
   .wrapFormCalc {
     display: flex;

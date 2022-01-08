@@ -123,9 +123,12 @@ export default function ZoneKalkulator() {
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
       <div className="allKalkulatorWrapZone">
-        <h2 className="naslovKalkulatora">Kalkulator trenažnih zona</h2>
-        <p style={{ marginTop: "10px", textAlign: "center" }}>
-          Unesi najbolje vrijeme otrčano na standardnoj dužini
+        <h1 className="naslovKalkulatora">Kalkulator trenažnih zona</h1>
+        <p style={{ marginTop: "10px", textAlign: "center", width: "80%" }}>
+          Unesi najbolje vrijeme otrčano na standardnoj dužini. Kalkulator će ti
+          predvidjeti vremena na svim standardnim trkačkim dionicama te će
+          odrediti tvoje trenažne zone. Najtočnije vrijednosti se dobiju ako se
+          navede najbolje otrčani rezultat na 5 ili 10k.
         </p>
         <WrapForm>
           <form onSubmit={handleSubmit} className="formCalc">
@@ -160,6 +163,7 @@ export default function ZoneKalkulator() {
                       textAlign: "left",
                       fontWeight: "600",
                       marginLeft: "18px",
+                      marginTop: "10px",
                     }}
                   >
                     Udaljenost

@@ -102,9 +102,7 @@ export default function PaceKalkulator() {
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
       <div className="allKalkulatorWrap">
-        <h2 className="naslovKalkulatora">
-          Tempo / Vrijeme / Dužina kalkulator
-        </h2>
+        <h1 className="naslovKalkulatora">Tempo kalkulator</h1>
         <div style={{ marginTop: "30px", width: "90%" }}>
           <div className="ispisCalc">Vrijeme:</div>
           <div className="ispisCalc">{sliderTimeValRender}</div>
@@ -112,7 +110,7 @@ export default function PaceKalkulator() {
           <Slider
             value={sliderTimeVal}
             onChange={onSliderChangeTime}
-            step={0.02}
+            step={0.03}
             min={1}
             max={250}
             railStyle={{ backgroundColor: "white", height: 8 }}
@@ -127,16 +125,19 @@ export default function PaceKalkulator() {
           <Slider
             value={sliderLengthVal}
             onChange={onSliderChangeLength}
-            step={0.5}
+            step={0.9}
             min={1}
             max={211}
             railStyle={{ backgroundColor: "white", height: 8 }}
             trackStyle={{ backgroundColor: "#f9ff00 ", height: 10 }}
           />
         </div>
-        <div style={{ marginTop: "30px", width: "76%" }}>
-          <div className="ispisCalc">Tempo (min/km):</div>
-          <div className="ispisCalc">{sliderPaceValRender} </div>
+        <div className="tempoCircleIspis">
+          <div className="ispisCalcCircle">
+            Tempo
+            <br /> (min/km)
+          </div>
+          <div className="ispisCalcTempoBroj">{sliderPaceValRender} </div>
         </div>
       </div>
     </div>
