@@ -88,7 +88,7 @@ export default function PaceKalkulator() {
   };
   const onSliderChangeLength = (value) => {
     setSliderLengthVal(value);
-    setSliderLengthValRender(value / 10);
+    setSliderLengthValRender((value / 10).toFixed(1));
   };
 
   useEffect(() => {
@@ -120,8 +120,8 @@ export default function PaceKalkulator() {
           />
         </div>
         <div style={{ marginTop: "30px", width: "90%" }}>
-          <div className="ispisCalc">Dužina:</div>
-          <div className="ispisCalc">{sliderLengthValRender} km</div>
+          <div className="ispisCalc">Dužina(km):</div>
+          <div className="ispisCalc">{sliderLengthValRender} </div>
           <div style={{ marginBottom: "20px" }}></div>
 
           <Slider
@@ -135,8 +135,8 @@ export default function PaceKalkulator() {
           />
         </div>
         <div style={{ marginTop: "30px", width: "76%" }}>
-          <div className="ispisCalc">Tempo:</div>
-          <div className="ispisCalc">{sliderPaceValRender} min/km</div>
+          <div className="ispisCalc">Tempo (min/km):</div>
+          <div className="ispisCalc">{sliderPaceValRender} </div>
         </div>
       </div>
     </div>
