@@ -98,6 +98,7 @@ export const PozadinaLinija = styled.div`
   z-index: 10;
   @media only screen and (max-width: 1000px) {
     top: 220px;
+    left: -50px;
   }
   @media only screen and (max-width: 420px) {
     left: -20px;
@@ -115,10 +116,17 @@ export const Frame = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   @media only screen and (max-width: 600px) {
-    top: -423px;
+    top: -523px;
     transform: rotate(-6deg);
-    width: 91vw;
-    height: 96vw;
+    width: 66vw;
+    height: 72vw;
+  }
+  @media only screen and (max-width: 500px) {
+    top: -493px;
+    transform: rotate(-6deg);
+    width: 66vw;
+    height: 72vw;
+    left: 74px;
   }
   @media only screen and (max-width: 420px) {
     /* transform: rotate(2deg); */
@@ -139,17 +147,26 @@ export const Slika = styled.div`
   background-position: center;
   @media only screen and (max-width: 600px) {
     transform: rotate(2deg);
-    width: 72vw;
-    height: 69vw;
-    top: -77px;
+    width: 51vw;
+    height: 50vw;
+    top: -144px;
+    x: ;
     left: 95px;
   }
-  @media only screen and (max-width: 495px) {
+  @media only screen and (max-width: 550px) {
     transform: rotate(2deg);
-    width: 72vw;
-    height: 69vw;
-    top: -94px;
+    width: 50vw;
+    height: 51v;
+    top: -166px;
+
     left: 85px;
+  }
+  @media only screen and (max-width: 500px) {
+    transform: rotate(2deg);
+    width: 49vw;
+    height: 51vw;
+    top: -171px;
+    left: 117px;
   }
   @media only screen and (max-width: 420px) {
     top: -104px;
@@ -181,7 +198,10 @@ export const WrapFrame = styled.div`
   width: 480px;
   height: 520px;
   @media only screen and (max-width: 600px) {
-    top: 38px;
+    top: 160px;
+  }
+  @media only screen and (max-width: 550px) {
+    top: 196px;
   }
   @media only screen and (max-width: 420px) {
     top: 115px;

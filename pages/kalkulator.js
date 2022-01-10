@@ -3,19 +3,10 @@ import React, { useState } from "react";
 import Button from "../components/button/button";
 import PaceKalkulator from "../components/kalkulatori/paceKalkulator";
 import ZoneKalkulator from "../components/kalkulatori/zoneKalkulator";
-import Layout from "../components/layout";
-import {
-  WrapAll,
-  WrapForm,
-  Left,
-  Right,
-  Naslov,
-  Foto,
-  WrapNaslovButton,
-  TextNaslovni,
-} from "../styles/calcStyles";
+import Head from "next/head";
 
-import KosaCrta from "../svg/kosacrta.svg";
+import Layout from "../components/layout";
+import { Naslov, WrapNaslovButton, TextNaslovni } from "../styles/calcStyles";
 
 // import Seo from "../components/seo"
 // import Bart from "../images/bart.png"
@@ -30,9 +21,6 @@ export default function Kalkulator() {
   const [udaljenost, setUdaljenost] = useState("");
 
   const handleSubmit = (evt) => {
-    let varTempo;
-    let varUdaljenost;
-    let varVrijemeTrcanja;
     evt.preventDefault();
     if (tempo == "") {
       if (vrijemeTrcanja == "") {
@@ -110,6 +98,18 @@ export default function Kalkulator() {
   };
   return (
     <Layout>
+      <Head>
+        <title>Kalkulator - Škola trčanja Zadar</title>
+        <meta
+          property="og:title"
+          content="Kalkulator - Škola trčanja Zadar"
+          key="title"
+        />
+        <meta
+          property="og:image"
+          content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
+        />
+      </Head>
       <div
         style={{
           position: "relative",
@@ -151,6 +151,9 @@ export default function Kalkulator() {
           </TextNaslovni>
         </div>
         <PaceKalkulator />
+        <div
+          style={{ width: "100px", height: "2px", backgroundColor: "white" }}
+        ></div>
         <ZoneKalkulator />
       </div>
     </Layout>

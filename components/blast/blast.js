@@ -15,26 +15,34 @@ import Image from "next/image";
 
 // import { HeroWrap } from "./style.js"
 const grupa = [
-  <Image src="/banina.png" layout="fill" objectFit="cover" />,
-  <Image src="/banina2.png" layout="fill" objectFit="cover" />,
-  <Image src="/ninzadar.png" layout="fill" objectFit="cover" />,
-  <Image src="/sale.png" layout="fill" objectFit="cover" />,
-  <Image src="/znr2019.png" layout="fill" objectFit="cover" />,
+  <Image src="/foto1.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto2.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto3.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto4.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto5.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto6.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto7.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto8.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto9.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto10.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto11.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto12.jpg" layout="fill" objectFit="cover" />,
 ];
 
 const Blast = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const switchImage = setInterval(() => {
-      if (currentImage < grupa.length - 1) {
-        setCurrentImage(currentImage + 1);
-      } else {
-        setCurrentImage(0);
-      }
-      return currentImage;
-    }, 3000);
-    return () => clearInterval(switchImage);
+    setCurrentImage(Math.floor(Math.random() * grupa.length));
+    // const switchImage = setInterval(() => {
+    //   if (currentImage < grupa.length - 1) {
+    //     setCurrentImage(currentImage + 1);
+    //   } else {
+    //     setCurrentImage(0);
+    //   }
+    //   return currentImage;
+    // }, 1000);
+    // return () => clearInterval(switchImage);
   });
   return (
     <WrapAll>

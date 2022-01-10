@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../button/button";
 import { WrapForm } from "../../styles/calcStyles";
 import Cleave from "cleave.js/react";
-import { timeStringToFloat } from "./formule";
+import { timeStringToFloat, minTommss, converter, minTommss2 } from "./formule";
+import { useDelay } from "react-use-precision-timer";
+import Zona from "./zona";
 
 export default function ZoneKalkulator() {
+  const [isShown1, setIsShown1] = useState(true);
+  const [isShown2, setIsShown2] = useState(false);
+  const [isShown3, setIsShown3] = useState(false);
+  const [isShown4, setIsShown4] = useState(false);
+  const [isShown5, setIsShown5] = useState(false);
   const [vrijemeTrcanja, setVrijemeTrcanja] = useState("");
   const [procjena5, setProcjena5] = useState("");
   const [procjena10, setProcjena10] = useState("");
@@ -21,30 +28,118 @@ export default function ZoneKalkulator() {
   const [minutes, setMinutes] = useState();
   const [udaljenost, setUdaljenost] = useState("");
 
-  function converter(decimalTime) {
-    decimalTime = decimalTime * 60 * 60;
-    var hours = Math.floor(decimalTime / (60 * 60));
-    decimalTime = decimalTime - hours * 60 * 60;
-    var minutes = Math.floor(decimalTime / 60);
-    decimalTime = decimalTime - minutes * 60;
-    var seconds = Math.round(decimalTime);
-    if (hours < 10) {
-      hours = "0" + hours;
-    }
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-    return "" + hours + ":" + minutes + ":" + seconds;
-  }
   const handleTimeChange = (event) => {
     setVrijemeTrcanja(event.target.value);
   };
 
+  // const Zona = ({ tag, data, delay, show, setShow }) => {
+  //   console.log(delay);
+  //   const [show, setShow] = useState(false);
+  //   useDelay({ delay }, () => setShowZ1(true));
+  //   return (
+  //     <>
+  //       {showZ1 ? (
+  //         <div className="ispisCalcZoneColor">
+  //           <div className="zTag">{tag} </div> {data} min/km
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //     </>
+  //   );
+  // };
+  // const Zona2 = () => {
+  //   const [showZ2, setShowZ2] = useState(false);
+  //   useDelay(700, () => setShowZ2(true));
+  //   return (
+  //     <>
+  //       {showZ2 ? (
+  //         <div className="ispisCalcZoneColor">
+  //           <div className="zTag">Z2 </div> {zona2} min/km
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //     </>
+  //   );
+  // };
+  // const Zona3 = () => {
+  //   const [showZ3, setShowZ3] = useState(false);
+  //   useDelay(1100, () => setShowZ3(true));
+  //   return (
+  //     <>
+  //       {showZ3 ? (
+  //         <div className="ispisCalcZoneColor">
+  //           <div className="zTag">Z3 </div> {zona3} min/km
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //     </>
+  //   );
+  // };
+  // const Zona4 = () => {
+  //   const [showZ4, setShowZ4] = useState(false);
+  //   useDelay(1500, () => setShowZ4(true));
+  //   return (
+  //     <>
+  //       {showZ4 ? (
+  //         <div className="ispisCalcZoneColor">
+  //           <div className="zTag">Z4 </div> {zona4} min/km
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //     </>
+  //   );
+  // };
+
+  // const Zona5 = () => {
+  //   const [showZ5, setShowZ5] = useState(false);
+  //   useDelay(1900, () => setShowZ5(true));
+  //   return (
+  //     <>
+  //       {showZ5 ? (
+  //         <div className="ispisCalcZoneColor">
+  //           <div className="zTag">Z5 </div> {zona5} min/km
+  //         </div>
+  //       ) : (
+  //         ""
+  //       )}
+  //     </>
+  //   );
+  // };
+  const ProjekcijaRez = () => {
+    const [rez, setRez] = useState(false);
+    useDelay(2300, () => setRez(true));
+    return (
+      <>
+        {rez ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div className="ispisCalcZone" style={{ margin: " 30px 10px" }}>
+              Projekcije rezultata:
+            </div>
+            <div className="ispisCalcZone">5k {procjena5}</div>
+            <div className="ispisCalcZone">10k {procjena10}</div>
+            <div className="ispisCalcZone">21k {procjena21}</div>
+            <div className="ispisCalcZone">42k {procjena42}</div>
+          </div>
+        ) : (
+          ""
+        )}
+      </>
+    );
+  };
   const handleSubmit = (evt) => {
     evt.preventDefault();
+
     if (udaljenost == 5) {
       if (vrijemeTrcanja !== "") {
         var minute = timeStringToFloat(vrijemeTrcanja);
@@ -55,11 +150,11 @@ export default function ZoneKalkulator() {
         setProcjena21(converter(procjena21k));
         setProcjena42(converter(procjena42k));
         setProcjena5(vrijemeTrcanja);
-        setZona1(converter(procjena10k / 8.05));
-        setZona2(converter(procjena10k / 9.2));
-        setZona3(converter(procjena10k / 10.15));
-        setZona4(converter(procjena10k / 10.58));
-        setZona5(converter(procjena10k / 11.65));
+        setZona1(converter(procjena10k / 8.05).slice(3));
+        setZona2(converter(procjena10k / 9.2).slice(3));
+        setZona3(converter(procjena10k / 10.15).slice(3));
+        setZona4(converter(procjena10k / 10.58).slice(3));
+        setZona5(converter(procjena10k / 11.65).slice(3));
       }
     }
 
@@ -74,15 +169,14 @@ export default function ZoneKalkulator() {
         setProcjena21(converter(procjena21k));
         setProcjena42(converter(procjena42k));
         setProcjena5(converter(procjena5k));
-        setZona1(converter(minute / 8.05));
-        setZona2(converter(minute / 9.2));
-        setZona3(converter(minute / 10.15));
-        setZona4(converter(minute / 10.58));
-        setZona5(converter(minute / 11.65));
+        setZona1(converter(minute / 8.05).slice(3));
+        setZona2(converter(minute / 9.2).slice(3));
+        setZona3(converter(minute / 10.15).slice(3));
+        setZona4(converter(minute / 10.58).slice(3));
+        setZona5(converter(minute / 11.65).slice(3));
       }
     }
     if (udaljenost == 21) {
-      console.log("HALF");
       if (vrijemeTrcanja !== "") {
         var minute = timeStringToFloat(vrijemeTrcanja);
         var minute = timeStringToFloat(vrijemeTrcanja);
@@ -93,11 +187,11 @@ export default function ZoneKalkulator() {
         setProcjena21(vrijemeTrcanja);
         setProcjena42(converter(procjena42k));
         setProcjena5(converter(procjena5k));
-        setZona1(converter(procjena10k / 8.05));
-        setZona2(converter(procjena10k / 9.2));
-        setZona3(converter(procjena10k / 10.15));
-        setZona4(converter(procjena10k / 10.58));
-        setZona5(converter(procjena10k / 11.65));
+        setZona1(converter(procjena10k / 8.05).slice(3));
+        setZona2(converter(procjena10k / 9.2).slice(3));
+        setZona3(converter(procjena10k / 10.15).slice(3));
+        setZona4(converter(procjena10k / 10.58).slice(3));
+        setZona5(converter(procjena10k / 11.65).slice(3));
       }
     }
     if (udaljenost == 42) {
@@ -112,11 +206,11 @@ export default function ZoneKalkulator() {
         setProcjena21(converter(procjena21k));
         setProcjena42(vrijemeTrcanja);
         setProcjena5(converter(procjena5k));
-        setZona1(converter(procjena10k / 8.05));
-        setZona2(converter(procjena10k / 9.2));
-        setZona3(converter(procjena10k / 10.15));
-        setZona4(converter(procjena10k / 10.58));
-        setZona5(converter(procjena10k / 11.65));
+        setZona1(converter(procjena10k / 8.05).slice(3));
+        setZona2(converter(procjena10k / 9.2).slice(3));
+        setZona3(converter(procjena10k / 10.15).slice(3));
+        setZona4(converter(procjena10k / 10.58).slice(3));
+        setZona5(converter(procjena10k / 11.65).slice(3));
       }
     }
   };
@@ -133,9 +227,6 @@ export default function ZoneKalkulator() {
         <WrapForm>
           <form onSubmit={handleSubmit} className="formCalc">
             {" "}
-            <div className="formCalcSubmit">
-              <input type="submit" value="IZRAČUNAJ" />
-            </div>
             <div className="wrapFormCalcZone">
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
@@ -156,6 +247,7 @@ export default function ZoneKalkulator() {
                   />
                 </div>
               </div>
+
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
                   <div
@@ -163,7 +255,6 @@ export default function ZoneKalkulator() {
                       textAlign: "left",
                       fontWeight: "600",
                       marginLeft: "18px",
-                      marginTop: "10px",
                     }}
                   >
                     Udaljenost
@@ -182,29 +273,12 @@ export default function ZoneKalkulator() {
                 </div>
               </div>
             </div>
-          </form>
-        </WrapForm>
-        {procjena10 ? (
-          <div className="wrapResultCalcZone">
-            <div className="ispisCalcZone" style={{ marginBottom: "10px" }}>
-              Projekcije rezultata:
+            <div className="formCalcSubmit">
+              <input type="submit" value="IZRAČUNAJ" />
             </div>
-            <div className="ispisCalcZone">5k {procjena5}</div>
-            <div className="ispisCalcZone">10k {procjena10}</div>
-            <div className="ispisCalcZone">21k {procjena21}</div>
-            <div className="ispisCalcZone">42k {procjena42}</div>
-            <div className="ispisCalcZone" style={{ margin: "25px 0 15px 0" }}>
-              Projekcije Zona:
-            </div>
-            <div className="ispisCalcZone">Zona1: {zona1} min/km</div>
-            <div className="ispisCalcZone">Zona2: {zona2} min/km</div>
-            <div className="ispisCalcZone">Zona3: {zona3} min/km</div>
-            <div className="ispisCalcZone">Zona4: {zona4} min/km</div>
-            <div className="ispisCalcZone">Zona5: {zona5} min/km</div>
             <div
-              style={{ margin: "30px 0" }}
+              className="resetZone"
               onClick={() => {
-                console.log("klik");
                 setVrijemeTrcanja("");
                 setUdaljenost("");
                 setIspisDuzina("");
@@ -216,13 +290,31 @@ export default function ZoneKalkulator() {
             >
               <Button
                 title="Reset"
-                width="180"
-                height="47"
+                width="160"
+                height="37"
                 fontWeight="700"
                 colorText="black"
               />
             </div>
-          </div>
+          </form>
+        </WrapForm>
+        {procjena10 ? (
+          <>
+            <div className="wrapResultCalcZone">
+              <div className="ispisCalcZone" style={{ marginBottom: "30px" }}>
+                Projekcije zona:
+              </div>
+
+              <div className="wrapZoneColor">
+                <Zona tag="Z1" data={zona1} delay={300} />
+                <Zona tag="Z2" data={zona2} delay={600} />
+                <Zona tag="Z3" data={zona3} delay={900} />
+                <Zona tag="Z4" data={zona4} delay={1200} />
+                <Zona tag="Z5" data={zona5} delay={1500} />
+                <ProjekcijaRez />
+              </div>
+            </div>{" "}
+          </>
         ) : (
           <div className="ispisCalc"></div>
         )}
