@@ -32,83 +32,6 @@ export default function ZoneKalkulator() {
     setVrijemeTrcanja(event.target.value);
   };
 
-  // const Zona = ({ tag, data, delay, show, setShow }) => {
-  //   console.log(delay);
-  //   const [show, setShow] = useState(false);
-  //   useDelay({ delay }, () => setShowZ1(true));
-  //   return (
-  //     <>
-  //       {showZ1 ? (
-  //         <div className="ispisCalcZoneColor">
-  //           <div className="zTag">{tag} </div> {data} min/km
-  //         </div>
-  //       ) : (
-  //         ""
-  //       )}
-  //     </>
-  //   );
-  // };
-  // const Zona2 = () => {
-  //   const [showZ2, setShowZ2] = useState(false);
-  //   useDelay(700, () => setShowZ2(true));
-  //   return (
-  //     <>
-  //       {showZ2 ? (
-  //         <div className="ispisCalcZoneColor">
-  //           <div className="zTag">Z2 </div> {zona2} min/km
-  //         </div>
-  //       ) : (
-  //         ""
-  //       )}
-  //     </>
-  //   );
-  // };
-  // const Zona3 = () => {
-  //   const [showZ3, setShowZ3] = useState(false);
-  //   useDelay(1100, () => setShowZ3(true));
-  //   return (
-  //     <>
-  //       {showZ3 ? (
-  //         <div className="ispisCalcZoneColor">
-  //           <div className="zTag">Z3 </div> {zona3} min/km
-  //         </div>
-  //       ) : (
-  //         ""
-  //       )}
-  //     </>
-  //   );
-  // };
-  // const Zona4 = () => {
-  //   const [showZ4, setShowZ4] = useState(false);
-  //   useDelay(1500, () => setShowZ4(true));
-  //   return (
-  //     <>
-  //       {showZ4 ? (
-  //         <div className="ispisCalcZoneColor">
-  //           <div className="zTag">Z4 </div> {zona4} min/km
-  //         </div>
-  //       ) : (
-  //         ""
-  //       )}
-  //     </>
-  //   );
-  // };
-
-  // const Zona5 = () => {
-  //   const [showZ5, setShowZ5] = useState(false);
-  //   useDelay(1900, () => setShowZ5(true));
-  //   return (
-  //     <>
-  //       {showZ5 ? (
-  //         <div className="ispisCalcZoneColor">
-  //           <div className="zTag">Z5 </div> {zona5} min/km
-  //         </div>
-  //       ) : (
-  //         ""
-  //       )}
-  //     </>
-  //   );
-  // };
   const ProjekcijaRez = () => {
     const [rez, setRez] = useState(false);
     useDelay(2300, () => setRez(true));
@@ -151,9 +74,9 @@ export default function ZoneKalkulator() {
         setProcjena42(converter(procjena42k));
         setProcjena5(vrijemeTrcanja);
         setZona1(converter(procjena10k / 8.05).slice(3));
-        setZona2(converter(procjena10k / 9.2).slice(3));
-        setZona3(converter(procjena10k / 10.15).slice(3));
-        setZona4(converter(procjena10k / 10.58).slice(3));
+        setZona2(converter(procjena10k / 9.45).slice(3));
+        setZona3(converter(procjena10k / 10.05).slice(3));
+        setZona4(converter(procjena10k / 10.38).slice(3));
         setZona5(converter(procjena10k / 11.65).slice(3));
       }
     }
@@ -218,11 +141,12 @@ export default function ZoneKalkulator() {
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
       <div className="allKalkulatorWrapZone">
         <h1 className="naslovKalkulatora">Kalkulator trenažnih zona</h1>
-        <p style={{ marginTop: "10px", textAlign: "center", width: "80%" }}>
+        <p style={{ marginTop: "10px", textAlign: "center", width: "94%" }}>
           Unesi najbolje vrijeme otrčano na standardnoj dužini. Kalkulator će ti
           predvidjeti vremena na svim standardnim trkačkim dionicama te će
-          odrediti tvoje trenažne zone. Najtočnije vrijednosti se dobiju ako se
-          navede najbolje otrčani rezultat na 5 ili 10k.
+          odrediti tvoje trenažne zone (od Zone 1 do Zone 5). Najtočnije
+          vrijednosti se dobiju ako se navede najbolje otrčani rezultat na 5 ili
+          10k.
         </p>
         <WrapForm>
           <form onSubmit={handleSubmit} className="formCalc">
@@ -306,11 +230,43 @@ export default function ZoneKalkulator() {
               </div>
 
               <div className="wrapZoneColor">
-                <Zona tag="Z1" data={zona1} delay={300} />
-                <Zona tag="Z2" data={zona2} delay={600} />
-                <Zona tag="Z3" data={zona3} delay={900} />
-                <Zona tag="Z4" data={zona4} delay={1200} />
-                <Zona tag="Z5" data={zona5} delay={1500} />
+                <Zona
+                  pointer={true}
+                  tag="<"
+                  data={zona1}
+                  delay={300}
+                  text={`Tempo <${zona1} min/km je vaša zona laganog trčanja. Trčanje u ovoj zoni se koristi za zagrijavanje, regeneraciju ili kao lagani dužinski trening.`}
+                />
+                <Zona
+                  pointer={false}
+                  // tag="Z2"
+                  data={zona2}
+                  delay={600}
+                  text={` Zona intenzivnog aerobnog treninga je na tempu oko ${zona2} min/km. Cilj trčanja u ovom intenzitetu je razvoj aerobnog kapaciteta. Ovaj intenzitet koristimo u fartlek trčanjima te na dužim dionicama. Ovaj tempo je približan vašem tempu trčanja polumaratona`}
+                />
+                <Zona
+                  pointer={false}
+                  // tag="Z3"
+                  data={zona3}
+                  delay={900}
+                  text="Trčanje oko ove zone odgovara intenzitetu vašeg anaerobnog praga. 
+                  Na ovom intenzitetu je moguće trčati 40-60 minuta pa tempo odgovara tempu trčanja na 10km.
+                  Obično u ovom tempu trčimo kad želimo postići intenzivni aerobni trening."
+                />
+                <Zona
+                  pointer={false}
+                  // tag="Z4"
+                  data={zona4}
+                  delay={1200}
+                  text="Zona iznad anaerobnog praga. Ovaj tempo je blizak tempu trčanja utrke na 5km. Koristi se najčešće u intervalnom radu (npr. 8x1km sa 2min pauze)."
+                />
+                <Zona
+                  pointer={false}
+                  tag=">"
+                  data={zona5}
+                  delay={1500}
+                  text="Ovo je zona max primitka kisika. Koristi se kod kraćih intervala od 400 - 800m. Primjer treninga je 15x400m sa 2-3' pauze. Preporuča se samo spremnijim trkačima."
+                />
                 <ProjekcijaRez />
               </div>
             </div>{" "}

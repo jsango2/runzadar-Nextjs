@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 // import { HeroWrap } from "./style.js"
 
@@ -12,7 +12,14 @@ export const ButtonWrap = styled.div`
   justify-content: center;
   z-index: 2;
   cursor: pointer;
-`
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #dde000;
+  }
+  &:active {
+    background-color: #ffffff;
+  }
+`;
 export const ButtonText = styled.p`
   font-family: Montserrat, sans-serif;
   margin: 0;
@@ -20,4 +27,4 @@ export const ButtonText = styled.p`
   font-weight: 700;
   font-size: 21px;
   line-height: 120%;
-`
+`;

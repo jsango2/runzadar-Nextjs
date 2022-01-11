@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-import { ButtonWrap, ButtonText } from "./style.js"
+import { ButtonWrap, ButtonText } from "./style.js";
 
 const Button = ({
   title,
@@ -16,7 +16,7 @@ const Button = ({
       style={{
         width: `${width}px`,
         height: `${height}px`,
-        background: backgroundColor ? `${backgroundColor}` : "#f9ff00",
+        backgroundColor: backgroundColor ? `${backgroundColor}` : "",
       }}
     >
       <ButtonText
@@ -29,7 +29,7 @@ const Button = ({
         {title}
       </ButtonText>
     </ButtonWrap>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

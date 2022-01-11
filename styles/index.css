@@ -477,10 +477,7 @@ select {
   height: 28px !important;
   margin-top: -10px !important;
 }
-.rc-slider-track {
-  /* height: 8px !important;
-  background-color: #f9ff00 !important; */
-}
+
 .formCalc input[type="submit"] {
   background: #f9ff00;
   color: #191b26;
@@ -701,6 +698,7 @@ select {
   margin: 0 auto 50px auto;
   border-radius: 39px;
 }
+
 .allKalkulatorWrapZone {
   height: auto;
   position: relative;
@@ -724,6 +722,7 @@ select {
   width: 100%;
 } */
 .ispisCalcZoneColor {
+  position: relative;
   font-size: 20px;
   font-weight: 900;
   /* display: flex; */
@@ -731,16 +730,28 @@ select {
   /* justify-content: center;
   align-items: center; */
   width: 50vw;
-  height: 58px;
+  /* height: 58px; */
   background-color: #91292f;
   margin-bottom: 5px;
   border-radius: 8px;
   display: flex;
+  flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 20px 15px;
   align-items: center;
   opacity: 1;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
+.height58 {
+  height: 58px;
+}
+.heightAuto {
+  height: 140px;
+}
+
 .zTag {
   padding: 5px;
   margin-right: 5px;
@@ -760,6 +771,25 @@ select {
 }
 .ispisCalcZoneColor:nth-child(4) {
   background-color: #c85c5c;
+}
+/* .ispisCalcZoneColorAutoHeight:nth-child(1) {
+  background-color: #b2ea70;
+}
+.ispisCalcZoneColorAutoHeight:nth-child(2) {
+  background-color: #fbd148;
+}
+.ispisCalcZoneColorAutoHeight:nth-child(3) {
+  background-color: #f9975d;
+}
+.ispisCalcZoneColorAutoHeight:nth-child(4) {
+  background-color: #c85c5c;
+} */
+.textIspodZone {
+  margin-top: 20px;
+  height: auto;
+  font-size: 16px;
+  text-align: left;
+  font-weight: 500;
 }
 @media only screen and (min-width: 900px) {
   .hamburgerMenu {
@@ -790,7 +820,7 @@ select {
     flex-direction: column;
   }
   .allKalkulatorWrap {
-    height: 968px;
+    height: 850px;
   }
   .allKalkulatorWrapZone {
     height: auto;
@@ -816,6 +846,28 @@ select {
     background-color: #91292f;
     margin-bottom: 5px;
     border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+  }
+  /* .height58 {
+    height: 58px;
+    transition: all 0.3s linear;
+  } */
+  .heightAuto {
+    height: 250px;
+    /* transition: all 0.3s linear; */
+  }
+  .ispisCalcZoneColorAutoHeight {
+    font-size: 20px;
+    font-weight: 900;
+    /* display: flex; */
+    text-align: center;
+    /* justify-content: center;
+    align-items: center; */
+    width: 90vw;
+    height: auto;
+    background-color: #91292f;
+    margin-bottom: 5px;
+    border-radius: 8px;
   }
   .zTag {
     padding: 5px;
@@ -825,7 +877,7 @@ select {
     display: none;
   }
 
-  .ispisCalcZoneColor:nth-child(1) {
+  /* .ispisCalcZoneColor:nth-child(1) {
     background-color: #b2ea70;
   }
   .ispisCalcZoneColor:nth-child(2) {
@@ -836,7 +888,7 @@ select {
   }
   .ispisCalcZoneColor:nth-child(4) {
     background-color: #c85c5c;
-  }
+  } */
   .naslovKalkulatora {
     width: 90%;
   }
