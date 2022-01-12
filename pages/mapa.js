@@ -27,17 +27,17 @@ function success() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/lovreperaic/cky49y5uf7bwb14l5ro8nd0id",
       center: [lng, lat],
       zoom: zoom,
-      pitch: 60, // starting pitch in degrees
+      pitch: 75, // starting pitch in degrees
       bearing: 0, // starting bearing in degree
     });
-    map.current.addControl(new mapboxgl.NavigationControl());
-    // map.current.on("load", function () {
-    //   // start the animation
-    //   rotateCamera(0);
-    // });
+    // map.current.addControl(new mapboxgl.NavigationControl());
+    map.current.on("load", function () {
+      // start the animation
+      rotateCamera(0);
+    });
   });
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
