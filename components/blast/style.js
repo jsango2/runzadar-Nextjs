@@ -100,6 +100,10 @@ export const PozadinaLinija = styled.div`
     top: 220px;
     left: -50px;
   }
+  @media only screen and (max-width: 500px) {
+    left: -20px;
+    left: -15px;
+  }
   @media only screen and (max-width: 420px) {
     left: -20px;
     justify-content: flex-start;
@@ -122,16 +126,48 @@ export const Frame = styled.div`
     height: 72vw;
   }
   @media only screen and (max-width: 500px) {
-    top: -493px;
+    top: -481px;
+    -webkit-transform: rotate(-6deg);
+    -ms-transform: rotate(-6deg);
     transform: rotate(-6deg);
-    width: 66vw;
-    height: 72vw;
-    left: 74px;
+    width: 60vw;
+    height: 69vw;
+    left: 90px;
+  }
+  @media only screen and (max-width: 470px) {
+    top: -466px;
+    -webkit-transform: rotate(-6deg);
+    -ms-transform: rotate(-6deg);
+    transform: rotate(-6deg);
+    width: 60vw;
+    height: 69vw;
+    left: 90px;
   }
   @media only screen and (max-width: 420px) {
-    /* transform: rotate(2deg); */
-    /* width: 91vw;
-    height: 96vw; */
+    top: -380px;
+    left: 79px;
+    width: 69vw;
+    height: 75vw;
+}
+@media only screen and (max-width: 400px) {
+  top: -366px;
+    left: 81px;
+    width: 69vw;
+    height: 75vw;
+}
+@media only screen and (max-width: 380px) {
+  top: -317px;
+    left: 81px;
+    width: 69vw;
+    height: 75vw;
+}
+@media only screen and (max-width: 360px) {
+  top: -376px;
+    left: 53px;
+    width: 76vw;
+    height: 81vw;
+}
+}
   }
 `;
 export const Slika = styled.div`
@@ -165,22 +201,28 @@ export const Slika = styled.div`
     transform: rotate(2deg);
     width: 49vw;
     height: 51vw;
-    top: -171px;
+    top: -186px;
     left: 117px;
   }
   @media only screen and (max-width: 420px) {
     top: -104px;
-    left: 85px;
+    left: 123px;
+  }
+  @media only screen and (max-width: 400px) {
+    top: -104px;
+    left: 121px;
+    width: 52vw;
+    height: 53vw;
   }
   @media only screen and (max-width: 380px) {
-    width: 70vw;
-    height: 67vw;
-    top: -104px;
-    left: 85px;
+    width: 54vw;
+    height: 55vw;
+    top: -65px;
+    left: 110px;
   }
   @media only screen and (max-width: 360px) {
-    width: 70vw;
-    height: 67vw;
+    width: 59vw;
+    height: 59vw;
     top: -114px;
     left: 80px;
   }

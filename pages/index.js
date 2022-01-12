@@ -51,6 +51,10 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
             property="og:description"
             content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
           />
+          <meta
+            property="twitter:description"
+            content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
+          />
         </Head>
         <Hero />
         <ZastoSkola />

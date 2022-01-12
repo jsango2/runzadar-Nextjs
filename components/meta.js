@@ -35,10 +35,10 @@ export default function Meta() {
 
       <link rel="canonical" href="https://www.runzadar.com" key="canonical" />
       <meta name="twitter:title" content="Škola trčanja Zadar" />
-      <meta
+      {/* <meta
         name="twitter:description"
         content=" Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača."
-      />
+      /> */}
       {/* <meta
         name="twitter:image"
         content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"

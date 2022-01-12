@@ -32,20 +32,13 @@ export default function ZoneKalkulator() {
     setVrijemeTrcanja(event.target.value);
   };
 
-  const ProjekcijaRez = () => {
+  const ProjekcijaRez = (procjena) => {
     const [rez, setRez] = useState(false);
     useDelay(2300, () => setRez(true));
     return (
       <>
         {rez ? (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div className="projekcijaRezultata">
             <div className="ispisCalcZone" style={{ margin: " 30px 10px" }}>
               Projekcije rezultata:
             </div>

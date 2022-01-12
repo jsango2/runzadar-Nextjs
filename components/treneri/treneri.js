@@ -25,6 +25,7 @@ const Treneri = () => {
           top: "20px",
         }}
       />
+
       <Tilt
         className="treneriCrta"
         transitionEasing={"cubic-bezier(.14,.58,.51,.99)  "}

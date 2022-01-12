@@ -196,6 +196,14 @@ export default function blog({ allPosts: { edges }, preview }) {
           property="og:image"
           content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
         />
+        <meta
+          property="og:description"
+          content="Blog sa temama o trčanju i iz trčanja. Prehrana, trening, tehnologija, knjige, zanimljivosti..."
+        />
+        <meta
+          property="twitter:description"
+          content="Blog sa temama o trčanju i iz trčanja. Prehrana, trening, tehnologija, knjige, zanimljivosti..."
+        />
       </Head>
       <div
         style={{
