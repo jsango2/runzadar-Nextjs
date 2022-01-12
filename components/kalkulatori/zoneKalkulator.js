@@ -181,7 +181,7 @@ export default function ZoneKalkulator() {
                     onChange={(e) => setUdaljenost(e.target.value)}
                     className="rounded"
                   >
-                    <option value=""></option>
+                    <option value="">Unesi udaljenost</option>
                     <option value="5">5k</option>
                     <option value="10">10k</option>
                     <option value="21">Polu maraton</option>
