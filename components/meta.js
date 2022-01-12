@@ -34,7 +34,6 @@ export default function Meta() {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 
       <link rel="canonical" href="https://www.runzadar.com" key="canonical" />
-      <meta name="twitter:title" content="Škola trčanja Zadar" />
       {/* <meta
         name="twitter:description"
         content=" Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača."

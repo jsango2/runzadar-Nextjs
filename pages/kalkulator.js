@@ -105,9 +105,11 @@ export default function Kalkulator() {
           content="Kalkulator - Škola trčanja Zadar"
           key="title"
         />
+        <meta name="twitter:title" content="Kalkulator - Škola trčanja Zadar" />
+
         <meta
           property="og:image"
-          content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
+          content="https://www.sportzone.hr/wp-content/uploads/2022/01/kalkulator-1.png"
         />
         <meta
           property="og:description"
