@@ -19,6 +19,7 @@ export default function Post({ post, posts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  console.log(post);
   const [datum, setDatum] = useState("-");
   // useEffect(() => {
   //   let datumPosta = post.date;
@@ -55,7 +56,7 @@ export default function Post({ post, posts, preview }) {
             />
             <meta
               name="twitter:description"
-              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+              content={`${post.seoDescription.seoDescription}`}
             />
             <meta
               name="twitter:image"
@@ -64,12 +65,12 @@ export default function Post({ post, posts, preview }) {
             <meta name="twitter:card" content="summary_large_image" />
             <meta
               name="description"
-              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+              content={`${post.seoDescription.seoDescription}`}
               key="desc"
             />
             <meta
               property="og:description"
-              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
+              content={`${post.seoDescription.seoDescription}`}
             />
             <meta property="og:url" content="https://www.runzadar.com" />
             <meta
@@ -85,7 +86,7 @@ export default function Post({ post, posts, preview }) {
               backgroundImage: `url(${post.featuredImage.node.sourceUrl})`,
               backgroundPosition: "50% 50%",
               backgroundSize: "cover ",
-              zIndex: "1",
+              zIndex: "0",
               borderRadius: "39px 39px 0 0 ",
               display: "flex",
               justifyContent: "center ",
