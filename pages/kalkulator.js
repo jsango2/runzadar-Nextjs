@@ -109,7 +109,7 @@ export default function Kalkulator() {
 
         <meta
           property="og:image"
-          content="https://www.sportzone.hr/wp-content/uploads/2022/01/kalkulator-1.png"
+          content="https://www.sportzone.hr/wp-content/uploads/2022/01/mockup2.png"
         />
         <meta
           property="og:description"
