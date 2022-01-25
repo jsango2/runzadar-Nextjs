@@ -116,7 +116,7 @@ const Prijava = () => {
                 name="datum"
                 required
               /> */}
-              <select id="year" name="Godina rodjenja">
+              <select name="Godina rodjenja" required>
                 <option>Godina rođenja</option>
                 <option value="1940">1940</option>
                 <option value="1941">1941</option>

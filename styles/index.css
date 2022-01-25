@@ -471,7 +471,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   /* padding: 40px; */
   border-radius: 39px;
 }
-.formCalc input,
+/* .formCalc input,
 select {
   background: #ffffff;
   border: 1px solid #aea8b3;
@@ -492,7 +492,7 @@ select {
   letter-spacing: 0.5px;
   color: #aea8b3;
   margin: 14px 0;
-}
+} */
 .rc-slider-handle {
   width: 28px !important;
   height: 28px !important;

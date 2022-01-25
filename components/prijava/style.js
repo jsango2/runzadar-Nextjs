@@ -67,7 +67,7 @@ export const Left = styled.div`
     padding-left: 35px;
     padding-right: 20px;
     letter-spacing: 0.5px;
-    color: #aea8b3;
+    color: #7f7b83;
     margin: 14px 0;
     &:nth-child(6) {
       margin-bottom: 0;
@@ -80,7 +80,8 @@ export const Left = styled.div`
     padding-left: 50px;
     padding-right: 30px;
 
-    & input {
+    & input,
+    select {
       width: 95%;
       height: 47px;
       margin: 14px 0;
@@ -96,7 +97,8 @@ export const Left = styled.div`
     padding-left: 50px;
     padding-right: 30px;
 
-    & input {
+    & input,
+    select {
       width: 95%;
       height: 47px;
       margin: 14px 0;
@@ -113,7 +115,8 @@ export const Left = styled.div`
     padding-right: 0;
     align-items: center;
 
-    & input {
+    & input,
+    select {
       width: 100%;
       height: 47px;
       margin: 14px 0;
