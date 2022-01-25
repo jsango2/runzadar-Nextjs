@@ -28,7 +28,7 @@ const Hero = () => {
         to="prijava"
         spy={true}
         smooth="easeInOutCubic"
-        offset={120}
+        offset={30}
         duration={1800}
       >
         <div style={{ position: "relative", zIndex: "10", cursor: "pointer" }}>

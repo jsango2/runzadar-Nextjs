@@ -77,6 +77,9 @@ export const Text2 = styled.div`
   font-size: 61px;
   font-weight: normal;
   width: 272px;
+  /* @media only screen and (max-width: 1200px) {
+    margin-left: 260px;
+  } */
   @media only screen and (max-width: 1000px) {
     display: none;
   }
@@ -107,148 +110,5 @@ export const PozadinaLinija = styled.div`
   @media only screen and (max-width: 420px) {
     left: -20px;
     justify-content: flex-start;
-  }
-`;
-export const Frame = styled.div`
-  position: relative;
-  top: -550px;
-  left: 40px;
-  width: 480px;
-  z-index: 10;
-  height: 520px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media only screen and (max-width: 600px) {
-    top: -523px;
-    transform: rotate(-6deg);
-    width: 66vw;
-    height: 72vw;
-  }
-  @media only screen and (max-width: 500px) {
-    top: -481px;
-    -webkit-transform: rotate(-6deg);
-    -ms-transform: rotate(-6deg);
-    transform: rotate(-6deg);
-    width: 60vw;
-    height: 69vw;
-    left: 90px;
-  }
-  @media only screen and (max-width: 470px) {
-    top: -466px;
-    -webkit-transform: rotate(-6deg);
-    -ms-transform: rotate(-6deg);
-    transform: rotate(-6deg);
-    width: 60vw;
-    height: 69vw;
-    left: 90px;
-  }
-  @media only screen and (max-width: 420px) {
-    top: -380px;
-    left: 79px;
-    width: 69vw;
-    height: 75vw;
-}
-@media only screen and (max-width: 400px) {
-  top: -366px;
-    left: 81px;
-    width: 69vw;
-    height: 75vw;
-}
-@media only screen and (max-width: 380px) {
-  top: -317px;
-    left: 81px;
-    width: 69vw;
-    height: 75vw;
-}
-@media only screen and (max-width: 360px) {
-  top: -376px;
-    left: 53px;
-    width: 76vw;
-    height: 81vw;
-}
-}
-  }
-`;
-export const Slika = styled.div`
-  width: 380px;
-  height: 380px;
-  position: relative;
-  left: 90px;
-  top: -85px;
-  transform: rotate(8.8deg);
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  @media only screen and (max-width: 600px) {
-    transform: rotate(2deg);
-    width: 51vw;
-    height: 50vw;
-    top: -144px;
-    x: ;
-    left: 95px;
-  }
-  @media only screen and (max-width: 550px) {
-    transform: rotate(2deg);
-    width: 50vw;
-    height: 51v;
-    top: -166px;
-
-    left: 85px;
-  }
-  @media only screen and (max-width: 500px) {
-    transform: rotate(2deg);
-    width: 49vw;
-    height: 51vw;
-    top: -186px;
-    left: 117px;
-  }
-  @media only screen and (max-width: 420px) {
-    top: -104px;
-    left: 123px;
-  }
-  @media only screen and (max-width: 400px) {
-    top: -104px;
-    left: 121px;
-    width: 52vw;
-    height: 53vw;
-  }
-  @media only screen and (max-width: 380px) {
-    width: 54vw;
-    height: 55vw;
-    top: -65px;
-    left: 110px;
-  }
-  @media only screen and (max-width: 360px) {
-    width: 59vw;
-    height: 59vw;
-    top: -114px;
-    left: 80px;
-  }
-  @media only screen and (max-width: 310px) {
-    width: 70vw;
-    height: 67vw;
-    top: -126px;
-    left: 74px;
-  }
-`;
-export const WrapFrame = styled.div`
-  position: absolute;
-  /* left: 33%;
-  top: 2%; */
-  width: 480px;
-  height: 520px;
-  @media only screen and (max-width: 600px) {
-    top: 160px;
-  }
-  @media only screen and (max-width: 550px) {
-    top: 196px;
-  }
-  @media only screen and (max-width: 420px) {
-    top: 115px;
-  }
-  @media only screen and (max-width: 360px) {
-    top: 155px;
   }
 `;

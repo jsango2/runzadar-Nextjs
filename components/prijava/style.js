@@ -51,7 +51,8 @@ export const Left = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  & input {
+  & input,
+  select {
     background: #ffffff;
     border: 1px solid #aea8b3;
     box-shadow: 0px 4px 8px rgba(28, 37, 44, 0.08);

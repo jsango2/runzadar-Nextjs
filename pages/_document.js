@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
           ></link>
           <link
-            href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;500;600;700;900&display=swap"
             rel="stylesheet"
           ></link>
         </Head>

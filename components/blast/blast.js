@@ -6,27 +6,24 @@ import {
   PhotoOfTheDay,
   Text,
   Text2,
-  Frame,
-  WrapFrame,
-  Slika,
 } from "./style.js";
 
 import Image from "next/image";
 
 // import { HeroWrap } from "./style.js"
 const grupa = [
-  <Image src="/foto1.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto2.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto3.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto4.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto5.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto6.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto7.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto8.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto9.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto10.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto11.jpg" layout="fill" objectFit="cover" />,
-  <Image src="/foto12.jpg" layout="fill" objectFit="cover" />,
+  <Image src="/foto1.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto2.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto3.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto4.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto5.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto6.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto7.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto8.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto9.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto10.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto11.jpg" layout="fill" objectFit="cover" className="stipe" />,
+  <Image src="/foto12.jpg" layout="fill" objectFit="cover" className="stipe" />,
 ];
 
 const Blast = () => {
@@ -51,13 +48,14 @@ const Blast = () => {
           <Naslov>Photo of the day</Naslov>
           <Text>BLAST FROM THE PAST</Text>
         </PhotoOfTheDay>
-        <WrapFrame>
-          <Slika>{grupa[currentImage]}</Slika>
-          <Frame>
-            <Image src="/polaroidframe.png" layout="fill" objectFit="cover" />
-          </Frame>
-        </WrapFrame>
-        <Text2 style={{ marginLeft: "70px" }}>SINCE 2015</Text2>
+        <div className="wrapPhototest">
+          {grupa[currentImage]}
+          <div className="tape">
+            <div className="tape"></div>
+            <Image src="/tapesm.png" layout="fill" />
+          </div>
+        </div>
+        <Text2>SINCE 2015</Text2>
       </PozadinaLinija>
     </WrapAll>
   );

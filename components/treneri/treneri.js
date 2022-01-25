@@ -34,15 +34,15 @@ const Treneri = () => {
       >
         <div
           style={{
-            position: "relative",
+            position: "absolute",
             width: "100%",
-            height: "600px",
-            top: "0px",
+            height: "200px",
+            top: "-50px",
             left: "0px",
             zIndex: "-1",
           }}
         >
-          <Image src="/linijautrke.svg" layout="fill" objectFit="cover" />
+          <Image src="/linijaForm.svg" layout="fill" objectFit="cover" />
         </div>
       </Tilt>
 
@@ -72,8 +72,8 @@ const Treneri = () => {
             košarkaškom klubu Zadar te trener Hrvatske i BiH košarkaške
             reprezentacije na Europskim prvenstvima. Kondicijski trener Hrvatske
             košarkaške reprezentacije na Olimpijskim igrama u Riju 2016. godine.
-            Trener triatlona a i sam rekreativni triatlonac već 6 godina.
-            Vanjski suradnik-predavač na Kineziološkom fakultetu u Zagrebu.
+            Trener triatlona a i sam rekreativni triatlonac. Vanjski
+            suradnik-predavač na Kineziološkom fakultetu u Zagrebu i Splitu.
             Aktivan u radu Triatlon kluba Zadar. Predsjednik Udruge kondicijskih
             trenera zadarske županije.{" "}
           </Text>

@@ -104,7 +104,7 @@ const Testimonial = () => {
           <Card>
             <Left>
               <Image
-                src="/musapstan1.png"
+                src="/rojc.jpeg"
                 objectFit="cover"
                 width={800}
                 height={700}
@@ -132,7 +132,7 @@ const Testimonial = () => {
           <Card>
             <Left>
               <Image
-                src="/musapstan1.png"
+                src="/stipe.jpeg"
                 objectFit="cover"
                 width={800}
                 height={700}

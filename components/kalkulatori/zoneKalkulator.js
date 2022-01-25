@@ -5,6 +5,7 @@ import Cleave from "cleave.js/react";
 import { timeStringToFloat, minTommss, converter, minTommss2 } from "./formule";
 import { useDelay } from "react-use-precision-timer";
 import Zona from "./zona";
+import Image from "next/image";
 
 export default function ZoneKalkulator() {
   const [isShown1, setIsShown1] = useState(true);
