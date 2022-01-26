@@ -138,7 +138,7 @@ export default function ZoneKalkulator() {
         <p style={{ marginTop: "10px", textAlign: "center", width: "94%" }}>
           Unesi najbolje vrijeme otrčano na standardnoj dužini. Kalkulator će ti
           predvidjeti vremena na svim standardnim trkačkim dionicama te će
-          odrediti tvoje trenažne zone (od Zone 1 do Zone 5). Najtočnije
+          odrediti tvoje trenažne zone (od Zone 1 do Zone 5). Naj točnije
           vrijednosti se dobiju ako se navede najbolje otrčani rezultat na 5 ili
           10k.
         </p>
