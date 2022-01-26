@@ -9,7 +9,7 @@ const NightRun = () => {
   return (
     <HeroWrap>
       <Overlay />
-      <video autoPlay muted loop="loop" className="NightRun">
+      <video autoPlay muted loop="loop" className="NightRun" playsInline>
         <source src="/nightrun.mp4" type="video/mp4" />
       </video>
       <WrapLogoText>

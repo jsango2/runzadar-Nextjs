@@ -11,7 +11,7 @@ const Hero = () => {
   const size = useWindowSize();
   return (
     <HeroWrap>
-      <video autoPlay muted loop="loop" className="videoHero">
+      <video autoPlay muted loop="loop" className="videoHero" playsInline>
         <source src="/kraciVideo.mp4" type="video/mp4" />
       </video>
       <HeroTitle>
