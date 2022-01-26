@@ -197,6 +197,7 @@ export default function blog({ allPosts: { edges }, preview }) {
           href="https://www.runzadar.com/blog"
           key="canonical"
         />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <meta property="og:url" content="https://www.runzadar.com/blog" />
 

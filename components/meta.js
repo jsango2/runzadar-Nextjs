@@ -37,12 +37,6 @@ export default function Meta() {
       />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 
-      <link rel="canonical" href="https://www.runzadar.com" key="canonical" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-
-      <meta property="og:url" content="https://www.runzadar.com" />
-
       <meta name="robots" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="UTF-8" />

@@ -111,6 +111,8 @@ export default function Kalkulator() {
           key="canonical"
         />
 
+        <meta name="twitter:card" content="summary_large_image" />
+
         <meta property="og:url" content="https://www.runzadar.com/kalkulator" />
 
         <meta name="twitter:title" content="Kalkulator - Škola trčanja Zadar" />
