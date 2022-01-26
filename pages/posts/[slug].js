@@ -43,7 +43,7 @@ export default function Post({ post, posts, preview }) {
         <>
           {" "}
           <Head>
-            <title>Blog post</title>
+            <title>Blog post - {post.title}</title>
             <meta
               property="og:title"
               content={`${post.title} - Škola trčanja Zadar`}

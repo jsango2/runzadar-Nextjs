@@ -112,6 +112,11 @@ export default function Kalkulator() {
           content="https://www.sportzone.hr/wp-content/uploads/2022/01/mockup2.png"
         />
         <meta
+          name="description"
+          content="Praktični kalkulator trčanja za izračun tempa, procjenu trkačkih zona i vremena trčanja na nekim standardnim dionicama."
+          key="desc"
+        />
+        <meta
           property="og:description"
           content="Praktični kalkulator trčanja za izračun tempa, procjenu trkačkih zona i vremena trčanja na nekim standardnim dionicama."
         />

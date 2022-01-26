@@ -40,11 +40,6 @@ export default function Meta() {
       <link rel="canonical" href="https://www.runzadar.com" key="canonical" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="description"
-        content="Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača. "
-        key="desc"
-      />
 
       <meta property="og:url" content="https://www.runzadar.com" />
 
