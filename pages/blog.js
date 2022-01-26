@@ -192,6 +192,14 @@ export default function blog({ allPosts: { edges }, preview }) {
           content="Blog - Škola trčanja Zadar"
           key="title"
         />
+        <link
+          rel="canonical"
+          href="https://www.runzadar.com/blog"
+          key="canonical"
+        />
+
+        <meta property="og:url" content="https://www.runzadar.com/blog" />
+
         <meta
           property="og:image"
           content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"

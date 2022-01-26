@@ -105,6 +105,14 @@ export default function Kalkulator() {
           content="Kalkulator - Škola trčanja Zadar"
           key="title"
         />
+        <link
+          rel="canonical"
+          href="https://www.runzadar.com/kalkulator"
+          key="canonical"
+        />
+
+        <meta property="og:url" content="https://www.runzadar.com/kalkulator" />
+
         <meta name="twitter:title" content="Kalkulator - Škola trčanja Zadar" />
 
         <meta

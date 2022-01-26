@@ -44,6 +44,12 @@ export default function Post({ post, posts, preview }) {
           {" "}
           <Head>
             <title>Blog post - {post.title}</title>
+            <link
+              rel="canonical"
+              href={`https://www.runzadar.com/posts/${post.slug}`}
+              key="canonical"
+            />
+
             <meta
               property="og:title"
               content={`${post.title} - Škola trčanja Zadar`}
@@ -71,7 +77,10 @@ export default function Post({ post, posts, preview }) {
               property="og:description"
               content={`${post.seoDescription.seoDescription}`}
             />
-            <meta property="og:url" content="https://www.runzadar.com" />
+            <meta
+              property="og:url"
+              content={`https://www.runzadar.com/posts/${post.slug}`}
+            />
             <meta
               property="og:image"
               content={`${post.featuredImage.node.sourceUrl}`}
