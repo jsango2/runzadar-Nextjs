@@ -39,7 +39,7 @@ export default function Meta() {
         content=" Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača."
       /> */}
       {/* <meta
-        name="twitter:image"
+        name="twitter:image" 
         content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
       /> */}
       <meta name="twitter:card" content="summary_large_image" />
