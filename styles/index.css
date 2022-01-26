@@ -1023,6 +1023,9 @@ select {
   }
 }
 @media only screen and (max-width: 600px) {
+  .wrapPhototest {
+    left: -47%;
+  }
   .NightRun {
     object-fit: cover;
     width: auto;

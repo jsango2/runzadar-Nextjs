@@ -36,6 +36,11 @@ export const WrapForm = styled.div`
     width: 95vw;
   }
   @media only screen and (max-width: 600px) {
+    width: 116vw;
+    border-radius: 0;
+    top: -250px;
+  }
+  @media only screen and (max-width: 420px) {
     width: 100vw;
     border-radius: 0;
     top: -250px;

@@ -113,7 +113,7 @@ export const Left = styled.div`
   @media only screen and (max-width: 750px) {
     width: 100%;
     border-radius: 0;
-    height: 60%;
+    height: 53%;
 
     flex-direction: column;
   }

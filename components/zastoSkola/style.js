@@ -52,10 +52,10 @@ export const Naslov = styled.h1`
   font-size: 40px;
   line-height: 120%;
   z-index: 5;
-  @media only screen and (max-width: 600px) {
+  /* @media only screen and (max-width: 600px) {
     width: 330px;
-  }
-  @media only screen and (max-width: 420px) {
+  } */
+  @media only screen and (max-width: 600px) {
     font-size: 28px;
     width: 80%;
 
@@ -92,7 +92,8 @@ export const Text = styled.p`
   color: #ffffff;
   z-index: 4;
   @media only screen and (max-width: 600px) {
-    width: 353px;
+    margin-left: 39px;
+    width: 83%;
     font-weight: 500;
     font-size: 14px;
     line-height: 140%;
@@ -192,10 +193,11 @@ export const Clanarina = styled.div`
   @media only screen and (max-width: 600px) {
     width: 85%;
     height: 220px;
-  }
-  @media only screen and (max-width: 420px) {
     font-size: 14px;
   }
+  /* @media only screen and (max-width: 420px) {
+    font-size: 14px;
+  } */
 `;
 export const Box = styled.div`
   width: 13%;
