@@ -47,9 +47,11 @@ const Treneri = () => {
       </Tilt>
 
       <WrapTreneri>
-        <Trener data-sal="fade" data-sal-delay="300" data-sal-easing="ease">
+        {/* <Trener data-sal="fade" data-sal-delay="300" data-sal-easing="ease"> */}
+        <Trener>
           <div className="trenerImg">
             <Image
+              priority
               src="/jure.png"
               alt="coach Jure"
               layout="fill"
@@ -78,9 +80,11 @@ const Treneri = () => {
             trenera zadarske županije.{" "}
           </Text>
         </Trener>
-        <Trener data-sal="fade" data-sal-delay="800" data-sal-easing="ease">
+        {/* <Trener data-sal="fade" data-sal-delay="800" data-sal-easing="ease"> */}
+        <Trener>
           <div className="trenerImg">
             <Image
+              priority
               src="/tuta.png"
               alt="coach Tuta"
               layout="fill"

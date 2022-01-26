@@ -27,6 +27,7 @@ const Partneri = () => {
         <SponzorBox>
           <a href="https://www.sport-moda.hr">
             <Image
+              priority
               src="/sportmoda.png"
               // width={20}
               // height={20}
@@ -38,6 +39,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
+            priority
             src="/wings.png"
             // width={20}
             // height={20}
@@ -48,6 +50,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
+            priority
             src="/tkzadar.png"
             // width={20}
             // height={20}
@@ -59,6 +62,7 @@ const Partneri = () => {
           {" "}
           <a href="https://www.zadarnight.run">
             <Image
+              priority
               src="/nightrunlogo-01.svg"
               // width={20}
               // height={20}
@@ -70,6 +74,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
+            priority
             src="/logobijeli.png"
             // width={20}
             // height={20}
@@ -80,6 +85,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
+            priority
             src="/4shelogo.png"
             // width={20}
             // height={20}
@@ -90,6 +96,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
+            priority
             src="/4f.png"
             // width={20}
             // height={20}
@@ -113,6 +120,7 @@ const Partneri = () => {
         <SponzorBox>
           {" "}
           <Image
+            priority
             src="/057.png"
             // width={20}
             // height={20}
