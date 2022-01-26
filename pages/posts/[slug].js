@@ -19,7 +19,6 @@ export default function Post({ post, posts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(post);
   const [datum, setDatum] = useState("-");
   // useEffect(() => {
   //   let datumPosta = post.date;
