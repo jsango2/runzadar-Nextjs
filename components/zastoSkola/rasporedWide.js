@@ -149,6 +149,7 @@ const RasporedWide = () => {
           y={[-125, -15]}
         >
           <Image
+            priority
             className="zrakeParallax"
             src="/Vector.png"
             alt=""
@@ -163,6 +164,7 @@ const RasporedWide = () => {
           y={[-120, 20]}
         >
           <Image
+            priority
             className="zrakeParallax"
             src="/Vector.png"
             alt=""
