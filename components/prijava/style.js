@@ -56,7 +56,7 @@ export const Left = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  & input,
+  /* & input,
   select {
     background: #ffffff;
     border: 1px solid #aea8b3;
@@ -78,7 +78,7 @@ export const Left = styled.div`
       margin-bottom: 0;
       padding-left: 0;
       padding-right: 0;
-    }
+    } */
   }
   @media only screen and (max-width: 900px) {
     width: 68%;

@@ -8,10 +8,8 @@ import {
   Text,
 } from "./style.js";
 import Pozadina from "../../svg/pozadinTreneri.svg";
-import Jure from "../../images/jure.png";
-import Tuta from "../../images/tuta.png";
+
 import KosaCrta from "../../svg/kosacrta.svg";
-import { Parallax } from "react-scroll-parallax";
 import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 

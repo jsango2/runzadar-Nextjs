@@ -156,6 +156,7 @@ p {
   color: #ffffff;
   font-size: 16px;
 }
+
 .navTitle {
   font-weight: 900;
   font-size: 16px;
@@ -255,7 +256,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   z-index: 0;
 }
 .HeroNaslovAnimacija {
-  width: 172%;
+  width: 100%;
 }
 .NightRun {
   object-fit: cover;
@@ -386,6 +387,47 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   flex-direction: column;
   align-items: center;
   /* width: 100%; */
+}
+.formular input {
+  background: #ffffff;
+  border: 1px solid #aea8b3;
+  box-shadow: 0px 4px 8px rgba(28, 37, 44, 0.08);
+  border-radius: 20px;
+  width: 416px;
+  height: 47px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 145%;
+  padding-left: 35px;
+  padding-right: 20px;
+  letter-spacing: 0.5px;
+  color: #7f7b83;
+  margin: 14px 0;
+}
+.formular select {
+  background: #ffffff;
+  border: 1px solid #aea8b3;
+  box-shadow: 0px 4px 8px rgba(28, 37, 44, 0.08);
+  border-radius: 20px;
+  width: 416px;
+  height: 47px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 145%;
+  padding-left: 30px;
+  padding-right: 20px;
+  letter-spacing: 0.5px;
+  color: #7f7b83;
+  margin: 14px 0;
+}
+.formular:nth-child(6) {
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 .nightRunDiv {
   width: 60%;

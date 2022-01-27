@@ -25,26 +25,25 @@ export const HeroWrap = styled.div`
   }
 `;
 export const HeroTitle = styled.h1`
-  width: 600px;
-  height: 292.33px;
-  margin: 100px 0 0px 0;
-  font-family: "Montserrat", sans-serif;
-  font-style: italic;
-  font-weight: 900;
-  font-size: 67px;
-  line-height: 120%;
-  z-index: 2;
-  @media only screen and (max-width: 900px) {
-    width: 300px;
-    height: 70px;
-    margin: 100px 0 120px 0;
-  }
+    width: 170%;
+    height: 14vw;
+    margin: 91px 0 38px 0;
+    font-family: "Montserrat",sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 67px;
+    line-height: 120%;
+    z-index: 2;
+}
+
   @media only screen and (max-width: 600px) {
-    width: 100%;
+    width: 600px;
     height: 70px;
-    margin: 100px 0 120px 0;
+    margin: 100px 0 136px 0;
   }
   @media only screen and (max-width: 420px) {
-    margin: 200px 0 40px 0;
+    width: 400px;
+
+    margin: 200px 0 60px 0;
   }
 `;

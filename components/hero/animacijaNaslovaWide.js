@@ -1,12 +1,12 @@
 const animacijaNaslova1150 = {
-  v: "5.6.8",
+  v: "4.8.0",
+  meta: { g: "LottieFiles AE ", a: "", k: "", d: "", tc: "" },
   fr: 50,
   ip: 0,
   op: 262,
-  w: 600,
-  h: 188,
-  nm:
-    "2021-12-10 animacija intro naslova zd je stvoren za trcanje (korigirano hero screen)",
+  w: 1336,
+  h: 120,
+  nm: "2022-01-27 animacija intro naslova zd je stvoren za trcanje (korigirano hero screen) 2",
   ddd: 1,
   assets: [],
   fonts: {
@@ -29,7 +29,7 @@ const animacijaNaslova1150 = {
       ks: {
         o: { a: 0, k: 0, ix: 11 },
         r: { a: 0, k: 0, ix: 10 },
-        p: { a: 0, k: [181.785, 120.968, 0], ix: 2 },
+        p: { a: 0, k: [184.785, 86.968, 0], ix: 2 },
         a: { a: 0, k: [60, 60, 0], ix: 1 },
         s: { a: 0, k: [89, 89, 100], ix: 6 },
       },
@@ -49,7 +49,21 @@ const animacijaNaslova1150 = {
       ks: {
         o: { a: 0, k: 0, ix: 11 },
         r: { a: 0, k: 0, ix: 10 },
-        p: { a: 0, k: [255.535, 75.923, 0], ix: 2 },
+        p: {
+          a: 1,
+          k: [
+            {
+              i: { x: 0.43, y: 1 },
+              o: { x: 0.167, y: 0.167 },
+              t: 29,
+              s: [1203.535, 75.923, 0],
+              to: [-157, 0, 0],
+              ti: [157, 0, 0],
+            },
+            { t: 146, s: [261.535, 75.923, 0] },
+          ],
+          ix: 2,
+        },
         a: { a: 0, k: [60, 60, 0], ix: 1 },
         s: { a: 0, k: [100, 100, 100], ix: 6 },
       },
@@ -156,6 +170,12 @@ const animacijaNaslova1150 = {
                     i: { x: [0.1], y: [1] },
                     o: { x: [0.9], y: [0] },
                     t: 158,
+                    s: [0.869199693203, 0.919050872326, 0, 1],
+                  },
+                  {
+                    i: { x: [0.1], y: [1] },
+                    o: { x: [0.9], y: [0] },
+                    t: 280,
                     s: [0.869199693203, 0.919050872326, 0, 1],
                   },
                   { t: 298, s: [0.999984741211, 1, 1, 1] },
@@ -1432,5 +1452,5 @@ const animacijaNaslova1150 = {
       fFamily: "Montserrat",
     },
   ],
-}
-export default animacijaNaslova1150
+};
+export default animacijaNaslova1150;

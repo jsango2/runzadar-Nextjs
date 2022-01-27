@@ -1,23 +1,14 @@
 import React from "react";
 import {
-  WrapAll,
-  WrapDiv,
-  Naslov,
   Naslov2,
-  Text,
-  Trkac,
   Raspored,
-  Zrake,
   RasporedWrap,
   WrapNaslovRaspored,
   Box,
-  Clanarina,
-  Overlay,
 } from "./style.js";
-import LocationIcon from "../../svg/location.svg";
-import KosaCrta from "../../svg/kosacrta.svg";
+
 import { Parallax } from "react-scroll-parallax";
-import nightRunZrake from "../../images/Vector.png";
+
 import Image from "next/image";
 import useWindowSize from "../helper/usewindowsize";
 
