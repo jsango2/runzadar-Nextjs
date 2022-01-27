@@ -488,9 +488,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .treneriCrta {
     top: 0px;
   }
-  /* .lokacija {
-    font-size: 10px !important  ;
-  } */
+  .lokacija {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 145%;
+    /* or 23px */
+
+    letter-spacing: 0.5px;
+
+    /* SUNRISE / White */
+
+    color: #ffffff;
+  }
   .isSubmitinig {
     color: black;
     display: flex;

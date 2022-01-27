@@ -67,13 +67,13 @@ export const Naslov2 = styled.h3`
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   color: white;
-  margin: 0 0 30px 10px;
+  margin: 0 0 30px 25px;
   font-weight: 700;
   font-size: 40px;
   line-height: 120%;
   z-index: 5;
   @media only screen and (max-width: 600px) {
-    margin: 0 0 30px 0px;
+    margin: 0 0 30px 25px;
   }
   @media only screen and (max-width: 420px) {
     margin: 0 0 30px 15px;
@@ -153,8 +153,11 @@ export const Raspored = styled.div`
   background-size: cover; */
   background: linear-gradient(0deg, #d75733, #d75733);
   z-index: 0;
+  @media only screen and (max-width: 1000px) {
+    height: 395px;
+  }
   @media only screen and (max-width: 600px) {
-    height: 590px;
+    height: 560px;
   }
   @media only screen and (max-width: 420px) {
     height: 590px;
@@ -164,6 +167,7 @@ export const RasporedWrap = styled.div`
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   text-align: left;
   flex-wrap: wrap;
@@ -203,17 +207,17 @@ export const Box = styled.div`
   width: 13%;
   min-width: 150px;
   font-family: "Montserrat", sans-serif;
-  min-height: 105px;
+  min-height: 75px;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   /* background-color: rgba(255, 255, 255, 0.13); */
-  & p {
-    font-size: 12px;
+  @media only screen and (max-width: 1000px) {
+    margin: 0 0 0 30px;
   }
   @media only screen and (max-width: 600px) {
-    margin: 15px 0;
+    margin: 0 0 0 30px;
   }
   @media only screen and (max-width: 420px) {
     min-width: 110px;

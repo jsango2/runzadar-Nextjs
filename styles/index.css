@@ -599,6 +599,14 @@ select {
   transition: width 0.7s, height 0.7s, opacity 1.2s;
   transition-delay: 0.5s;
 }
+.wrapRaspored {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
 .wrapResultCalc {
   display: flex;
   flex-direction: column;
@@ -731,6 +739,19 @@ select {
   padding-bottom: 38px;
   margin-top: 11px;
 }
+.lokacija {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 145%;
+  /* or 23px */
+
+  letter-spacing: 0.5px;
+
+  /* SUNRISE / White */
+
+  color: #ffffff;
+}
 
 .allKalkulatorWrapZone {
   height: auto;
@@ -838,6 +859,13 @@ select {
     left: -39%;
     transform: rotate(11deg);
     transform: translate(50%, 0);
+  }
+  .wrapRaspored {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 30px;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -1023,6 +1051,13 @@ select {
   }
 }
 @media only screen and (max-width: 600px) {
+  .wrapRaspored {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 40px;
+  }
   .wrapPhototest {
     left: -47%;
   }
@@ -1143,9 +1178,7 @@ select {
   .treneriCrta {
     top: 0px;
   }
-  /* .lokacija {
-    font-size: 10px !important  ;
-  } */
+
   .isSubmitinig {
     color: black;
     display: flex;
