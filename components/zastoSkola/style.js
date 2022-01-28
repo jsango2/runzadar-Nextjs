@@ -16,7 +16,7 @@ export const WrapAll = styled.div`
     height: 1307px;
   }
   & .parallax-inner {
-    height: 466px !important;
+    height: 400px !important;
   }
 `;
 

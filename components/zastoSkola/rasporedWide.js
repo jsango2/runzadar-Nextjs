@@ -137,7 +137,7 @@ const RasporedWide = () => {
       {size.width < 600 ? (
         <Parallax
           // className="zrakeParallaxRaspored"
-          y={[-125, -15]}
+          y={[-155, -5]}
         >
           <Image
             priority
