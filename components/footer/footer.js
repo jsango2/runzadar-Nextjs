@@ -57,7 +57,7 @@ const Footer = (posts) => {
       >
         Sport Zone j.d.o.o. <br />
         Ante Starčevića 8, Zadar <br />
-        IBAN: HR4924840081135097153 BIC: RZBHHR2X info@runzadar.com
+        IBAN: HR4924840081135097153 BIC: RZBHHR2X info@runzadar.com 091/4428097
       </Social2>
       <Social style={{ marginTop: "auto" }}>
         <AnimationWrap>

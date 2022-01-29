@@ -66,7 +66,6 @@ export const Social2 = styled.div`
   text-transform: uppercase;
   color: #ffffff;
 
-  cursor: pointer;
   @media only screen and (max-width: 520px) {
     flex-direction: column;
     width: 90%;
