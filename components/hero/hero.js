@@ -11,6 +11,9 @@ const Hero = () => {
   const size = useWindowSize();
   return (
     <HeroWrap>
+      <h1 style={{ display: "none" }}>
+        Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača.
+      </h1>
       <video autoPlay muted loop="loop" className="videoHero" playsInline>
         <source src="/kraciVideo.mp4" type="video/mp4" />
       </video>
