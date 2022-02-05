@@ -245,6 +245,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 700 !important;
   color: black !important;
 }
+.trenerCard {
+  position: relative;
+  top: 110px;
+  opacity: 0;
+}
+.datePicker {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.trenerCardSlideUp {
+  position: relative;
+  top: 0;
+  opacity: 1;
+}
 .videoHero {
   position: absolute;
   width: 135%;
@@ -288,6 +306,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 200px;
   height: 50px;
   opacity: 0.9;
+}
+.formWrappFlex {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .wrapSuccess {
   width: 400px;

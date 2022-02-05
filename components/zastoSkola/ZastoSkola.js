@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ref } from "react";
 import {
   WrapAll,
   WrapDiv,
@@ -21,13 +21,12 @@ import nightRunZrake from "../../images/Vector.png";
 import Image from "next/image";
 import useWindowSize from "../helper/usewindowsize";
 import RasporedWide from "./rasporedWide.js";
-
 // import { HeroWrap } from "./style.js"
 
 const ZastoSkola = () => {
   const size = useWindowSize();
   return (
-    <WrapAll>
+    <WrapAll ref={ref}>
       <WrapDiv>
         <Naslov>Zašto odabrati trčanje i Školu trčanja Zadar?</Naslov>
         <div style={{ height: "47px" }}></div>
@@ -38,19 +37,28 @@ const ZastoSkola = () => {
           članovima je individualiziran. <br />
           <br />
           <KosaCrta
-            style={{ position: "absolute", transform: "translate(-35px,-5px" }}
+            style={{
+              position: "absolute",
+              transform: "translate(-35px,-5px",
+            }}
           />
           Trčanje je najbolji način za regulaciju tjelesne težine. <br />
           <br />
           <KosaCrta
-            style={{ position: "absolute", transform: "translate(-35px,-5px" }}
+            style={{
+              position: "absolute",
+              transform: "translate(-35px,-5px",
+            }}
           />
           Treniranje u grupi zajedno s trkačima istih mogućnostima znači dodatnu
           motivaciju trkaču i postizanje optimalnih pomaka u sposobnostima.{" "}
           <br />
           <br />
           <KosaCrta
-            style={{ position: "absolute", transform: "translate(-35px,-5px" }}
+            style={{
+              position: "absolute",
+              transform: "translate(-35px,-5px",
+            }}
           />
           Edukacija korisnika o pravilnoj prehrani, osnovama treninga i važnosti
           pravilnog odabira opreme za trčanje.

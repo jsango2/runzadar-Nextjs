@@ -8,7 +8,6 @@ import {
 } from "./style.js";
 
 import { Parallax } from "react-scroll-parallax";
-
 import Image from "next/image";
 import useWindowSize from "../helper/usewindowsize";
 
@@ -134,10 +133,11 @@ const RasporedWide = () => {
           </div>
         </RasporedWrap>
       </WrapNaslovRaspored>
+
       {size.width < 600 ? (
         <Parallax
           // className="zrakeParallaxRaspored"
-          y={[-155, -5]}
+          y={[-155, 25]}
         >
           <Image
             priority

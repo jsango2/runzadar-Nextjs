@@ -75,7 +75,7 @@ export const Trener = styled.div`
   display: flex;
   flex-direction: column;
   color: #ffffff;
-  transition: opacity 2s ease-in;
+  transition: opacity 1s, top 1s ease-out;
   margin: 0 15px;
   @media only screen and (max-width: 700px) {
     margin-top: 50px;

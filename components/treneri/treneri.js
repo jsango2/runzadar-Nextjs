@@ -8,12 +8,17 @@ import {
   Text,
 } from "./style.js";
 import Pozadina from "../../svg/pozadinTreneri.svg";
-
+import { useInView } from "react-intersection-observer";
 import KosaCrta from "../../svg/kosacrta.svg";
 import Tilt from "react-parallax-tilt";
 import Image from "next/image";
+import TrenerComp from "./TrenerComp.js";
 
 const Treneri = () => {
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0.35,
+  });
   return (
     <WrapAll>
       <Naslov>VAŠI TRENERI</Naslov>
@@ -34,8 +39,8 @@ const Treneri = () => {
           style={{
             position: "absolute",
             width: "100%",
-            height: "200px",
-            top: "-50px",
+            height: "310px",
+            top: "-85px",
             left: "0px",
             zIndex: "-1",
           }}
@@ -45,28 +50,10 @@ const Treneri = () => {
       </Tilt>
 
       <WrapTreneri>
-        {/* <Trener data-sal="fade" data-sal-delay="300" data-sal-easing="ease"> */}
-        <Trener>
-          <div className="trenerImg">
-            <Image
-              priority
-              src="/jure.png"
-              alt="coach Jure"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <Naslov2>
-            <KosaCrta
-              style={{
-                position: "absolute",
-                transform: "translate(-25px,0)",
-              }}
-            />
-            JURE ŠANGO
-          </Naslov2>
-          <Text>
-            Školu trčanja Zadar organizira i vodi magistar kineziologije Jure
+        <TrenerComp
+          slika="/jure.png"
+          ime="JURE ŠANGO"
+          text="Školu trčanja Zadar organizira i vodi magistar kineziologije Jure
             Šango, kondicijski trener sa petnaestogodišnjim iskustvom u radu sa
             sportašima i rekreativcima. Deset godina kondicijski trener u
             košarkaškom klubu Zadar te trener Hrvatske i BiH košarkaške
@@ -75,32 +62,12 @@ const Treneri = () => {
             Trener triatlona a i sam rekreativni triatlonac. Vanjski
             suradnik-predavač na Kineziološkom fakultetu u Zagrebu i Splitu.
             Aktivan u radu Triatlon kluba Zadar. Predsjednik Udruge kondicijskih
-            trenera zadarske županije.{" "}
-          </Text>
-        </Trener>
-        {/* <Trener data-sal="fade" data-sal-delay="800" data-sal-easing="ease"> */}
-        <Trener>
-          <div className="trenerImg">
-            <Image
-              priority
-              src="/tuta.png"
-              alt="coach Tuta"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-
-          <Naslov2>
-            <KosaCrta
-              style={{
-                position: "absolute",
-                transform: "translate(-25px,0px)",
-              }}
-            />
-            IVAN TUTA
-          </Naslov2>
-          <Text>
-            Suradnik Škole trčanja Zadar je naš iskusni triatlonac Ivan Tuta.
+            trenera zadarske županije."
+        />
+        <TrenerComp
+          slika="/tuta.png"
+          ime="IVAN TUTA"
+          text=" Suradnik Škole trčanja Zadar je naš iskusni triatlonac Ivan Tuta.
             Ivan Tuta je apsolvent kineziološkog fakulteta sa usmjerenjem
             kondicijske pripreme sportaša. Bavi se triatlonom već deset godina i
             postiže zapažene rezultate. Višestruki je finisher na Ironman
@@ -108,9 +75,8 @@ const Treneri = () => {
             natjecanjima u Hrvatskoj. Trener je u triatlon klubu Zadar. ‍
             “Postigli smo tako lijepe stvari sa našim programima u Školi
             trčanja. Jako veliki broj ljudi je u potpunosti promjenilo svoj stil
-            života i na to smo jako ponosni.” – Ivan Tuta
-          </Text>
-        </Trener>
+            života i na to smo jako ponosni.” – Ivan Tuta"
+        />
       </WrapTreneri>
     </WrapAll>
   );

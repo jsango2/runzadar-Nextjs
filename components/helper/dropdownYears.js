@@ -7,7 +7,11 @@ function DropdownYears() {
   useEffect(() => {
     var options = [];
     for (var i = currentYear; i >= 1950; i--) {
-      options.push(<option value={i}>{i}</option>);
+      options.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
     }
     setYearOption(options);
   }, []); // Empty array ensures that effect is only run on mount
