@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang="en">
+      <Html lang="hr">
         <Head>
           <link
             rel="stylesheet"
@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           ></link>
         </Head>
-        <title>Your site title</title>
+        {/* <title>Your site title</title> */}
         {this.props.styleTags}
         <body>
           <Main />
