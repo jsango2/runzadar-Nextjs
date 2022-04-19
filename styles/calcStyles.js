@@ -34,7 +34,7 @@ export const WrapForm = styled.div`
   }  */
 `;
 
-export const TextNaslovni = styled.div`
+export const TextNaslovni = styled.h1`
   position: relative;
   font-size: 26px;
   width: 900px;

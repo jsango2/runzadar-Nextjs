@@ -19,7 +19,6 @@ const TrenerComp = ({ slika, ime, text }) => {
     threshold: 0.25,
     // triggerOnce: true,
   });
-  console.log(slika);
   return (
     <Trener
       ref={ref}

@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps, router }) {
   const [animation, setAnimation] = useState(animations[startIndex]);
   const [exitBefore, setExitBefore] = useState(false);
 
-  console.log("exit before ", exitBefore);
   return (
     <div className="app-wrap">
       <LazyMotion features={domAnimation}>
