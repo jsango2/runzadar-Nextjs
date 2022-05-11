@@ -55,7 +55,9 @@ const PripremiSe = () => {
               </a>
             </Utrka>
             <Utrka>
-              <strong>01.10.</strong> 4She Run by Sport&Moda
+              <a href="https://www.stotinka.hr/hrv/dogadjaj/1683">
+                <strong>11.6.</strong> Privlaka Run
+              </a>
             </Utrka>
           </Utrke>
           <Buttons>
