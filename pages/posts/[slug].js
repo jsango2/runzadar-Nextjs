@@ -147,7 +147,7 @@ export default function Post({ post, posts, preview }) {
                 fontSize: "21px",
               }}
             >
-              {/* <Text dangerouslySetInnerHTML={{ __html: post.content }}></Text> */}
+              <Text dangerouslySetInnerHTML={{ __html: post.content }}></Text>
             </div>
           </WrapText>
           {/* 
