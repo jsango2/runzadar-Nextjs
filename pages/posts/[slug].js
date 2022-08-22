@@ -14,27 +14,27 @@ import {
   Text,
 } from "../../styles/postStyles";
 
-export default function Post({}) {
+export default function Post({ post }) {
   const router = useRouter();
-  // if (!router.isFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  if (!router.isFallback && !post?.slug) {
+    return <ErrorPage statusCode={404} />;
+  }
   const [datum, setDatum] = useState("-");
-  // useEffect(() => {
-  //   let datumPosta = post.date;
-  //   function formatDate(date) {
-  //     var d = new Date(date),
-  //       month = "" + (d.getMonth() + 1),
-  //       day = "" + d.getDate(),
-  //       year = d.getFullYear();
+  useEffect(() => {
+    let datumPosta = post.date;
+    function formatDate(date) {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
 
-  //     if (month.length < 2) month = "0" + month;
-  //     if (day.length < 2) day = "0" + day;
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-  //     return [day, month, year].join(".");
-  //   }
-  //   setDatum(formatDate(datumPosta));
-  // }, []);
+      return [day, month, year].join(".");
+    }
+    setDatum(formatDate(datumPosta));
+  }, []);
   return (
     <Layout>
       {router.isFallback ? (
@@ -43,7 +43,7 @@ export default function Post({}) {
         <>
           {" "}
           <Head>
-            {/* <title>Blog post - {post.title}</title>
+            <title>Blog post - {post.title}</title>
             <link
               rel="canonical"
               href={`https://www.runzadar.com/posts/${post.slug}`}
@@ -84,14 +84,14 @@ export default function Post({}) {
             <meta
               property="og:image"
               content={`${post.featuredImage.node.sourceUrl}`}
-            /> */}
+            />
           </Head>
           <div
             style={{
               position: "relative",
               width: "100%",
               height: "450px",
-              // backgroundImage: `url(${post.featuredImage.node.sourceUrl})`,
+              backgroundImage: `url(${post.featuredImage.node.sourceUrl})`,
               backgroundPosition: "50% 50%",
               backgroundSize: "cover ",
               zIndex: "0",
@@ -111,20 +111,20 @@ export default function Post({}) {
                     // objectFit="cover"
                   />
                 </div>
-                {/* {post.title}{" "} */}
+                {post.title}{" "}
               </Naslov>
             </WrapNaslovButton>
           </div>
           <WrapText>
             <div style={{ marginTop: "2rem", display: "flex" }}>
-              {/* {post.tags.edges.map((tag) => (
+              {post.tags.edges.map((tag) => (
                 <div
                   key={tag.node.name}
                   style={{ margin: "4px", color: "grey" }}
                 >
                   #{tag.node.name}
                 </div>
-              ))} */}
+              ))}
             </div>
 
             <div
@@ -147,7 +147,7 @@ export default function Post({}) {
                 fontSize: "21px",
               }}
             >
-              {/* <Text dangerouslySetInnerHTML={{ __html: post.content }}></Text> */}
+              <Text dangerouslySetInnerHTML={{ __html: post.content }}></Text>
             </div>
           </WrapText>
           {/*
@@ -161,22 +161,21 @@ export default function Post({}) {
 
 ///------//
 
-// export const getStaticProps = async ({
-//   params,
-//   preview = false,
-//   previewData,
-// }) => {
-//   const data = await getPostAndMorePosts(params?.slug, preview, previewData);
-
-//   return {
-//     props: {
-//       preview,
-//       post: data.post,
-//       posts: data.posts,
-//     },
-//     revalidate: 10,
-//   };
-// };
+export const getStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
+  const data = await getPostAndMorePosts(params?.slug, preview, previewData);
+  console.log(data.post);
+  return {
+    props: {
+      post: data.post,
+      // posts: data.posts,
+    },
+    revalidate: 10,
+  };
+};
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
