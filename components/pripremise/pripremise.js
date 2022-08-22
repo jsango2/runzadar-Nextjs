@@ -45,20 +45,12 @@ const PripremiSe = () => {
           <Naslov>PRIPREMI SE ZA IDUĆU UTRKU!</Naslov>
           <Utrke>
             <Utrka>
-              <a href="https://www.zadarnight.run">
-                <strong>09.04.</strong> Zadar Night Run 2022
-              </a>
+              <a href="https://www.zadarnight.run">Zadar Night Run 2023</a>
             </Utrka>
             <Utrka>
-              <a href="https://www.wingsforlife.com">
-                <strong>09.05.</strong> WIngs For Life 2022
-              </a>
+              <a href="https://www.wingsforlife.com">WIngs For Life 2023</a>
             </Utrka>
-            <Utrka>
-              <a href="https://www.stotinka.hr/hrv/dogadjaj/1683">
-                <strong>11.6.</strong> Privlaka Run
-              </a>
-            </Utrka>
+            <Utrka>Privlaka Run</Utrka>
           </Utrke>
           <Buttons>
             <Veza
