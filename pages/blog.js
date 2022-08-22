@@ -320,9 +320,9 @@ export default function blog({ allPosts: { edges }, preview }) {
   );
 }
 
-// export async function getStaticProps({ preview = false }) {
-//   const allPosts = await getAllPostsForHome(preview);
-//   return {
-//     props: { allPosts, preview },
-//   };
-// }
+export async function getStaticProps({ preview = false }) {
+  const allPosts = await getAllPostsForHome(preview);
+  return {
+    props: { allPosts, preview },
+  };
+}
