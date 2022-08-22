@@ -20,21 +20,21 @@
 //     return <ErrorPage statusCode={404} />;
 //   }
 //   const [datum, setDatum] = useState("-");
-//   // useEffect(() => {
-//   //   let datumPosta = post.date;
-//   //   function formatDate(date) {
-//   //     var d = new Date(date),
-//   //       month = "" + (d.getMonth() + 1),
-//   //       day = "" + d.getDate(),
-//   //       year = d.getFullYear();
+//   useEffect(() => {
+//     let datumPosta = post.date;
+//     function formatDate(date) {
+//       var d = new Date(date),
+//         month = "" + (d.getMonth() + 1),
+//         day = "" + d.getDate(),
+//         year = d.getFullYear();
 
-//   //     if (month.length < 2) month = "0" + month;
-//   //     if (day.length < 2) day = "0" + day;
+//       if (month.length < 2) month = "0" + month;
+//       if (day.length < 2) day = "0" + day;
 
-//   //     return [day, month, year].join(".");
-//   //   }
-//   //   setDatum(formatDate(datumPosta));
-//   // }, []);
+//       return [day, month, year].join(".");
+//     }
+//     setDatum(formatDate(datumPosta));
+//   }, []);
 //   return (
 //     <Layout>
 //       {router.isFallback ? (
@@ -171,15 +171,6 @@
 //   };
 // }
 
-// export async function getStaticPaths() {
-//   const allPosts = await getAllPostsWithSlug();
-
-//   return {
-//     paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
-//     fallback: false,
-//   };
-// }
-
 import React from "react";
 
 const Slug = () => {
@@ -187,3 +178,12 @@ const Slug = () => {
 };
 
 export default Slug;
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPostsWithSlug();
+
+  return {
+    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
+    fallback: false,
+  };
+}
