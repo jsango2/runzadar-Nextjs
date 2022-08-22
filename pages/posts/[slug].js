@@ -180,7 +180,9 @@ export const getStaticProps = async ({
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
-
+  allPosts.edges.map(({ node }) =>
+    console.log("POSTOVI:" + `/posts/${node.slug}`)
+  );
   return {
     paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
     fallback: true,
