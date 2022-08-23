@@ -35,6 +35,7 @@ export default function Post({ post }) {
     }
     setDatum(formatDate(datumPosta));
   }, []);
+  const postTitle = `Blog post -  ${post.title}`;
   return (
     <Layout>
       {router.isFallback ? (
@@ -43,7 +44,7 @@ export default function Post({ post }) {
         <>
           {" "}
           <Head>
-            <title>Blog post - {post.title}</title>
+            <title>{postTitle}</title>
             <link
               rel="canonical"
               href={`https://www.runzadar.com/posts/${post.slug}`}
@@ -167,13 +168,12 @@ export const getStaticProps = async ({
   previewData,
 }) => {
   const data = await getPostAndMorePosts(params?.slug, preview, previewData);
-  console.log(data.post);
   return {
     props: {
       post: data.post,
       // posts: data.posts,
     },
-    revalidate: 10,
+    // revalidate: 10,
   };
 };
 
