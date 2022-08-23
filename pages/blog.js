@@ -184,7 +184,7 @@ export default function blog({ allPosts: { edges }, preview }) {
   const posts = edges;
   return (
     <Layout>
-      {/* <Header />
+      <Header />
       <Head>
         <title>Blog - Škola trčanja Zadar</title>
         <meta
@@ -231,7 +231,6 @@ export default function blog({ allPosts: { edges }, preview }) {
           backgroundSize: "cover ",
         }}
       >
-     
         <WrapNaslovButton>
           <Naslov>
             <div className="blogPostCrta">
@@ -304,8 +303,7 @@ export default function blog({ allPosts: { edges }, preview }) {
             </Card>
           </Link>
         ))}
-      </div> */}
-      blog page
+      </div>
     </Layout>
   );
 }
