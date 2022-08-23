@@ -16,7 +16,7 @@ import Blast from "../components/blast/blast";
 // import Utrke from "../components/utrke/parallax";
 import BlogFront from "../components/blog/blogFront";
 import NightRun from "../components/NightRun/nightrun";
-import { getAllPostsForHome } from "../lib/api backup";
+import { getAllPostsForHome } from "../lib/api";
 import Partneri from "../components/partneri/partneri";
 
 export default function IndexPage({ allPosts: { edges }, preview }) {

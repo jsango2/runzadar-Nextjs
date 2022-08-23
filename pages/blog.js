@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./../components/layout";
 import Sunset from "../images/sunset.png";
-import { getAllPostsForHome } from "../lib/api backup";
+import { getAllPostsForHome } from "../lib/api";
 
 import KosaCrta from "../svg/kosacrta.svg";
 import Button from "../components/button/button";
