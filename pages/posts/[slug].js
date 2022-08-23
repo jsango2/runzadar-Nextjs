@@ -35,8 +35,6 @@ export default function Post({ post }) {
     }
     setDatum(formatDate(datumPosta));
   }, []);
-  const postTitle = `Blog post -  ${post.title}`;
-  console.log(postTitle);
   return (
     <Layout>
       {router.isFallback ? (
@@ -45,7 +43,7 @@ export default function Post({ post }) {
         <>
           {" "}
           <Head>
-            <title>{postTitle}</title>
+            <title>Blog post</title>
             <link
               rel="canonical"
               href={`https://www.runzadar.com/posts/${post.slug}`}
