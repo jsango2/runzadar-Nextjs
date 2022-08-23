@@ -36,6 +36,7 @@ export default function Post({ post }) {
     setDatum(formatDate(datumPosta));
   }, []);
   const postTitle = `Blog post -  ${post.title}`;
+  console.log(postTitle);
   return (
     <Layout>
       {router.isFallback ? (
@@ -168,6 +169,7 @@ export const getStaticProps = async ({
   previewData,
 }) => {
   const data = await getPostAndMorePosts(params?.slug, preview, previewData);
+  console.log("post title:::::::", data.post.title);
   return {
     props: {
       post: data.post,
@@ -179,9 +181,7 @@ export const getStaticProps = async ({
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
-  allPosts.edges.map(({ node }) =>
-    console.log("POSTOVI:" + `/posts/${node.slug}`)
-  );
+
   return {
     paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
     fallback: true,
