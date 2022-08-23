@@ -25,7 +25,7 @@
     "nextjs-anchor": "0.0.3",
     "nodemailer": "^6.7.2",
     "rc-slider": "^9.7.5",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-datepicker": "^4.6.0",
     "react-dom": "^17.0.2",
     "react-html-parser": "^2.0.2",
