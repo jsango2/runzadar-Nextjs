@@ -66,7 +66,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
         <Utrke /> */}
         <NightRun />
         <Partneri />
-        {/* <BlogFront posts={edges} /> */}
+        <BlogFront posts={edges} />
       </Layout>
     </ParallaxProvider>
   );
