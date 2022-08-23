@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./../components/layout";
 import Sunset from "../images/sunset.png";
-import { getAllPostsForHome } from "../lib/api";
+import { getAllPostsForHome } from "../lib/api backup";
 
 import KosaCrta from "../svg/kosacrta.svg";
 import Button from "../components/button/button";
@@ -184,7 +184,7 @@ export default function blog({ allPosts: { edges }, preview }) {
   const posts = edges;
   return (
     <Layout>
-      {/* <Header /> */}
+      {/* <Header />
       <Head>
         <title>Blog - Škola trčanja Zadar</title>
         <meta
@@ -231,13 +231,7 @@ export default function blog({ allPosts: { edges }, preview }) {
           backgroundSize: "cover ",
         }}
       >
-        {/* <Image
-          src="/sunset.png"
-          alt=""
-          objectFit="cover"
-          layout="fill"
-          priority
-        /> */}
+     
         <WrapNaslovButton>
           <Naslov>
             <div className="blogPostCrta">
@@ -306,16 +300,12 @@ export default function blog({ allPosts: { edges }, preview }) {
                 <Naslov2>{post.node.title}</Naslov2>
               </Text>
 
-              {/* <Text
-                dangerouslySetInnerHTML={{
-                  __html: [post.node.content.slice(0, 100) + "..."],
-                }}
-              /> */}
               <ReadMore>PROČITAJ VIŠE</ReadMore>
             </Card>
           </Link>
         ))}
-      </div>
+      </div> */}
+      blog page
     </Layout>
   );
 }
