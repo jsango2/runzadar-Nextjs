@@ -143,7 +143,7 @@ p {
   font-weight: 600;
 }
 .navLinks {
-  width: 500px;
+  width: 720px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,6 +155,15 @@ p {
   text-decoration: none;
   color: #ffffff;
   font-size: 16px;
+}
+.youTubeVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* max-width: 90%; */
+  height: 100%;
+  margin: 0 auto;
 }
 
 .navTitle {

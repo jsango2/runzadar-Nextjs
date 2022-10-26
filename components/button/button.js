@@ -10,6 +10,7 @@ const Button = ({
   fontSize,
   fontWeight,
   backgroundColor,
+  prijavaLink,
 }) => {
   return (
     <ButtonWrap

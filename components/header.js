@@ -55,6 +55,9 @@ const Header = ({ siteTitle }) => {
               <a className="navLink" href="http://www.zadarnight.run">
                 ZadarNight.run
               </a>
+              {/* <Link className="navLink" href="/christmasrun">
+                Zadar Christmas Run
+              </Link> */}
               {/* <Veza
                 activeClass="active"
                 to="prijava"
