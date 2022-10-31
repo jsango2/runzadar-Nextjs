@@ -27,25 +27,25 @@ export const getServerSideProps = async ({ res }) => {
       })
       .join("")}
       <url>
-      <loc>http://www.runzadar.com</loc>
+      <loc>https://www.runzadar.com</loc>
       <lastmod>2022-06-01</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
      <url>
-      <loc>http://www.runzadar.com/blog</loc>
+      <loc>https://www.runzadar.com/blog</loc>
       <lastmod>2022-06-01</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
      <url>
-      <loc>http://www.runzadar.com/kalkulator</loc>
+      <loc>https://www.runzadar.com/kalkulator</loc>
       <lastmod>2022-06-01</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
     <url>
-    <loc>http://www.runzadar.com/christmasrun</loc>
+    <loc>https://www.runzadar.com/christmasrun</loc>
     <lastmod>2022-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
