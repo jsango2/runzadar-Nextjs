@@ -44,6 +44,12 @@ export const getServerSideProps = async ({ res }) => {
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
+    <url>
+    <loc>http://www.runzadar.com/christmasrun</loc>
+    <lastmod>2022-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
     </urlset>
   `;
 
