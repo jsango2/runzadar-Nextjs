@@ -37,9 +37,9 @@ const MeniMobile = ({ isOpen, setIsOpen }) => {
         >
           Kalkulator
         </Link>
-        {/* <Link className="navLink" href="/christmasrun">
+        <Link className="navLink" href="/christmasrun">
           Zadar Christmas Run
-        </Link> */}
+        </Link>
         <a className="mobileLinks" href="http://www.zadarnight.run">
           ZadarNight.run
         </a>

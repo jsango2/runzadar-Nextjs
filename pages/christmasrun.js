@@ -34,13 +34,16 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
           />
           <link
             rel="canonical"
-            href="https://www.runzadar.com"
+            href="https://www.runzadar.com/christmasrun"
             key="canonical"
           />
 
           <meta name="twitter:card" content="summary_large_image" />
 
-          <meta property="og:url" content="https://www.runzadar.com" />
+          <meta
+            property="og:url"
+            content="https://www.runzadar.com/christmasrun"
+          />
 
           <meta
             property="og:image"
@@ -48,16 +51,16 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
           />
           <meta
             name="description"
-            content="Naj veselija utrka u gradu! Vidimo se na Zadar Christmas Run-u! "
+            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. Vidimo se 23.12.2022 u 16:30h! "
             key="desc"
           />
           <meta
             property="og:description"
-            content="Naj veselija utrka u gradu! Vidimo se na Zadar Christmas Run-u! "
+            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. Vidimo se 23.12.2022 u 16:30h! "
           />
           <meta
             property="twitter:description"
-            content="Naj veselija utrka u gradu! Vidimo se na Zadar Christmas Run-u! "
+            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. Vidimo se 23.12.2022 u 16:30h! "
           />
         </Head>
         <HeroChristmas />
