@@ -27,6 +27,13 @@ const Fotke = [
   { photo: p8, in: 7 },
   { photo: p9, in: 8 },
   { photo: p10, in: 9 },
+  { photo: p11, in: 10 },
+  { photo: p12, in: 11 },
+  { photo: p13, in: 12 },
+  { photo: p14, in: 13 },
+  { photo: p15, in: 14 },
+  { photo: p16, in: 15 },
+  { photo: p17, in: 16 },
 ];
 
 export default Fotke;
