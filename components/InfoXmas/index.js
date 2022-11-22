@@ -23,7 +23,7 @@ const InfoXmas = () => {
           zajednica zadarske županije
         </Segment>
         <Segment>
-          <b>Vrijeme održavanja:</b> 23.12. 2021. u 16.30 h (petak)‍
+          <b>Vrijeme održavanja:</b> 23.12. 2022. u 16.30 h (petak)‍
         </Segment>
         <Segment>
           <b>Duljina:</b> 5 km‍
@@ -42,7 +42,7 @@ const InfoXmas = () => {
           <b>Vremenski limit:</b> 45 minuta‍
         </Segment>{" "}
         <Segment>
-          <b>Prijava:</b> Do 22.12.2021.‍
+          <b>Prijava:</b> Do 22.12.2022.‍
         </Segment>{" "}
         <Segment>
           <b>Podjela startnih paketa:</b> Na dan utrke od 12h-15.30h‍
