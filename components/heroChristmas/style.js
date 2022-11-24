@@ -71,7 +71,7 @@ export const Veza = styled.a`
   line-height: 120%;
   z-index: 2;
   text-decoration: none;
-  pointer-events: none;
+  cursor: pointer;
   @media only screen and (max-width: 600px) {
     display: flex;
     justify-content: center;

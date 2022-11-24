@@ -21,12 +21,12 @@ const HeroChristmas = () => {
       <HeroTitle>Zadar Christmas Run</HeroTitle>
       <HeroTitle2>23.12.2022., Petak, 16:30h</HeroTitle2>
       <Image src="/xmas2019.png" layout="fill" objectFit="cover" />
-      <Veza href="https://www.stotinka.hr">
+      <Veza href="https://www.stotinka.hr/hrv/utrka/5277/prijava_na_utrku">
         <ButtonWrap
           style={{ position: "relative", zIndex: "10", cursor: "pointer" }}
         >
           <Button
-            title="Uskoro otvaramo prijave"
+            title="Prijava"
             width="320"
             height="61"
             fontWeight="700"
