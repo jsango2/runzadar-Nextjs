@@ -45,7 +45,7 @@ const InfoXmas = () => {
           <b>Prijava:</b> Do 22.12.2022.‍
         </Segment>{" "}
         <Segment>
-          <b>Podjela startnih paketa:</b> Na dan utrke od 12h-15.30h‍
+          <b>Podjela startnih paketa:</b> Na dan utrke od 13h-15.30h‍
         </Segment>{" "}
         <Segment>
           <b> Startnina:</b> 130kn. Za djecu rođenu 2010.g i mlađe, startnina
