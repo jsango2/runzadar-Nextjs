@@ -880,7 +880,8 @@ select {
   height: 58px;
 }
 .heightAuto {
-  height: 140px;
+  height: auto;
+  padding-bottom: 30px;
 }
 
 .zTag {
@@ -1002,7 +1003,8 @@ select {
     transition: all 0.3s linear;
   } */
   .heightAuto {
-    height: 250px;
+    height: auto;
+    padding-bottom: 30px;
     /* transition: all 0.3s linear; */
   }
   .ispisCalcZoneColorAutoHeight {
