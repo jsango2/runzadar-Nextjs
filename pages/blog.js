@@ -132,13 +132,15 @@ const Text2 = styled.div`
   }
 `;
 const Naslov2 = styled.div`
-  color: black;
+  color: #54576e;
   width: 100%;
+  font-weight: 700;
 `;
 const Naslov3 = styled.div`
   font-size: 31px;
-  font-weight: normal;
-  color: black;
+  color: #54576e;
+  width: 100%;
+  font-weight: 700;
   @media only screen and (max-width: 420px) {
     font-size: 22px;
   }
