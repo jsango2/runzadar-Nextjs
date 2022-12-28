@@ -184,7 +184,7 @@ export default function blog({ allPosts: { edges }, preview }) {
   const posts = edges;
   return (
     <Layout>
-      <Header />
+      {/* <Header /> */}
       <Head>
         <title>Blog - Škola trčanja Zadar</title>
         <meta
