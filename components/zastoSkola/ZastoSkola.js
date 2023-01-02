@@ -69,7 +69,7 @@ const ZastoSkola = () => {
         <Clanarina>
           <div style={{ margin: "auto" }}>
             Povoljna članarina{" "}
-            <b>od 180 kn/mjesečno osigurava 3 treninga tjedno </b>
+            <b>od 24 Eura/mjesečno osigurava 3 treninga tjedno </b>
             vrhunskog trenažnog procesa, osmišljenog da vas dovede do vaših
             maksimalnih trkačkih mogućnosti.
           </div>
