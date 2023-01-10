@@ -45,6 +45,11 @@ const PripremiSe = () => {
           <Naslov>PRIPREMI SE ZA IDUĆU UTRKU!</Naslov>
           <Utrke>
             <Utrka>
+              <a href="https://myloverun.eu/">
+                <strong>12.02.</strong> Love Run 2023 - Zadar
+              </a>
+            </Utrka>
+            <Utrka>
               <a href="https://www.zadarnight.run">
                 <strong>15.04.</strong> Zadar Night Run 2023
               </a>

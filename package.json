@@ -9,6 +9,7 @@
     "@react-spring/web": "^9.6.1",
     "@steveeeie/react-page-transition": "^1.2.1",
     "@svgr/webpack": "^6.1.2",
+    "@use-gesture/react": "^10.2.23",
     "axios": "^0.24.0",
     "classnames": "2.3.1",
     "cleave.js": "^1.6.0",
