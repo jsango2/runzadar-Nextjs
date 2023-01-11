@@ -12,7 +12,7 @@ const setStyles = (wrapperEl, videoEl, playbackRate) => {
 
 const RC4 = () => {
   return (
-    <div style={{ height: "15000vh", position: "relative" }}>
+    <div style={{ height: "1200vh", position: "relative" }}>
       <VideoScroll
         onLoad={(props) =>
           setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
@@ -23,7 +23,7 @@ const RC4 = () => {
         <video
           tabIndex="0"
           autobuffer="autobuffer"
-          preload="preload"
+          preload="auto"
           //   style={{ width: "100%", objectFit: "contain" }}
           style={{
             position: "fixed",
@@ -34,7 +34,7 @@ const RC4 = () => {
           }}
           playsInline
         >
-          <source type="video/mp4" src="./rimacSmall.mp4" />
+          <source type="video/mp4" src="./rimacSmall2.mp4" />
         </video>
       </VideoScroll>
     </div>
