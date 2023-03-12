@@ -16,8 +16,9 @@ module.exports = {
     minimumCacheTTL: 60,
     // ordered list of acceptable optimized image formats (mime types)
     formats: ["image/webp"],
+    unoptimized: true,
   },
-
+  assetPrefix: ".",
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

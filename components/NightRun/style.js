@@ -56,3 +56,19 @@ export const WrapLogoText = styled.div`
     width: 80%;
   }
 `;
+export const WrapImage = styled.div`
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    height: 600px;
+  }
+  @media only screen and (max-width: 420px) {
+    width: 80%;
+  }
+`;

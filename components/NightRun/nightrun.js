@@ -1,9 +1,10 @@
 import React from "react";
 import Lottie from "lottie-react";
-import { Text, HeroWrap, WrapLogoText, Overlay } from "./style.js";
+import { Text, HeroWrap, WrapLogoText, Overlay, WrapImage } from "./style.js";
 import Button from "../button/button";
-import Logo from "../../svg/nightrunlogo-01.svg";
+// import Logo from "../../public/grawe23.png";
 import { IoIosArrowForward } from "react-icons/io";
+import Image from "next/image.js";
 
 const NightRun = () => {
   return (
@@ -13,8 +14,17 @@ const NightRun = () => {
         <source src="/nightrun.mp4" type="video/mp4" />
       </video>
       <WrapLogoText>
-        {" "}
-        <Logo className="logoNightRun" />
+        <WrapImage>
+          <Image
+            priority
+            src="/grawe23.png"
+            // width={20}
+            // height={20}
+            layout="fill"
+            objectFit="contain"
+            className="logoNightRun"
+          />
+        </WrapImage>
         <div className="nightRunDiv">
           <Text>
             Posebno smo ponosni na našu utrku Zadar Night Run. Utrka je 2019.
