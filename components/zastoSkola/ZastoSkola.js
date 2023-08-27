@@ -1,4 +1,4 @@
-import React, { ref } from "react";
+import React from "react";
 import {
   WrapAll,
   WrapDiv,
@@ -26,7 +26,7 @@ import RasporedWide from "./rasporedWide.js";
 const ZastoSkola = () => {
   const size = useWindowSize();
   return (
-    <WrapAll ref={ref}>
+    <WrapAll>
       <WrapDiv>
         <Naslov>Zašto odabrati trčanje i Školu trčanja Zadar?</Naslov>
         <div style={{ height: "47px" }}></div>
