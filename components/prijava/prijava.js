@@ -19,6 +19,7 @@ import animacijaFotke1150 from "./animacijaFotke1150.js";
 import animacijaFotke600 from "./animacijaFotke600.js";
 import useWindowSize from "../helper/usewindowsize";
 import DropdownYears from "../helper/dropdownYears.js";
+import useScrollPercentage from "../helper/useScrollPercentage.js";
 
 // import { HeroWrap } from "./style.js"
 
