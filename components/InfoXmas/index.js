@@ -23,7 +23,7 @@ const InfoXmas = () => {
           zajednica zadarske županije
         </Segment>
         <Segment>
-          <b>Vrijeme održavanja:</b> 23.12. 2022. u 16.30 h (petak)‍
+          <b>Vrijeme održavanja:</b> 16.12. 2023. u 16.00 h (subota)‍
         </Segment>
         <Segment>
           <b>Duljina:</b> 5 km‍
@@ -42,21 +42,21 @@ const InfoXmas = () => {
           <b>Vremenski limit:</b> 45 minuta‍
         </Segment>{" "}
         <Segment>
-          <b>Prijava:</b> Do 22.12.2022.‍
+          <b>Prijava:</b> Do 15.12.2023.‍
         </Segment>{" "}
         <Segment>
           <b>Podjela startnih paketa:</b> Na dan utrke od 13h-15.30h‍
         </Segment>{" "}
         <Segment>
-          <b> Startnina:</b> 130kn. Za djecu rođenu 2010.g i mlađe, startnina
-          iznosi 80kn.
+          <b> Startnina:</b> 16Eur. Za djecu rođenu 2011.g i mlađe, startnina
+          iznosi 10Eur.
         </Segment>{" "}
         <Segment>
           {" "}
           U cijenu startnine uračunat je startni broj, čip za mjerenje vremena,
           crvena božićna kapica, okrijepa na startu i cilju, fotografije sa
           utrke. Nagrade sponzora za prvoplasirane u muškoj i ženskoj
-          konkurenciji. Trkači koji uplate startninu do 10.12.2022., u startnom
+          konkurenciji. Trkači koji uplate startninu do 6.12.2023., u startnom
           paketu dobivaju i majicu utrke!‍‍
         </Segment>
         <Segment>
