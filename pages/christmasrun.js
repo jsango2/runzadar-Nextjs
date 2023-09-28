@@ -56,7 +56,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
           />
           <meta
             property="og:description"
-            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. Vidimo se 16.12.2023 u 16:00h! "
+            content="Vesela božićna utrka u Zadru! 5km od  Puntamike do Adventa. Vidimo se 16.12.2023 u 16:00h! "
           />
           <meta
             property="twitter:description"
