@@ -25,13 +25,13 @@ const HeroChristmas = () => {
         <ButtonWrap
           style={{ position: "relative", zIndex: "10", cursor: "pointer" }}
         >
-          <Button
+          {/* <Button
             title="Prijava"
             width="320"
             height="61"
             fontWeight="700"
             colorText="black"
-          />
+          /> */}
         </ButtonWrap>
       </Veza>
     </HeroWrap>
