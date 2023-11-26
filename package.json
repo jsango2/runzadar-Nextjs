@@ -25,6 +25,7 @@
     "mapbox-gl": "^2.6.1",
     "next": "^12.3.4",
     "next-firebase-auth": "^1.0.0-canary.5",
+    "next-intl": "^3.0.3",
     "next-videos": "1.4.0",
     "nextjs-anchor": "0.0.3",
     "nodemailer": "^6.7.2",
