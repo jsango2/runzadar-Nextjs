@@ -38,6 +38,19 @@ export const Segment = styled.div`
     /* height: 556px; */
   }
 `;
+export const SegmentTop = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+  margin-bottom: 20px;
+  @media only screen and (max-width: 600px) {
+    /* padding-left: 38px; */
+  }
+  @media only screen and (max-width: 420px) {
+    /* height: 556px; */
+  }
+`;
 export const Wrap = styled.div`
   position: relative;
   width: 65%;

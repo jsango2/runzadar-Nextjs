@@ -2,6 +2,7 @@ import React from "react";
 import {
   Naslov,
   Segment,
+  SegmentTop,
   Wrap,
   HeroTitle,
   HeroTitle2,
@@ -14,6 +15,11 @@ const InfoXmas = () => {
     <>
       <Naslov>Info za trkače</Naslov>
       <Wrap>
+        <SegmentTop>
+          <b>Božićni duh:</b> zadarska tvrtka Rentlio će za svaki tvoj pretrčani
+          kilometar donirati 1 Euro za potrebe djece u sklopu Centra za pružanje
+          usluga u zajednici Zadar
+        </SegmentTop>
         <Segment>
           <b>Organizatori utrke:</b> Škola trčanja Zadar, Triatlon klub Zadar,
           Sport Zone j.d.o.o.‍

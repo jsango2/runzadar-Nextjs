@@ -35,11 +35,30 @@ export const HeroTitle = styled.h1`
   @media only screen and (max-width: 600px) {
     width: 90%;
 
-    margin: 100px 0 56px 0;
+    margin: 100px 0 20px 0;
     font-size: 12vw;
   }
   @media only screen and (max-width: 420px) {
-    margin: 0px 0 60px 0;
+    margin: 0px 0 20px 0;
+  }
+`;
+export const SubTitle = styled.h1`
+  margin: 10px auto 20px auto;
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 37px;
+  line-height: 120%;
+  z-index: 2;
+  text-align: center;
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+
+    margin: 100px 0 56px 0;
+    font-size: 6vw;
+  }
+  @media only screen and (max-width: 420px) {
+    margin: 0px 0 20px 0;
   }
 `;
 export const HeroTitle2 = styled.h3`
