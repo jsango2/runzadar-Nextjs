@@ -18,7 +18,6 @@ module.exports = {
     formats: ["image/webp"],
     unoptimized: true,
   },
-  assetPrefix: ".",
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

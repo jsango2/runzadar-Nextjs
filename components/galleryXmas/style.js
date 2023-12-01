@@ -41,6 +41,7 @@ export const Naslov = styled.div`
   margin: 100px auto;
   text-transform: uppercase;
   @media only screen and (max-width: 420px) {
+    width: 100%;
     font-size: 26px;
   }
 `;

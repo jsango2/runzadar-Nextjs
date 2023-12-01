@@ -7,6 +7,7 @@ import {
   Veza,
   ButtonWrap,
   SubTitle,
+  Overlay,
 } from "./style.js";
 import Button from "../button/button";
 // import HeroVideo from "../../video/kraciVideo.mp4";
@@ -19,6 +20,7 @@ const HeroChristmas = () => {
   const size = useWindowSize();
   return (
     <HeroWrap>
+      <Overlay />
       {/* <h1 style={{ display: "none" }}>
         Prvi rekreativni trkački klub u Zadru. Od početnika do naprednih trkača.
       </h1> */}
@@ -34,9 +36,9 @@ const HeroChristmas = () => {
           style={{ position: "relative", zIndex: "10", cursor: "pointer" }}
         >
           <Button
-            title="Prijava"
-            width="320"
-            height="61"
+            title="Prijava na utrku"
+            width="300"
+            height="51"
             fontWeight="700"
             colorText="black"
           />

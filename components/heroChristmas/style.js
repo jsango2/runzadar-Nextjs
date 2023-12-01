@@ -13,10 +13,11 @@ export const HeroWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   /* padding-left: 133px; */
   overflow: hidden;
   z-index: 0;
+  padding-bottom: 50px;
   @media only screen and (max-width: 600px) {
   }
   @media only screen and (max-width: 420px) {
@@ -62,7 +63,7 @@ export const SubTitle = styled.h1`
   }
 `;
 export const HeroTitle2 = styled.h3`
-  margin: 0px auto 100px auto;
+  margin: 0px auto 60px auto;
   font-family: "Montserrat", sans-serif;
   font-style: italic;
   font-weight: 900;
@@ -78,7 +79,7 @@ export const HeroTitle2 = styled.h3`
     font-size: 24px;
   }
   @media only screen and (max-width: 420px) {
-    margin: 30px 0 40px 0;
+    margin: 0px 0 30px 0;
   }
 `;
 export const Veza = styled.a`
@@ -99,7 +100,7 @@ export const Veza = styled.a`
     margin: 0 0 0 0;
   }
   @media only screen and (max-width: 420px) {
-    width: 400px;
+    width: 100%;
 
     margin: 0 0 0 0;
   }
@@ -108,6 +109,26 @@ export const Veza = styled.a`
 export const ButtonWrap = styled.div`
   position: relative;
   /* width: 300px; */
+  @media only screen and (max-width: 600px) {
+  }
+  @media only screen and (max-width: 420px) {
+  }
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6055015756302521) 0%,
+    rgba(0, 0, 0, 0.10970325630252098) 100%
+  );
+
   @media only screen and (max-width: 600px) {
   }
   @media only screen and (max-width: 420px) {

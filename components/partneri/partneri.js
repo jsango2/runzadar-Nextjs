@@ -63,11 +63,11 @@ const Partneri = () => {
           <a href="https://www.zadarnight.run">
             <Image
               priority
-              src="/nightrunlogo-01.svg"
-              // width={20}
-              // height={20}
-              layout="fill"
-              objectFit="contain"
+              src="/nightRun24logo.svg"
+              width={120}
+              height={120}
+              // layout="fill"
+              objectFit="cover"
             />
           </a>
         </SponzorBox>{" "}
@@ -86,7 +86,7 @@ const Partneri = () => {
           {" "}
           <Image
             priority
-            src="/4shelogo.png"
+            src="/RentlioLogo.svg"
             // width={20}
             // height={20}
             layout="fill"
