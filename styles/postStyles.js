@@ -64,7 +64,8 @@ export const Text = styled.div`
   & img {
     margin: 0 auto;
     width: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
   }
   & p {
     margin: 1.5rem 0;
