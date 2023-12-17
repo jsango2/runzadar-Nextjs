@@ -59,7 +59,7 @@ export const Overlay = styled.div`
   background-color: rgb(0 0 0 / 20%);
 `;
 export const Text = styled.div`
-  font-size: 21px;
+  font-size: 18px;
   line-height: 142.5%;
   & img {
     margin: 0 auto;
