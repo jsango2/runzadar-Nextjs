@@ -17,7 +17,7 @@ const NightRun = () => {
         <WrapImage>
           <Image
             priority
-            src="/grawe23.png"
+            src="/nightRun24logo.svg"
             // width={20}
             // height={20}
             layout="fill"
@@ -27,10 +27,10 @@ const NightRun = () => {
         </WrapImage>
         <div className="nightRunDiv">
           <Text>
-            Posebno smo ponosni na našu utrku Zadar Night Run. Utrka je 2019.
-            godine na startu okupila preko 1300 trkača na 2.5km, 5km i 10km te
-            na polu maratonu. Prijavite se i budite dio trkačkog spektakla u
-            našem gradu!
+            Posebno smo ponosni na našu utrku Zadar Night Run. Utrka okuplja
+            preko 1500 trkača na dječjim utrkama, 2.5km, 5km i 10km te na polu
+            maratonu. Prijavite se i budite dio trkačkog spektakla u našem
+            gradu!
           </Text>
           <div
             style={{
@@ -45,6 +45,7 @@ const NightRun = () => {
                 color: "white",
                 display: "flex",
                 alignItems: "center",
+                cursor: "pointer",
               }}
               href="https://www.zadarnight.run"
             >
