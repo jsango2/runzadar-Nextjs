@@ -29,7 +29,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
           <title>Škola trčanja Zadar</title>
           <meta
             property="og:title"
-            content="Škola trčanja Zadar - Christmas Run 2023"
+            content="Škola trčanja Zadar - Christmas Run 2024"
             key="title"
           />
           <link
@@ -51,16 +51,16 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
           />
           <meta
             name="description"
-            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. Vidimo se 16.12.2023 u 16:00h! "
+            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. "
             key="desc"
           />
           <meta
             property="og:description"
-            content="Vesela božićna utrka u Zadru! 5km od  Puntamike do Adventa. Vidimo se 16.12.2023 u 16:00h! "
+            content="Vesela božićna utrka u Zadru! 5km od  Puntamike do Adventa. "
           />
           <meta
             property="twitter:description"
-            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa.Vidimo se 16.12.2023 u 16:00h! "
+            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa."
           />
         </Head>
         <HeroChristmas />

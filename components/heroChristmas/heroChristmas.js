@@ -29,7 +29,7 @@ const HeroChristmas = () => {
       </video> */}
       <HeroTitle>Zadar Christmas Run</HeroTitle>
       <SubTitle>Humanitarna božićna utrka</SubTitle>
-      <HeroTitle2>16.12.2023., Subota, 16:00h</HeroTitle2>
+      <HeroTitle2>21.12.2024., Subota, 15:30h</HeroTitle2>
       <Image src="/xmas2019.png" layout="fill" objectFit="cover" />
       <Veza href="https://www.stotinka.hr/hrv/utrka/6117/prijava_na_utrku">
         <ButtonWrap
