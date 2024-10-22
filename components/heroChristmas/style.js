@@ -109,8 +109,14 @@ export const Veza = styled.a`
 export const ButtonWrap = styled.div`
   position: relative;
   color: white;
+  font-size: 42px;
+
   /* width: 300px; */
   @media only screen and (max-width: 600px) {
+    text-align: center;
+    font-size: 32px;
+    width: 90%;
+    line-height: normal;
   }
   @media only screen and (max-width: 420px) {
   }
