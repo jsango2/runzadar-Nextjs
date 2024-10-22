@@ -108,6 +108,7 @@ export const Veza = styled.a`
 
 export const ButtonWrap = styled.div`
   position: relative;
+  color: white;
   /* width: 300px; */
   @media only screen and (max-width: 600px) {
   }
