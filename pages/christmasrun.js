@@ -24,7 +24,7 @@ import InfoXmas from "../components/InfoXmas";
 export default function IndexPage({ allPosts: { edges }, preview }) {
   return (
     <ParallaxProvider>
-      <Layout>
+      <Layout hasButtonSignUp={false}>
         <Head>
           <title>Škola trčanja Zadar</title>
           <meta

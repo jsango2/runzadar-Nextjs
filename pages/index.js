@@ -22,7 +22,7 @@ import Partneri from "../components/partneri/partneri";
 export default function IndexPage({ allPosts: { edges }, preview }) {
   return (
     <ParallaxProvider>
-      <Layout>
+      <Layout hasButtonSignUp={true}>
         <Head>
           <title>Škola trčanja Zadar</title>
           <meta property="og:title" content="Škola trčanja Zadar" key="title" />

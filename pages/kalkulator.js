@@ -97,7 +97,7 @@ export default function Kalkulator() {
     }
   };
   return (
-    <Layout>
+    <Layout hasButtonSignUp={true}>
       <Head>
         <title>Kalkulator - Škola trčanja Zadar</title>
         <meta

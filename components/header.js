@@ -14,7 +14,7 @@ import Script from "next/script";
 import { Anchor } from "nextjs-anchor";
 import Image from "next/image";
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, hasButtonSignUp }) => {
   const [isOpen, setIsOpen] = useState(false);
   // <Headroom
   //   style={{
@@ -66,16 +66,18 @@ const Header = ({ siteTitle }) => {
                 offset={0}
                 duration={1800}
               > */}
-              <Anchor href="/#prijava">
-                <Button
-                  title="Prijava"
-                  width="81"
-                  height="40"
-                  colorText="black"
-                  fontSize="16"
-                  fontWeight="600"
-                />
-              </Anchor>
+              {hasButtonSignUp === true && (
+                <Anchor href="/#prijava">
+                  <Button
+                    title="Prijava"
+                    width="81"
+                    height="40"
+                    colorText="black"
+                    fontSize="16"
+                    fontWeight="600"
+                  />
+                </Anchor>
+              )}
               {/* </Veza> */}
             </div>
           </div>

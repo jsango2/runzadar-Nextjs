@@ -185,7 +185,7 @@ const ReadMore2 = styled.div`
 export default function blog({ allPosts: { edges }, preview }) {
   const posts = edges;
   return (
-    <Layout>
+    <Layout hasButtonSignUp={true}>
       {/* <Header /> */}
       <Head>
         <title>Blog - Škola trčanja Zadar</title>
