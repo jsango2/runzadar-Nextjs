@@ -128,6 +128,17 @@ const Partneri = () => {
             objectFit="contain"
           />
         </SponzorBox>{" "}
+        <SponzorBox>
+          {" "}
+          <Image
+            priority
+            src="/OTPbijeli.png"
+            // width={20}
+            // height={20}
+            layout="fill"
+            objectFit="contain"
+          />
+        </SponzorBox>{" "}
       </WrapSponzori>
     </WrapAll>
   );

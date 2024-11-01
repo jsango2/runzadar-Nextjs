@@ -17,8 +17,7 @@ const InfoXmas = () => {
       <Wrap>
         <SegmentTop>
           <b>Božićni duh:</b> zadarska tvrtka Rentlio će za svaki tvoj pretrčani
-          kilometar donirati 1 Euro za potrebe djece u sklopu Centra za pružanje
-          usluga u zajednici Zadar
+          kilometar donirati 1 Euro u humanitarne svrhe
         </SegmentTop>
         <Segment>
           <b>Organizatori utrke:</b> Škola trčanja Zadar, Triatlon klub Zadar,
