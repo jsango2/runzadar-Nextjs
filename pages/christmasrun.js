@@ -45,10 +45,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
             content="https://www.runzadar.com/christmasrun"
           />
 
-          <meta
-            property="og:image"
-            content="https://www.sportzone.hr/wp-content/uploads/2020/01/12806018_1686900528256019_7006629476788399817_n.jpg"
-          />
+          <meta property="og:image" content="/xmas2019.png" />
           <meta
             name="description"
             content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. "
