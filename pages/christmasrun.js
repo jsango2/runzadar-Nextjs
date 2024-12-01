@@ -27,11 +27,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
       <Layout hasButtonSignUp={false}>
         <Head>
           <title>Škola trčanja Zadar</title>
-          <meta
-            property="og:title"
-            content="Škola trčanja Zadar - Christmas Run 2024"
-            key="title"
-          />
+          <meta property="og:title" content="Christmas Run 2024" key="title" />
           <link
             rel="canonical"
             href="https://www.runzadar.com/christmasrun"
