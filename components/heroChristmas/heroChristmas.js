@@ -33,7 +33,13 @@ const HeroChristmas = () => {
       <Image src="/xmas2019.png" layout="fill" objectFit="cover" />
       <Veza href="https://www.stotinka.hr/hrv/utrka/7158/prijava_na_utrku">
         <ButtonWrap
-          style={{ position: "relative", zIndex: "10", cursor: "pointer" }}
+          style={{
+            position: "relative",
+            zIndex: "10",
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
           <Button
             title="Prijava na utrku"
