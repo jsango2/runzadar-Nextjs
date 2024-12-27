@@ -51,7 +51,7 @@ const PripremiSe = () => {
             </Utrka> */}
             <Utrka>
               <a href="https://www.zadarnight.run">
-                <strong>12.05.</strong> Zadar Night Run 2025
+                <strong>12.04.</strong> Zadar Night Run 2025
               </a>
             </Utrka>
             <Utrka>
