@@ -4,7 +4,7 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from "../lib/api";
 
 const Sitemap = () => {};
 
-const allPosts = getAllPostsWithSlug();
+const allPosts = getAllPostsWithSlug(); 
 
 export const getServerSideProps = async ({ res }) => {
   const baseUrl = "https://www.runzadar.com";
