@@ -35,7 +35,7 @@ const RasporedWide = () => {
                 >
                   <p className="lokacija">Park V. Nazora</p>
                 </div>
-                <p style={{ marginTop: "5px" }}>08:00 i 19:30</p>
+                <p style={{ marginTop: "5px" }}>08:00 i 20:00</p>
               </div>
             </Box>
             <Box>
@@ -52,7 +52,7 @@ const RasporedWide = () => {
                 >
                   <p className="lokacija">Park V. Nazora</p>
                 </div>
-                <p style={{ marginTop: "5px" }}>19:30</p>
+                <p style={{ marginTop: "5px" }}>20:00</p>
               </div>
             </Box>
             <Box>
@@ -76,7 +76,7 @@ const RasporedWide = () => {
                     </p>
                   )}
                 </div>
-                <p style={{ marginTop: "5px" }}>08:00 i 19:30</p>
+                <p style={{ marginTop: "5px" }}>08:00 i 20:00</p>
               </div>
             </Box>
 
@@ -94,7 +94,7 @@ const RasporedWide = () => {
                 >
                   <p className="lokacija">Park V. Nazora</p>
                 </div>
-                <p style={{ marginTop: "5px" }}>19:30</p>
+                <p style={{ marginTop: "5px" }}>20:00</p>
               </div>
             </Box>
             <Box>
@@ -110,7 +110,7 @@ const RasporedWide = () => {
                 >
                   <p className="lokacija">Park V. Nazora</p>
                 </div>
-                <p style={{ marginTop: "5px" }}>19:00</p>
+                <p style={{ marginTop: "5px" }}>19:30</p>
               </div>
             </Box>
             <Box>
