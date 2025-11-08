@@ -15,10 +15,10 @@ const InfoXmas = () => {
     <>
       <Naslov>Info za trkače</Naslov>
       <Wrap>
-        <SegmentTop>
+        {/* <SegmentTop>
           <b>Božićni duh:</b> zadarska tvrtka Rentlio će za svaki tvoj pretrčani
           kilometar donirati 1 Euro u humanitarne svrhe
-        </SegmentTop>
+        </SegmentTop> */}
         <Segment>
           <b>Organizatori utrke:</b> Škola trčanja Zadar, Triatlon klub Zadar,
           Sport Zone j.d.o.o.‍
@@ -28,7 +28,7 @@ const InfoXmas = () => {
           zajednica zadarske županije
         </Segment>
         <Segment>
-          <b>Vrijeme održavanja:</b> 28.12. 2024. u 15.30 h (subota)‍
+          <b>Vrijeme održavanja:</b> 27.12. 2025. u 15.30 h (subota)‍
         </Segment>
         <Segment>
           <b>Duljina:</b> 5 km‍
@@ -47,13 +47,13 @@ const InfoXmas = () => {
           <b>Vremenski limit:</b> 45 minuta‍
         </Segment>{" "}
         <Segment>
-          <b>Prijava:</b> Do 27.12.2024.‍
+          <b>Prijava:</b> Do 26.12.2025.‍
         </Segment>{" "}
         <Segment>
           <b>Podjela startnih paketa:</b> Na dan utrke od 12h-15.00h‍
         </Segment>{" "}
         <Segment>
-          <b> Startnina:</b> 16Eur. Za djecu rođenu 2012.g i mlađe, startnina
+          <b> Startnina:</b> 18Eur. Za djecu rođenu 2013.g i mlađe, startnina
           iznosi 10Eur.
         </Segment>{" "}
         <Segment>
@@ -61,7 +61,7 @@ const InfoXmas = () => {
           U cijenu startnine uračunat je startni broj, čip za mjerenje vremena,
           crvena božićna kapica, okrijepa na startu i cilju, fotografije sa
           utrke. Nagrade sponzora za prvoplasirane u muškoj i ženskoj
-          konkurenciji. Trkači koji uplate startninu do 20.12.2024., u startnom
+          konkurenciji. Trkači koji uplate startninu do 20.12.2025., u startnom
           paketu dobivaju i majicu utrke!‍‍
         </Segment>
         <Segment>
