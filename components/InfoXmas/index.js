@@ -15,10 +15,10 @@ const InfoXmas = () => {
     <>
       <Naslov>Info za trkače</Naslov>
       <Wrap>
-        {/* <SegmentTop>
-          <b>Božićni duh:</b> zadarska tvrtka Rentlio će za svaki tvoj pretrčani
-          kilometar donirati 1 Euro u humanitarne svrhe
-        </SegmentTop> */}
+        <SegmentTop>
+          <b>Božićni duh:</b> zadarska tvrtka Rentlio će za svaki pretrčani
+          kilometar donirati 1 Euro po trkaču u humanitarne svrhe!
+        </SegmentTop>
         <Segment>
           <b>Organizatori utrke:</b> Škola trčanja Zadar, Triatlon klub Zadar,
           Sport Zone j.d.o.o.‍
