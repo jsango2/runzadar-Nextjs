@@ -49,7 +49,7 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
           />
           <meta
             property="og:description"
-            content="Vesela božićna utrka u Zadru! 5km od  Puntamike do Adventa. "
+            content="Vesela božićna utrka u Zadru! 5km od Puntamike do Adventa. "
           />
           <meta
             property="twitter:description"

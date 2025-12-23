@@ -37,7 +37,7 @@ const InfoXmas = () => {
           <b> Start utrke:</b> Puntamika - D-Marin Borik‍
         </Segment>{" "}
         <Segment>
-          <b>Cilj utrke:</b> Advent Zadar - Trg 5 Bunara‍
+          <b>Cilj utrke:</b> Bedemi zadarskih pobuna - Muraj
         </Segment>{" "}
         <Segment>
           <b>Presvlačenje i oprema:</b> Trkači mogu svoju opremu predati na
