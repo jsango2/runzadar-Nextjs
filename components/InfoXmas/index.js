@@ -44,6 +44,9 @@ const InfoXmas = () => {
           startu a ista će ih dočekati u cilju utrke u zoni za presvlačenje‍
         </Segment>{" "}
         <Segment>
+          <b>Podjela nagrada:</b> 16:30h - Advent, Trg Petra Zoranića.
+        </Segment>{" "}
+        <Segment>
           <b>Vremenski limit:</b> 45 minuta‍
         </Segment>{" "}
         <Segment>
