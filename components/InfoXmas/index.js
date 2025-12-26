@@ -57,6 +57,9 @@ const InfoXmas = () => {
           iznosi 10Eur.
         </Segment>{" "}
         <Segment>
+          <b> Maksimalni broj trkača:</b> 500
+        </Segment>{" "}
+        <Segment>
           {" "}
           U cijenu startnine uračunat je startni broj, čip za mjerenje vremena,
           crvena božićna kapica, okrijepa na startu i cilju, fotografije sa

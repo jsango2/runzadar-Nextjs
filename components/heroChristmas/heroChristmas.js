@@ -31,25 +31,25 @@ const HeroChristmas = () => {
       <SubTitle>Humanitarna božićna utrka</SubTitle>
       <HeroTitle2>27.12.2025., Subota, 15:30h</HeroTitle2>
       <Image src="/xmas2019.png" layout="fill" objectFit="cover" />
-      <Veza href="https://www.traceysport.com/eventCalendar/eventDetails/registerToRace?eventId=2873&isFinishedEvent=false&raceId=8161">
-        <ButtonWrap
-          style={{
-            position: "relative",
-            zIndex: "10",
-            cursor: "pointer",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Button
-            title="Prijava na utrku"
-            width="300"
-            height="51"
-            fontWeight="700"
-            colorText="black"
-          />
-        </ButtonWrap>
-      </Veza>
+      {/* <Veza href="https://www.traceysport.com/eventCalendar/eventDetails/registerToRace?eventId=2873&isFinishedEvent=false&raceId=8161"> */}
+      <ButtonWrap
+        style={{
+          position: "relative",
+          zIndex: "10",
+          cursor: "pointer",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Button
+          title="Prijave su završene"
+          width="300"
+          height="51"
+          fontWeight="700"
+          colorText="black"
+        />
+      </ButtonWrap>
+      {/* </Veza> */}
     </HeroWrap>
   );
 };
