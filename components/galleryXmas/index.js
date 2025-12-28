@@ -5,6 +5,7 @@ import {
   WrapPhotos,
   ImageWrap,
   WrapImage,
+  LinkFoto,
 } from "./style.js";
 import YouTube from "react-youtube";
 import useWindowSize from "../helper/usewindowsize";
@@ -113,10 +114,13 @@ function GalleryXmas() {
   };
   return (
     <>
-      <Naslov>Foto / Video</Naslov>;
-      <WrapVideo>
+      <Naslov>Foto / Video</Naslov>
+      <LinkFoto href="https://photos.app.goo.gl/g4ibVvuQhPQcdCaR8">
+        Foto galerija 2025
+      </LinkFoto>
+      {/* <WrapVideo>
         <YouTube className="youTubeVideo" videoId="W5l_aR-SeWA" opts={opts} />
-      </WrapVideo>
+      </WrapVideo> */}
       <div style={{ height: "40px" }}></div>
       <SimpleReactLightbox>
         <SRLWrapper options={options}>

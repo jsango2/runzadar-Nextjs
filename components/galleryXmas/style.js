@@ -38,7 +38,7 @@ export const Naslov = styled.div`
   z-index: 5;
   /* background: #151520; */
   width: 400px;
-  margin: 100px auto;
+  margin: 100px auto 50px auto;
   text-transform: uppercase;
   @media only screen and (max-width: 420px) {
     width: 100%;
@@ -110,6 +110,23 @@ export const ImageWrap = styled.div`
   overflow: hidden;
   cursor: pointer;
   @media screen and (max-width: 768px) {
+  }
+`;
+
+export const LinkFoto = styled.a`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  color: #5388f2;
+  width: 100%;
+  font-weight: 800;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 50px;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
   }
 `;
 
