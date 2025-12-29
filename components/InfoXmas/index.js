@@ -56,7 +56,7 @@ const InfoXmas = () => {
           <b>Podjela startnih paketa:</b> Na dan utrke od 12h-15.00h‍
         </Segment>{" "}
         <Segment>
-          <b> Startnina:</b> 18Eur. Za djecu rođenu 2014.g i mlađe, startnina
+          <b> Startnina:</b> 20Eur. Za djecu rođenu 2014.g i mlađe, startnina
           iznosi 10Eur.
         </Segment>{" "}
         <Segment>
