@@ -42,7 +42,7 @@ const HeroChristmas = () => {
         }}
       >
         <Button
-          title="Prijave su završene"
+          title="Uskoro otvaramo prijave"
           width="300"
           height="51"
           fontWeight="700"
