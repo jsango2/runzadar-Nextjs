@@ -29,7 +29,7 @@ const HeroChristmas = () => {
       </video> */}
       <HeroTitle>Zadar Christmas Run</HeroTitle>
       <SubTitle>Humanitarna božićna utrka</SubTitle>
-      <HeroTitle2>27.12.2025., Subota, 15:30h</HeroTitle2>
+      <HeroTitle2>27.12.2026., Nedjelja, 15:30h</HeroTitle2>
       <Image src="/xmas2019.png" layout="fill" objectFit="cover" />
       {/* <Veza href="https://www.traceysport.com/eventCalendar/eventDetails/registerToRace?eventId=2873&isFinishedEvent=false&raceId=8161"> */}
       <ButtonWrap
