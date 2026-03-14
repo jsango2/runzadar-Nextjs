@@ -1,9 +1,8 @@
 // import { Link } from "gatsby"
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "../button/button.js";
 // import { useHistory } from "react-router-dom"
-import { WrapAll } from "./style.js";
 // import scrollTo from "gatsby-plugin-smoothscroll"
 // import { AnchorLink } from "gatsby-plugin-anchor-links"
 // import { HashLink } from "react-router-hash-link";
@@ -20,25 +19,33 @@ const MeniMobile = ({ isOpen, setIsOpen }) => {
     <>
       <div className={`menu ${isOpen ? "openMenu" : "closedMenu"}`}>
         <Link
-          className="mobileLinks"
           href="/blog"
-          onClick={() => {
-            setIsOpen(false);
-          }}
+          legacyBehavior
         >
-          Blog
+          <a
+            className="mobileLinks"
+            onClick={() => {
+              setIsOpen(false);
+            }}
+          >
+            Blog
+          </a>
         </Link>
         <Link
-          className="mobileLinks"
           href="/kalkulator"
-          onClick={() => {
-            setIsOpen(false);
-          }}
+          legacyBehavior
         >
-          Kalkulator
+          <a
+            className="mobileLinks"
+            onClick={() => {
+              setIsOpen(false);
+            }}
+          >
+            Kalkulator
+          </a>
         </Link>
-        <Link className="navLink" href="/christmasrun">
-          Zadar Christmas Run
+        <Link href="/christmasrun" legacyBehavior>
+          <a className="navLink">Zadar Christmas Run</a>
         </Link>
         <a className="mobileLinks" href="http://www.zadarnight.run">
           ZadarNight.run

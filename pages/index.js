@@ -19,7 +19,8 @@ import NightRun from "../components/NightRun/nightrun";
 import { getAllPostsForHome } from "../lib/api";
 import Partneri from "../components/partneri/partneri";
 
-export default function IndexPage({ allPosts: { edges }, preview }) {
+export default function IndexPage({ allPosts, preview }) {
+  const edges = allPosts?.edges || [];
   return (
     <ParallaxProvider>
       <Layout hasButtonSignUp={true}>
@@ -73,8 +74,16 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview);
+  let allPosts = { edges: [] };
+
+  try {
+    allPosts = (await getAllPostsForHome(preview)) || { edges: [] };
+  } catch (error) {
+    console.error("Failed to load homepage posts", error);
+  }
+
   return {
     props: { allPosts, preview },
+    revalidate: 300,
   };
 }

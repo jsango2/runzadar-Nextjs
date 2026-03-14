@@ -542,10 +542,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   margin: 10px auto 0 auto;
-  /* background-color: #1d1d2e8f; */
-
-  /* padding: 40px; */
   border-radius: 39px;
 }
 .formCalc input,
@@ -582,6 +580,7 @@ select {
   background: #f9ff00;
   color: #191b26;
   font-weight: 600;
+  width: min(260px, 92vw);
   margin-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -734,12 +733,16 @@ select {
 .wrapFormCalcZone {
   display: flex;
   align-items: center;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin-top: 30px;
   justify-content: space-around;
 }
 .formCalcSubmit {
+  width: 100%;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 .ispisCalc,
 .ispisCalcZone {
@@ -879,6 +882,9 @@ select {
 .height58 {
   height: 58px;
 }
+.heightHr {
+  height: 88px;
+}
 .heightAuto {
   height: auto;
   padding-bottom: 30px;
@@ -923,6 +929,112 @@ select {
   text-align: left;
   font-weight: 500;
 }
+.bmiFormFields {
+  width: 100%;
+  max-width: 900px;
+}
+.bmiResultWrap {
+  width: 86%;
+  background-color: #701b1b;
+  border-radius: 8px;
+  padding: 24px 18px 28px;
+  margin-top: 16px;
+}
+.bmiMeta {
+  margin-top: 8px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+}
+.bmiError {
+  margin-top: 8px;
+  color: #fbd148;
+  font-weight: 600;
+}
+.bmiChartCard {
+  margin-top: 22px;
+  width: 100%;
+}
+.bmiChartTitle {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.bmiChartWrap {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  height: 230px;
+  border-radius: 8px;
+  background: rgba(25, 27, 38, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+.bmiSegment {
+  position: absolute;
+  bottom: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.bmiSegmentLabel {
+  font-size: 13px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #0f1017;
+  padding-top: 8px;
+  text-align: center;
+}
+.bmiMarkerLine {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 2px;
+  background: #ffffff;
+  transform: translateX(-50%);
+}
+.bmiMarkerDot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #191b26;
+  transform: translate(-50%, 50%);
+}
+.bmiMarkerText {
+  position: absolute;
+  top: 8px;
+  transform: translateX(-50%);
+  background: #191b26;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.bmiAxis {
+  width: 100%;
+  max-width: 860px;
+  margin: 8px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+}
+.bmiSource {
+  margin-top: 12px;
+  font-size: 13px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+}
+.bmiSource a {
+  color: #f9ff00;
+}
 @media only screen and (min-width: 900px) {
   .hamburgerMenu {
     display: none;
@@ -948,12 +1060,13 @@ select {
 }
 @media only screen and (max-width: 900px) {
   .formCalcSubmit {
-    margin-top: 0px;
+    margin-top: 14px;
+    margin-bottom: 6px;
   }
   .resetZone {
-    margin: 0;
+    margin: 8px 0 0;
     position: relative;
-    bottom: -27px;
+    bottom: 0;
   }
   .ispisCalcTempoBroj {
     font-size: 50px;
@@ -997,6 +1110,9 @@ select {
     margin-bottom: 5px;
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
+  }
+  .heightHr {
+    height: 90px;
   }
   /* .height58 {
     height: 58px;
@@ -1080,9 +1196,37 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 900px;
-    margin-top: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 18px;
     justify-content: space-between;
+  }
+  .bmiFormFields {
+    width: 100%;
+    max-width: 420px;
+  }
+  .bmiResultWrap {
+    width: 92vw;
+    padding: 18px 12px 22px;
+  }
+  .bmiMeta {
+    font-size: 16px;
+  }
+  .bmiChartWrap {
+    height: 200px;
+  }
+  .bmiSegmentLabel {
+    font-size: 11px;
+  }
+  .bmiMarkerText {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  .bmiAxis {
+    font-size: 11px;
+  }
+  .bmiSource {
+    font-size: 12px;
   }
   /* .formCalc {
     flex-direction: column-reverse;

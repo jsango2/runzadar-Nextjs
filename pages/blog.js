@@ -182,8 +182,25 @@ const ReadMore2 = styled.div`
   color: black;
 `;
 
-export default function blog({ allPosts: { edges }, preview }) {
-  const posts = edges;
+export default function blog({ allPosts, preview }) {
+  const posts = allPosts?.edges || [];
+  const featuredPost = posts[0]?.node;
+  const otherPosts = posts.slice(1, 50);
+
+  const getCategoryName = (postNode) =>
+    postNode?.categories?.edges?.[0]?.node?.name || "BLOG";
+
+  const getImage = (postNode) =>
+    postNode?.featuredImage?.node?.sourceUrl || "/sunset.png";
+
+  const getSnippet = (postNode) => {
+    if (postNode?.content) {
+      return `${postNode.content.slice(0, 250)}...`;
+    }
+
+    return postNode?.excerpt || "Trenutno nema dostupnog sadržaja za prikaz.";
+  };
+
   return (
     <Layout hasButtonSignUp={true}>
       {/* <Header /> */}
@@ -250,55 +267,67 @@ export default function blog({ allPosts: { edges }, preview }) {
           margin: "50px 0",
         }}
       >
-        <Link
-          style={{ textDecoration: "none", color: "#212121" }}
-          href={`/posts/${posts[0].node.slug}`}
-        >
-          <Card2>
-            <Category2 className={posts[0].node.categories.edges[0].node.name}>
-              {posts[0].node.categories.edges[0].node.name}
-            </Category2>
+        {featuredPost?.slug ? (
+          <Link
+            style={{ textDecoration: "none", color: "#212121" }}
+            href={`/posts/${featuredPost.slug}`}
+          >
+            <Card2>
+              <Category2 className={getCategoryName(featuredPost)}>
+                {getCategoryName(featuredPost)}
+              </Category2>
 
-            <Foto2
-              style={{
-                backgroundImage: `url(${posts[0].node.featuredImage.node.sourceUrl})`,
-              }}
-            ></Foto2>
+              <Foto2
+                style={{
+                  backgroundImage: `url(${getImage(featuredPost)})`,
+                }}
+              ></Foto2>
+              <div className="wrapFeaturedBlogText">
+                <Text2>
+                  <Naslov3>{featuredPost.title || "Blog post"}</Naslov3>
+                </Text2>
+
+                <Text2
+                  dangerouslySetInnerHTML={{
+                    __html: getSnippet(featuredPost),
+                  }}
+                />
+                <ReadMore2>PROČITAJ VIŠE</ReadMore2>
+              </div>
+            </Card2>
+          </Link>
+        ) : (
+          <Card2>
             <div className="wrapFeaturedBlogText">
               <Text2>
-                <Naslov3>{posts[0].node.title}</Naslov3>
+                <Naslov3>Trenutno nema blog objava.</Naslov3>
               </Text2>
-
-              <Text2
-                dangerouslySetInnerHTML={{
-                  __html: [posts[0].node.content.slice(0, 250) + "..."],
-                }}
-              />
-              <ReadMore2>PROČITAJ VIŠE</ReadMore2>
             </div>
           </Card2>
-        </Link>
-        {posts.slice(1, 50).map((post) => (
+        )}
+        {otherPosts
+          .filter((post) => post?.node?.slug)
+          .map((post) => (
           <Link
             style={{ textDecoration: "none", color: "#212121" }}
             href={`/posts/${post.node.slug}`}
             key={post.node.slug}
           >
             <Card>
-              <Category className={post.node.categories.edges[0].node.name}>
-                {post.node.categories.edges[0].node.name}
+              <Category className={getCategoryName(post.node)}>
+                {getCategoryName(post.node)}
               </Category>
 
               <Foto>
                 <div
                   className="coverPhoto2"
                   style={{
-                    backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
+                    backgroundImage: `url(${getImage(post.node)})`,
                   }}
                 ></div>
               </Foto>
               <Text>
-                <Naslov2>{post.node.title}</Naslov2>
+                <Naslov2>{post.node.title || "Blog post"}</Naslov2>
               </Text>
 
               <ReadMore>PROČITAJ VIŠE</ReadMore>
@@ -311,8 +340,16 @@ export default function blog({ allPosts: { edges }, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview);
+  let allPosts = { edges: [] };
+
+  try {
+    allPosts = (await getAllPostsForHome(preview)) || { edges: [] };
+  } catch (error) {
+    console.error("Failed to load blog posts", error);
+  }
+
   return {
     props: { allPosts, preview },
+    revalidate: 300,
   };
 }

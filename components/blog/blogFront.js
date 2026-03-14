@@ -32,7 +32,17 @@ const PrevArrow = ({ currentSlide, slideCount, ...props }) => (
   </div>
 );
 
-const BlogFront = (posts) => {
+const BlogFront = ({ posts = [] }) => {
+  const postList = Array.isArray(posts)
+    ? posts.filter((post) => post?.node?.slug)
+    : [];
+
+  const getCategoryName = (postNode) =>
+    postNode?.categories?.edges?.[0]?.node?.name || "BLOG";
+
+  const getImage = (postNode) =>
+    postNode?.featuredImage?.node?.sourceUrl || "/sunset.png";
+
   const settings = {
     // arrows: true,
     dots: true,
@@ -86,49 +96,53 @@ const BlogFront = (posts) => {
         }}
       />
       <Naslov>BLOG & NOVOSTI</Naslov>
-      <Slider {...settings}>
-        {posts.posts.map((post) => (
-          <WrapTestimonial key={post.node.id}>
-            <Link
-              style={{ textDecoration: "none", color: "#212121" }}
-              href={`/posts/${post.node.slug}`}
-            >
-              <Card>
-                <Button className={post.node.categories.edges[0].node.name}>
-                  {post.node.categories.edges[0].node.name}
-                </Button>
-                <Foto>
-                  <div className="placeholder">
-                    <Image
-                      src="/runzadar.svg"
-                      width={100}
-                      height={100}
-                      objectFit="contain"
-                    />
-                  </div>
-                  <div
-                    className="coverPhoto2"
-                    style={{
-                      backgroundImage: `url(${post.node.featuredImage.node.sourceUrl})`,
+      {postList.length > 0 ? (
+        <Slider {...settings}>
+          {postList.map((post) => (
+            <WrapTestimonial key={post?.node?.id || post.node.slug}>
+              <Link
+                style={{ textDecoration: "none", color: "#212121" }}
+                href={`/posts/${post.node.slug}`}
+              >
+                <Card>
+                  <Button className={getCategoryName(post.node)}>
+                    {getCategoryName(post.node)}
+                  </Button>
+                  <Foto>
+                    <div className="placeholder">
+                      <Image
+                        src="/runzadar.svg"
+                        width={100}
+                        height={100}
+                        objectFit="contain"
+                      />
+                    </div>
+                    <div
+                      className="coverPhoto2"
+                      style={{
+                        backgroundImage: `url(${getImage(post.node)})`,
+                      }}
+                    ></div>
+                  </Foto>
+
+                  <Text>
+                    <Naslov2>{post?.node?.title || "Blog post"}</Naslov2>
+                  </Text>
+
+                  {/* <Text
+                    dangerouslySetInnerHTML={{
+                      __html: [post.node.excerpt.slice(0, 100) + "..."],
                     }}
-                  ></div>
-                </Foto>
-
-                <Text>
-                  <Naslov2>{post.node.title}</Naslov2>
-                </Text>
-
-                {/* <Text
-                  dangerouslySetInnerHTML={{
-                    __html: [post.node.excerpt.slice(0, 100) + "..."],
-                  }}
-                /> */}
-                <ReadMore>PROČITAJ VIŠE </ReadMore>
-              </Card>
-            </Link>
-          </WrapTestimonial>
-        ))}
-      </Slider>
+                  /> */}
+                  <ReadMore>PROČITAJ VIŠE </ReadMore>
+                </Card>
+              </Link>
+            </WrapTestimonial>
+          ))}
+        </Slider>
+      ) : (
+        <div style={{ marginTop: "2rem" }}>Trenutno nema blog objava.</div>
+      )}
       {/* <Link href="/blog">
         <div
           style={{

@@ -21,7 +21,8 @@ import HeroChristmas from "../components/heroChristmas/heroChristmas";
 import GalleryXmas from "../components/galleryXmas";
 import InfoXmas from "../components/InfoXmas";
 
-export default function IndexPage({ allPosts: { edges }, preview }) {
+export default function IndexPage({ allPosts, preview }) {
+  const edges = allPosts?.edges || [];
   return (
     <ParallaxProvider>
       <Layout hasButtonSignUp={false}>
@@ -77,8 +78,16 @@ export default function IndexPage({ allPosts: { edges }, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview);
+  let allPosts = { edges: [] };
+
+  try {
+    allPosts = (await getAllPostsForHome(preview)) || { edges: [] };
+  } catch (error) {
+    console.error("Failed to load christmasrun posts", error);
+  }
+
   return {
     props: { allPosts, preview },
+    revalidate: 300,
   };
 }

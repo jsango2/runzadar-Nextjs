@@ -14,13 +14,34 @@ import {
   Text,
 } from "../../styles/postStyles";
 
+function stripHtml(html = "") {
+  return html.replace(/<[^>]*>/g, "").trim();
+}
+
 export default function Post({ post }) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const postTitle = post?.title || "Blog post";
+  const excerptText = stripHtml(post?.excerpt || "");
+  const seoDescription =
+    post?.seoDescription?.seoDescription ||
+    excerptText ||
+    "Blog sa temama o trčanju i iz trčanja.";
+  const socialImage =
+    post?.featuredImage?.node?.sourceUrl || "https://www.runzadar.com/sunset.png";
+  const postTags = post?.tags?.edges || [];
+  const postContent = post?.content || "";
+
   const [datum, setDatum] = useState("-");
   useEffect(() => {
+    if (!post?.date) {
+      setDatum("-");
+      return;
+    }
+
     let datumPosta = post.date;
     function formatDate(date) {
       var d = new Date(date),
@@ -34,7 +55,7 @@ export default function Post({ post }) {
       return [day, month, year].join(".");
     }
     setDatum(formatDate(datumPosta));
-  }, []);
+  }, [post?.date]);
   return (
     <Layout>
       {router.isFallback ? (
@@ -43,7 +64,7 @@ export default function Post({ post }) {
         <>
           {" "}
           <Head>
-            <title>Blog post</title>
+            <title>{`${postTitle} - Škola trčanja Zadar`}</title>
             <link
               rel="canonical"
               href={`https://www.runzadar.com/posts/${post.slug}`}
@@ -52,46 +73,27 @@ export default function Post({ post }) {
 
             <meta
               property="og:title"
-              content={`${post.title} - Škola trčanja Zadar`}
+              content={`${postTitle} - Škola trčanja Zadar`}
               key="title"
             />
-            <meta
-              name="twitter:title"
-              content={`${post.excerpt.slice(3, post.excerpt.length - 5)}`}
-            />
-            <meta
-              name="twitter:description"
-              content={`${post.seoDescription.seoDescription}`}
-            />
-            <meta
-              name="twitter:image"
-              content={`${post.featuredImage.node.sourceUrl}`}
-            />
+            <meta name="twitter:title" content={postTitle} />
+            <meta name="twitter:description" content={seoDescription} />
+            <meta name="twitter:image" content={socialImage} />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta
-              name="description"
-              content={`${post.seoDescription.seoDescription}`}
-              key="desc"
-            />
-            <meta
-              property="og:description"
-              content={`${post.seoDescription.seoDescription}`}
-            />
+            <meta name="description" content={seoDescription} key="desc" />
+            <meta property="og:description" content={seoDescription} />
             <meta
               property="og:url"
               content={`https://www.runzadar.com/posts/${post.slug}`}
             />
-            <meta
-              property="og:image"
-              content={`${post.featuredImage.node.sourceUrl}`}
-            />
+            <meta property="og:image" content={socialImage} />
           </Head>
           <div
             style={{
               position: "relative",
               width: "100%",
               height: "450px",
-              backgroundImage: `url(${post.featuredImage.node.sourceUrl})`,
+              backgroundImage: `url(${socialImage})`,
               backgroundPosition: "50% 50%",
               backgroundSize: "cover ",
               zIndex: "0",
@@ -111,13 +113,13 @@ export default function Post({ post }) {
                     // objectFit="cover"
                   />
                 </div>
-                {post.title}{" "}
+                {postTitle}{" "}
               </Naslov>
             </WrapNaslovButton>
           </div>
           <WrapText>
             <div style={{ marginTop: "2rem", display: "flex" }}>
-              {post.tags.edges.map((tag) => (
+              {postTags.map((tag) => (
                 <div
                   key={tag.node.name}
                   style={{ margin: "4px", color: "grey" }}
@@ -147,7 +149,7 @@ export default function Post({ post }) {
                 fontSize: "21px",
               }}
             >
-              <Text dangerouslySetInnerHTML={{ __html: post.content }}></Text>
+              <Text dangerouslySetInnerHTML={{ __html: postContent }}></Text>
             </div>
           </WrapText>
           {/*
@@ -166,21 +168,47 @@ export const getStaticProps = async ({
   preview = false,
   previewData,
 }) => {
-  const data = await getPostAndMorePosts(params?.slug, preview, previewData);
-  return {
-    props: {
-      post: data.post,
-      // posts: data.posts,
-    },
-    // revalidate: 10,
-  };
+  try {
+    const data = await getPostAndMorePosts(params?.slug, preview, previewData);
+
+    if (!data?.post?.slug) {
+      return {
+        notFound: true,
+        revalidate: 60,
+      };
+    }
+
+    return {
+      props: {
+        post: data.post,
+        // posts: data.posts,
+      },
+      revalidate: 300,
+    };
+  } catch (error) {
+    console.error("Failed to load post data", error);
+
+    return {
+      notFound: true,
+      revalidate: 60,
+    };
+  }
 };
 
 export const getStaticPaths = async () => {
-  const allPosts = await getAllPostsWithSlug();
+  try {
+    const allPosts = await getAllPostsWithSlug();
+    const edges = allPosts?.edges || [];
 
-  return {
-    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
-    fallback: false,
-  };
+    return {
+      paths: edges.map(({ node }) => `/posts/${node.slug}`),
+      fallback: "blocking",
+    };
+  } catch (error) {
+    console.error("Failed to load post slugs", error);
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
 };

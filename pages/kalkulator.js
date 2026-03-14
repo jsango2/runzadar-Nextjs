@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Button from "../components/button/button";
 import PaceKalkulator from "../components/kalkulatori/paceKalkulator";
 import ZoneKalkulator from "../components/kalkulatori/zoneKalkulator";
+import BmiKalkulator from "../components/kalkulatori/bmiKalkulator";
 import Head from "next/head";
 
 import Layout from "../components/layout";
@@ -180,6 +181,10 @@ export default function Kalkulator() {
           style={{ width: "100px", height: "2px", backgroundColor: "white" }}
         ></div>
         <ZoneKalkulator />
+        <div
+          style={{ width: "100px", height: "2px", backgroundColor: "white" }}
+        ></div>
+        <BmiKalkulator />
       </div>
     </Layout>
   );

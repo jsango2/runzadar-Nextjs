@@ -1,19 +1,124 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../button/button";
 import { WrapForm } from "../../styles/calcStyles";
 import Cleave from "cleave.js/react";
-import { timeStringToFloat, minTommss, converter, minTommss2 } from "./formule";
+import { timeStringToFloat, minTommss, converter } from "./formule";
 import { useDelay } from "react-use-precision-timer";
 import Zona from "./zona";
-import Image from "next/image";
+
+const RACE_DISTANCES = {
+  5: 5000,
+  10: 10000,
+  21: 21097.5,
+  42: 42195,
+};
+
+const oxygenCost = (velocityMetersPerMin) =>
+  -4.6 + 0.182258 * velocityMetersPerMin + 0.000104 * velocityMetersPerMin ** 2;
+
+const raceTimeFactor = (timeMinutes) =>
+  0.8 +
+  0.1894393 * Math.exp(-0.012778 * timeMinutes) +
+  0.2989558 * Math.exp(-0.1932605 * timeMinutes);
+
+const vdotFromRace = (distanceMeters, timeMinutes) => {
+  if (!distanceMeters || !timeMinutes) return null;
+  const velocity = distanceMeters / timeMinutes;
+  const fraction = raceTimeFactor(timeMinutes);
+  if (velocity <= 0 || fraction <= 0) return null;
+  return oxygenCost(velocity) / fraction;
+};
+
+const solveTimeForDistance = (distanceMeters, vdot) => {
+  if (!distanceMeters || !vdot) return null;
+
+  const evaluate = (timeMinutes) => {
+    const estimate = vdotFromRace(distanceMeters, timeMinutes);
+    if (!Number.isFinite(estimate)) return null;
+    return estimate - vdot;
+  };
+
+  let low = distanceMeters / 450;
+  let high = distanceMeters / 120;
+  let fLow = evaluate(low);
+  let fHigh = evaluate(high);
+
+  let guard = 0;
+  while (fHigh !== null && fHigh > 0 && guard < 30) {
+    high *= 1.25;
+    fHigh = evaluate(high);
+    guard += 1;
+  }
+
+  guard = 0;
+  while (fLow !== null && fLow < 0 && low > 1 && guard < 30) {
+    low *= 0.75;
+    fLow = evaluate(low);
+    guard += 1;
+  }
+
+  if (
+    !Number.isFinite(fLow) ||
+    !Number.isFinite(fHigh) ||
+    fLow <= 0 ||
+    fHigh >= 0
+  ) {
+    return null;
+  }
+
+  for (let i = 0; i < 70; i += 1) {
+    const mid = (low + high) / 2;
+    const fMid = evaluate(mid);
+    if (!Number.isFinite(fMid)) return null;
+
+    if (fMid > 0) {
+      low = mid;
+    } else {
+      high = mid;
+    }
+  }
+
+  return (low + high) / 2;
+};
+
+const paceFromVdotIntensity = (vdot, intensity) => {
+  const targetVo2 = vdot * intensity;
+  const a = 0.000104;
+  const b = 0.182258;
+  const c = -4.6 - targetVo2;
+  const discriminant = b ** 2 - 4 * a * c;
+
+  if (!Number.isFinite(discriminant) || discriminant <= 0) return null;
+
+  const velocityMetersPerMin = (-b + Math.sqrt(discriminant)) / (2 * a);
+  if (velocityMetersPerMin <= 0) return null;
+
+  return 1000 / velocityMetersPerMin;
+};
+
+const formatPace = (pace) => (Number.isFinite(pace) ? minTommss(pace) : "");
+const formatRange = (fastPace, slowPace) =>
+  `${formatPace(fastPace)} - ${formatPace(slowPace)}`;
+const HR_ZONE_RANGES = [
+  { low: 0.5, high: 0.6 },
+  { low: 0.6, high: 0.7 },
+  { low: 0.7, high: 0.8 },
+  { low: 0.8, high: 0.9 },
+  { low: 0.9, high: 1.0 },
+];
+
+const karvonenRange = (restHr, maxHr, low, high) => {
+  const reserve = maxHr - restHr;
+  if (reserve <= 0) return "";
+  const minHr = Math.round(restHr + reserve * low);
+  const maxZoneHr = Math.round(restHr + reserve * high);
+  return `${minHr} - ${maxZoneHr} bpm`;
+};
 
 export default function ZoneKalkulator() {
-  const [isShown1, setIsShown1] = useState(true);
-  const [isShown2, setIsShown2] = useState(false);
-  const [isShown3, setIsShown3] = useState(false);
-  const [isShown4, setIsShown4] = useState(false);
-  const [isShown5, setIsShown5] = useState(false);
   const [vrijemeTrcanja, setVrijemeTrcanja] = useState("");
+  const [restHr, setRestHr] = useState("");
+  const [maxHr, setMaxHr] = useState("");
   const [procjena5, setProcjena5] = useState("");
   const [procjena10, setProcjena10] = useState("");
   const [procjena21, setProcjena21] = useState("");
@@ -23,10 +128,12 @@ export default function ZoneKalkulator() {
   const [zona3, setZona3] = useState("");
   const [zona4, setZona4] = useState("");
   const [zona5, setZona5] = useState("");
+  const [zona1Hr, setZona1Hr] = useState("");
+  const [zona2Hr, setZona2Hr] = useState("");
+  const [zona3Hr, setZona3Hr] = useState("");
+  const [zona4Hr, setZona4Hr] = useState("");
+  const [zona5Hr, setZona5Hr] = useState("");
   const [ispisVdot, setIspisVdot] = useState("");
-  const [ispisDuzina, setIspisDuzina] = useState("");
-  const [hours, setHours] = useState();
-  const [minutes, setMinutes] = useState();
   const [udaljenost, setUdaljenost] = useState("");
 
   const handleTimeChange = (event) => {
@@ -56,97 +163,141 @@ export default function ZoneKalkulator() {
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (!udaljenost || vrijemeTrcanja === "") return;
 
-    if (udaljenost == 5) {
-      if (vrijemeTrcanja !== "") {
-        var minute = timeStringToFloat(vrijemeTrcanja);
-        var procjena10k = minute * 2.0817;
-        var procjena21k = minute * 4.6;
-        var procjena42k = minute * 9.45;
-        setProcjena10(converter(procjena10k));
-        setProcjena21(converter(procjena21k));
-        setProcjena42(converter(procjena42k));
-        setProcjena5(vrijemeTrcanja);
-        setZona1(converter(procjena10k / 8.05).slice(3));
-        setZona2(converter(procjena10k / 9.45).slice(3));
-        setZona3(converter(procjena10k / 10.05).slice(3));
-        setZona4(converter(procjena10k / 10.38).slice(3));
-        setZona5(converter(procjena10k / 11.65).slice(3));
-      }
-    }
+    const selectedDistanceKm = Number(udaljenost);
+    const selectedDistanceMeters = RACE_DISTANCES[selectedDistanceKm];
+    const raceHours = Number(timeStringToFloat(vrijemeTrcanja));
+    const raceMinutes = raceHours * 60;
 
-    if (udaljenost == 10) {
-      console.log("DESTEKA");
-      if (vrijemeTrcanja !== "") {
-        var minute = timeStringToFloat(vrijemeTrcanja);
-        var procjena5k = minute / 2.0867;
-        var procjena21k = minute * 2.2;
-        var procjena42k = minute * 4.61;
-        setProcjena10(vrijemeTrcanja);
-        setProcjena21(converter(procjena21k));
-        setProcjena42(converter(procjena42k));
-        setProcjena5(converter(procjena5k));
-        setZona1(converter(minute / 8.05).slice(3));
-        setZona2(converter(minute / 9.2).slice(3));
-        setZona3(converter(minute / 10.15).slice(3));
-        setZona4(converter(minute / 10.58).slice(3));
-        setZona5(converter(minute / 11.65).slice(3));
-      }
-    }
-    if (udaljenost == 21) {
-      if (vrijemeTrcanja !== "") {
-        var minute = timeStringToFloat(vrijemeTrcanja);
-        var minute = timeStringToFloat(vrijemeTrcanja);
-        var procjena5k = minute / 4.59;
-        var procjena10k = minute / 2.215;
-        var procjena42k = minute * 2.0826;
-        setProcjena10(converter(procjena10k));
-        setProcjena21(vrijemeTrcanja);
-        setProcjena42(converter(procjena42k));
-        setProcjena5(converter(procjena5k));
-        setZona1(converter(procjena10k / 8.05).slice(3));
-        setZona2(converter(procjena10k / 9.2).slice(3));
-        setZona3(converter(procjena10k / 10.15).slice(3));
-        setZona4(converter(procjena10k / 10.58).slice(3));
-        setZona5(converter(procjena10k / 11.65).slice(3));
-      }
-    }
-    if (udaljenost == 42) {
-      console.log("FULL");
-      if (vrijemeTrcanja !== "") {
-        var minute = timeStringToFloat(vrijemeTrcanja);
-        var minute = timeStringToFloat(vrijemeTrcanja);
-        var procjena5k = minute / 9.56;
-        var procjena10k = minute / 4.61;
-        var procjena21k = minute / 2.0826;
-        setProcjena10(converter(procjena10k));
-        setProcjena21(converter(procjena21k));
-        setProcjena42(vrijemeTrcanja);
-        setProcjena5(converter(procjena5k));
-        setZona1(converter(procjena10k / 8.05).slice(3));
-        setZona2(converter(procjena10k / 9.2).slice(3));
-        setZona3(converter(procjena10k / 10.15).slice(3));
-        setZona4(converter(procjena10k / 10.58).slice(3));
-        setZona5(converter(procjena10k / 11.65).slice(3));
-      }
+    const vdot = vdotFromRace(selectedDistanceMeters, raceMinutes);
+    if (!Number.isFinite(vdot)) return;
+
+    const projectionFromVdot = (distanceKm) => {
+      if (selectedDistanceKm === distanceKm) return vrijemeTrcanja;
+      const predictedMinutes = solveTimeForDistance(
+        RACE_DISTANCES[distanceKm],
+        vdot,
+      );
+      if (!Number.isFinite(predictedMinutes)) return "";
+      return converter(predictedMinutes / 60);
+    };
+
+    setIspisVdot(vdot.toFixed(1));
+    setProcjena5(projectionFromVdot(5));
+    setProcjena10(projectionFromVdot(10));
+    setProcjena21(projectionFromVdot(21));
+    setProcjena42(projectionFromVdot(42));
+
+    const easyFast = paceFromVdotIntensity(vdot, 0.74);
+    const easySlow = paceFromVdotIntensity(vdot, 0.59);
+    const marathonFast = paceFromVdotIntensity(vdot, 0.84);
+    const marathonSlow = paceFromVdotIntensity(vdot, 0.8);
+    const thresholdFast = paceFromVdotIntensity(vdot, 0.9);
+    const thresholdSlow = paceFromVdotIntensity(vdot, 0.86);
+    const intervalFast = paceFromVdotIntensity(vdot, 1.0);
+    const intervalSlow = paceFromVdotIntensity(vdot, 0.95);
+    const repetitionFast = paceFromVdotIntensity(vdot, 1.1);
+    const repetitionSlow = paceFromVdotIntensity(vdot, 1.05);
+
+    setZona1(formatRange(easyFast, easySlow));
+    setZona2(formatRange(marathonFast, marathonSlow));
+    setZona3(formatRange(thresholdFast, thresholdSlow));
+    setZona4(formatRange(intervalFast, intervalSlow));
+    setZona5(formatRange(repetitionFast, repetitionSlow));
+
+    const parsedRestHr = Number(restHr);
+    const parsedMaxHr = Number(maxHr);
+    const hasHrInput =
+      Number.isFinite(parsedRestHr) &&
+      Number.isFinite(parsedMaxHr) &&
+      parsedRestHr > 0 &&
+      parsedMaxHr > parsedRestHr;
+
+    if (hasHrInput) {
+      setZona1Hr(
+        karvonenRange(
+          parsedRestHr,
+          parsedMaxHr,
+          HR_ZONE_RANGES[0].low,
+          HR_ZONE_RANGES[0].high,
+        ),
+      );
+      setZona2Hr(
+        karvonenRange(
+          parsedRestHr,
+          parsedMaxHr,
+          HR_ZONE_RANGES[1].low,
+          HR_ZONE_RANGES[1].high,
+        ),
+      );
+      setZona3Hr(
+        karvonenRange(
+          parsedRestHr,
+          parsedMaxHr,
+          HR_ZONE_RANGES[2].low,
+          HR_ZONE_RANGES[2].high,
+        ),
+      );
+      setZona4Hr(
+        karvonenRange(
+          parsedRestHr,
+          parsedMaxHr,
+          HR_ZONE_RANGES[3].low,
+          HR_ZONE_RANGES[3].high,
+        ),
+      );
+      setZona5Hr(
+        karvonenRange(
+          parsedRestHr,
+          parsedMaxHr,
+          HR_ZONE_RANGES[4].low,
+          HR_ZONE_RANGES[4].high,
+        ),
+      );
+    } else {
+      setZona1Hr("");
+      setZona2Hr("");
+      setZona3Hr("");
+      setZona4Hr("");
+      setZona5Hr("");
     }
   };
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
       <div className="allKalkulatorWrapZone">
-        <h1 className="naslovKalkulatora">Kalkulator trenažnih zona</h1>
+        <h1 className="naslovKalkulatora">
+          Kalkulator trenažnih zona te predviđanje vremena na utrkama
+        </h1>
         <p style={{ marginTop: "10px", textAlign: "center", width: "94%" }}>
           Unesi najbolje vrijeme otrčano na standardnoj dužini. Kalkulator će ti
           predvidjeti vremena na svim standardnim trkačkim dionicama te će
           odrediti tvoje trenažne zone (od Zone 1 do Zone 5). Najtočnije
           vrijednosti se dobiju ako se navede najbolje otrčani rezultat na 5 ili
-          10k.
+          10k. Po želji možeš dodati Rest i Max HR za Karvonen HR intervale po
+          zoni.
         </p>
-        <WrapForm>
+        <WrapForm style={{ height: "auto", overflow: "visible" }}>
           <form onSubmit={handleSubmit} className="formCalc">
-            {" "}
-            <div className="wrapFormCalcZone">
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              className="wrapFormCalcZone"
+              style={{
+                flexDirection: "column",
+                width: "100%",
+                maxWidth: "900px",
+                marginTop: "10px",
+                gap: "10px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "5px",
+                  width: "100%",
+                  flexWrap: "wrap",
+                }}
+              >
                 <div>
                   <div
                     style={{
@@ -164,9 +315,7 @@ export default function ZoneKalkulator() {
                     onChange={handleTimeChange}
                   />
                 </div>
-              </div>
 
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
                   <div
                     style={{
@@ -190,6 +339,56 @@ export default function ZoneKalkulator() {
                   </select>
                 </div>
               </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "5px",
+                  width: "100%",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div>
+                  <div
+                    style={{
+                      textAlign: "left",
+                      fontWeight: "600",
+                      marginLeft: "18px",
+                    }}
+                  >
+                    Rest HR (nije obavezno)
+                  </div>
+                  <input
+                    type="number"
+                    min="1"
+                    step="1"
+                    value={restHr}
+                    placeholder="npr. 55"
+                    onChange={(e) => setRestHr(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <div
+                    style={{
+                      textAlign: "left",
+                      fontWeight: "600",
+                      marginLeft: "18px",
+                    }}
+                  >
+                    Max HR (nije obavezno)
+                  </div>
+                  <input
+                    type="number"
+                    min="1"
+                    step="1"
+                    value={maxHr}
+                    placeholder="npr. 190"
+                    onChange={(e) => setMaxHr(e.target.value)}
+                  />
+                </div>
+              </div>
             </div>
             <div className="formCalcSubmit">
               <input type="submit" value="IZRAČUNAJ" />
@@ -198,12 +397,24 @@ export default function ZoneKalkulator() {
               className="resetZone"
               onClick={() => {
                 setVrijemeTrcanja("");
+                setRestHr("");
+                setMaxHr("");
                 setUdaljenost("");
-                setIspisDuzina("");
                 setIspisVdot("");
+                setProcjena5("");
                 setProcjena42("");
                 setProcjena21("");
                 setProcjena10("");
+                setZona1("");
+                setZona2("");
+                setZona3("");
+                setZona4("");
+                setZona5("");
+                setZona1Hr("");
+                setZona2Hr("");
+                setZona3Hr("");
+                setZona4Hr("");
+                setZona5Hr("");
               }}
             >
               <Button
@@ -220,46 +431,52 @@ export default function ZoneKalkulator() {
           <>
             <div className="wrapResultCalcZone">
               <div className="ispisCalcZone" style={{ marginBottom: "30px" }}>
-                Projekcije zona:
+                Daniels VDOT zone:
+              </div>
+              <div className="ispisCalcZone" style={{ marginBottom: "30px" }}>
+                VDOT: {ispisVdot}
               </div>
 
               <div className="wrapZoneColor">
                 <Zona
                   pointer={true}
-                  tag="<"
+                  tag="E"
                   data={zona1}
+                  hrRange={zona1Hr}
                   delay={300}
-                  text={`Tempo <${zona1} min/km je vaša zona laganog trčanja. Trčanje u ovoj zoni se koristi za zagrijavanje, regeneraciju ili kao lagani dužinski trening.`}
+                  text="Easy (E) zona za lagano i regeneracijsko trčanje. U Daniels sustavu to je raspon tempa, a ne jedna točka."
                 />
                 <Zona
                   pointer={false}
-                  // tag="Z2"
+                  tag="M"
                   data={zona2}
+                  hrRange={zona2Hr}
                   delay={600}
-                  text={` Zona intenzivnog aerobnog treninga je na tempu oko ${zona2} min/km. Cilj trčanja u ovom intenzitetu je razvoj aerobnog kapaciteta. Ovaj intenzitet koristimo u fartlek trčanjima te na dužim dionicama. Ovaj tempo je približan vašem tempu trčanja polumaratona`}
+                  text="Marathon (M) tempo za kontinuirani aerobni rad i duže dionice."
                 />
                 <Zona
                   pointer={false}
-                  // tag="Z3"
+                  tag="T"
                   data={zona3}
+                  hrRange={zona3Hr}
                   delay={900}
-                  text="Trčanje oko ove zone odgovara intenzitetu vašeg anaerobnog praga. 
-                  Na ovom intenzitetu je moguće trčati 40-60 minuta pa tempo odgovara tempu trčanja na 10km.
-                  Obično u ovom tempu trčimo kad želimo postići intenzivni aerobni trening."
+                  text="Threshold (T) tempo oko anaerobnog praga, tipično tempo koji je održiv oko 60 minuta."
                 />
                 <Zona
                   pointer={false}
-                  // tag="Z4"
+                  tag="I"
                   data={zona4}
+                  hrRange={zona4Hr}
                   delay={1200}
-                  text="Zona iznad anaerobnog praga. Ovaj tempo je blizak tempu trčanja utrke na 5km. Koristi se najčešće u intervalnom radu (npr. 8x1km sa 2min pauze)."
+                  text="Interval (I) tempo za VO2max intervale srednje duljine (npr. 600 m - 1200 m)."
                 />
                 <Zona
                   pointer={false}
-                  tag=">"
+                  tag="R"
                   data={zona5}
+                  hrRange={zona5Hr}
                   delay={1500}
-                  text="Ovo je zona max primitka kisika. Koristi se kod kraćih intervala od 400 - 800m. Primjer treninga je 15x400m sa 2-3' pauze. Preporuča se samo spremnijim trkačima."
+                  text="Repetition (R) tempo za kratke dionice i razvoj ekonomije trčanja."
                 />
                 <ProjekcijaRez />
               </div>

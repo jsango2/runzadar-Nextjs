@@ -28,7 +28,7 @@ const NightRun = () => {
         <div className="nightRunDiv">
           <Text>
             Posebno smo ponosni na našu utrku Zadar Night Run. Utrka okuplja
-            preko 1500 trkača na dječjim utrkama, 2.5km, 5km i 10km te na polu
+            preko 1500 trkača na dječjim utrkama, 5km i 10km te na polu
             maratonu. Prijavite se i budite dio trkačkog spektakla u našem
             gradu!
           </Text>
