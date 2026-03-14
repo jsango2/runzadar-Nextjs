@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../button/button";
 import { WrapForm } from "../../styles/calcStyles";
 import Cleave from "cleave.js/react";
-import { timeStringToFloat, minTommss, converter } from "./formule";
+import { timeStringToFloat, converter } from "./formule";
 import { useDelay } from "react-use-precision-timer";
 import Zona from "./zona";
 
@@ -12,6 +12,9 @@ const RACE_DISTANCES = {
   21: 21097.5,
   42: 42195,
 };
+const PACE_LINE_COLOR = "#191b26";
+const ZONE_ORDER = ["E", "M", "T", "I", "R"];
+const ZONE_COLORS = ["#b2ea70", "#fbd148", "#f9975d", "#c85c5c", "#91292f"];
 
 const oxygenCost = (velocityMetersPerMin) =>
   -4.6 + 0.182258 * velocityMetersPerMin + 0.000104 * velocityMetersPerMin ** 2;
@@ -96,9 +99,52 @@ const paceFromVdotIntensity = (vdot, intensity) => {
   return 1000 / velocityMetersPerMin;
 };
 
-const formatPace = (pace) => (Number.isFinite(pace) ? minTommss(pace) : "");
-const formatRange = (fastPace, slowPace) =>
-  `${formatPace(fastPace)} - ${formatPace(slowPace)}`;
+const paceToSeconds = (paceMinutes) =>
+  Number.isFinite(paceMinutes) ? Math.round(paceMinutes * 60) : null;
+
+const secondsToPaceString = (seconds) => {
+  if (!Number.isFinite(seconds)) return "";
+  const minutesPart = Math.floor(seconds / 60);
+  const secondsPart = seconds % 60;
+  return `${minutesPart < 10 ? "0" : ""}${minutesPart}:${
+    secondsPart < 10 ? "0" : ""
+  }${secondsPart}`;
+};
+
+const formatRangeFromSeconds = (fastSeconds, slowSeconds) =>
+  `${secondsToPaceString(fastSeconds)} - ${secondsToPaceString(slowSeconds)}`;
+
+const makeContinuousPaceZones = (zones) => {
+  if (
+    zones.some(
+      (zone) => !Number.isFinite(zone.fastSeconds) || !Number.isFinite(zone.slowSeconds),
+    )
+  ) {
+    return zones;
+  }
+
+  const sortedBySpeed = zones.slice().sort((a, b) => a.fastSeconds - b.fastSeconds);
+
+  for (let i = 0; i < sortedBySpeed.length - 1; i += 1) {
+    const currentZone = sortedBySpeed[i];
+    const nextZone = sortedBySpeed[i + 1];
+    const boundary = Math.round((currentZone.slowSeconds + nextZone.fastSeconds) / 2);
+
+    currentZone.slowSeconds = boundary;
+    nextZone.fastSeconds = boundary;
+
+    if (currentZone.slowSeconds < currentZone.fastSeconds) {
+      currentZone.slowSeconds = currentZone.fastSeconds;
+    }
+
+    if (nextZone.slowSeconds < nextZone.fastSeconds) {
+      nextZone.slowSeconds = nextZone.fastSeconds;
+    }
+  }
+
+  return zones;
+};
+
 const HR_ZONE_RANGES = [
   { low: 0.5, high: 0.6 },
   { low: 0.6, high: 0.7 },
@@ -114,6 +160,215 @@ const karvonenRange = (restHr, maxHr, low, high) => {
   const maxZoneHr = Math.round(restHr + reserve * high);
   return `${minHr} - ${maxZoneHr} bpm`;
 };
+
+const karvonenRangeDetails = (restHr, maxHr, low, high) => {
+  const reserve = maxHr - restHr;
+  if (reserve <= 0) return null;
+  const min = Math.round(restHr + reserve * low);
+  const max = Math.round(restHr + reserve * high);
+  return {
+    min,
+    max,
+    label: `${min} - ${max} bpm`,
+  };
+};
+
+function PaceZoneChart({ zones }) {
+  if (!zones?.length) return null;
+
+  const width = 760;
+  const height = 270;
+  const paddingTop = 24;
+  const paddingBottom = 70;
+  const paddingX = 34;
+  const plotWidth = width - paddingX * 2;
+  const plotHeight = height - paddingTop - paddingBottom;
+  const segmentWidth = plotWidth / zones.length;
+  const xStep = zones.length > 1 ? plotWidth / (zones.length - 1) : 0;
+
+  const paceMidpoints = zones.map((zone) =>
+    Math.round((zone.fastSeconds + zone.slowSeconds) / 2),
+  );
+  const paceMin = Math.min(...paceMidpoints);
+  const paceMax = Math.max(...paceMidpoints);
+
+  const paceY = (paceSeconds) => {
+    if (paceMax === paceMin) return paddingTop + plotHeight / 2;
+    return (
+      paddingTop +
+      ((paceSeconds - paceMin) / (paceMax - paceMin)) * plotHeight
+    );
+  };
+
+  const pacePoints = paceMidpoints
+    .map((paceValue, index) => `${paddingX + xStep * index},${paceY(paceValue)}`)
+    .join(" ");
+
+  const hrMidpoints = zones.map((zone) =>
+    zone.hrMin !== null && zone.hrMax !== null
+      ? Math.round((zone.hrMin + zone.hrMax) / 2)
+      : null,
+  );
+  const hasHr = hrMidpoints.every((value) => Number.isFinite(value));
+  const hrMin = hasHr ? Math.min(...hrMidpoints) : null;
+  const hrMax = hasHr ? Math.max(...hrMidpoints) : null;
+
+  const hrY = (hrValue) => {
+    if (!Number.isFinite(hrMin) || !Number.isFinite(hrMax) || hrMax === hrMin) {
+      return paddingTop + plotHeight / 2;
+    }
+    return paddingTop + ((hrMax - hrValue) / (hrMax - hrMin)) * plotHeight;
+  };
+
+  const hrPoints = hasHr
+    ? hrMidpoints
+        .map((hrValue, index) => `${paddingX + xStep * index},${hrY(hrValue)}`)
+        .join(" ")
+    : "";
+
+  return (
+    <div className="paceZoneChartWrap">
+      <div className="paceZoneChartTitle">
+        Graf promjene pace-a i HR-a kroz zone (E-M-T-I-R)
+      </div>
+      <div className="paceZoneChartHint">
+        Pozadina prati boje zona. Pace linija ide prema bržem tempu.
+      </div>
+
+      <svg
+        className="paceZoneChartSvg"
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="none"
+      >
+        {zones.map((zone, index) => (
+          <g key={`${zone.tag}-${index}`}>
+            <rect
+              x={paddingX + index * segmentWidth}
+              y={paddingTop}
+              width={segmentWidth}
+              height={plotHeight}
+              fill={ZONE_COLORS[index]}
+              opacity="1"
+            />
+            <line
+              x1={paddingX + index * segmentWidth}
+              y1={paddingTop}
+              x2={paddingX + index * segmentWidth}
+              y2={paddingTop + plotHeight}
+              stroke="rgba(255,255,255,0.3)"
+              strokeWidth="1"
+            />
+          </g>
+        ))}
+
+        <line
+          x1={paddingX + plotWidth}
+          y1={paddingTop}
+          x2={paddingX + plotWidth}
+          y2={paddingTop + plotHeight}
+          stroke="rgba(255,255,255,0.3)"
+          strokeWidth="1"
+        />
+
+        <polyline
+          points={pacePoints}
+          fill="none"
+          stroke={PACE_LINE_COLOR}
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {zones.map((zone, index) => {
+          const x = paddingX + xStep * index;
+          const y = paceY(paceMidpoints[index]);
+          const paceLabelY = Math.max(paddingTop + 12, y - 10);
+          return (
+            <g key={`pace-${zone.tag}`}>
+              <circle
+                cx={x}
+                cy={y}
+                r="5"
+                fill={PACE_LINE_COLOR}
+                stroke="#ffffff"
+                strokeWidth="2"
+              />
+              <text x={x} y={paceLabelY} textAnchor="middle" className="pacePointValue">
+                {secondsToPaceString(paceMidpoints[index])}
+              </text>
+            </g>
+          );
+        })}
+
+        {hasHr ? (
+          <>
+            <polyline
+              points={hrPoints}
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.95"
+            />
+            {zones.map((zone, index) => {
+              const x = paddingX + xStep * index;
+              const y = hrY(hrMidpoints[index]);
+              const hrLabelY = Math.min(paddingTop + plotHeight - 4, y + 14);
+              return (
+                <g key={`hr-${zone.tag}`}>
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="4"
+                    fill="#ffffff"
+                    stroke="#191b26"
+                    strokeWidth="2"
+                  />
+                  <text x={x} y={hrLabelY} textAnchor="middle" className="hrPointValue">
+                    {hrMidpoints[index]}
+                  </text>
+                </g>
+              );
+            })}
+          </>
+        ) : null}
+
+        {zones.map((zone, index) => (
+          <text
+            key={`tag-${zone.tag}`}
+            x={paddingX + xStep * index}
+            y={height - 44}
+            textAnchor="middle"
+            className="paceZoneAxisTag"
+          >
+            {zone.tag}
+          </text>
+        ))}
+      </svg>
+
+      <div className="paceZoneLegend">
+        <div className="paceLegendItem">
+          <span className="paceLegendLine paceLegendLinePace" />
+          Pace (min/km)
+        </div>
+        {hasHr ? (
+          <div className="paceLegendItem">
+            <span className="paceLegendLine paceLegendLineHr" />
+            HR (bpm)
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+function PaceZoneChartDelayed({ zones }) {
+  const [show, setShow] = useState(false);
+  useDelay(1800, () => setShow(true));
+
+  if (!show) return null;
+  return <PaceZoneChart zones={zones} />;
+}
 
 export default function ZoneKalkulator() {
   const [vrijemeTrcanja, setVrijemeTrcanja] = useState("");
@@ -135,6 +390,7 @@ export default function ZoneKalkulator() {
   const [zona5Hr, setZona5Hr] = useState("");
   const [ispisVdot, setIspisVdot] = useState("");
   const [udaljenost, setUdaljenost] = useState("");
+  const [zoneChartData, setZoneChartData] = useState([]);
 
   const handleTimeChange = (event) => {
     setVrijemeTrcanja(event.target.value);
@@ -200,11 +456,69 @@ export default function ZoneKalkulator() {
     const repetitionFast = paceFromVdotIntensity(vdot, 1.1);
     const repetitionSlow = paceFromVdotIntensity(vdot, 1.05);
 
-    setZona1(formatRange(easyFast, easySlow));
-    setZona2(formatRange(marathonFast, marathonSlow));
-    setZona3(formatRange(thresholdFast, thresholdSlow));
-    setZona4(formatRange(intervalFast, intervalSlow));
-    setZona5(formatRange(repetitionFast, repetitionSlow));
+    const rawPaceZones = [
+      {
+        label: "E",
+        fastSeconds: paceToSeconds(easyFast),
+        slowSeconds: paceToSeconds(easySlow),
+      },
+      {
+        label: "M",
+        fastSeconds: paceToSeconds(marathonFast),
+        slowSeconds: paceToSeconds(marathonSlow),
+      },
+      {
+        label: "T",
+        fastSeconds: paceToSeconds(thresholdFast),
+        slowSeconds: paceToSeconds(thresholdSlow),
+      },
+      {
+        label: "I",
+        fastSeconds: paceToSeconds(intervalFast),
+        slowSeconds: paceToSeconds(intervalSlow),
+      },
+      {
+        label: "R",
+        fastSeconds: paceToSeconds(repetitionFast),
+        slowSeconds: paceToSeconds(repetitionSlow),
+      },
+    ];
+
+    const continuousPaceZones = makeContinuousPaceZones(rawPaceZones);
+    const zoneByLabel = Object.fromEntries(
+      continuousPaceZones.map((zone) => [zone.label, zone]),
+    );
+
+    setZona1(
+      formatRangeFromSeconds(
+        zoneByLabel.E.fastSeconds,
+        zoneByLabel.E.slowSeconds,
+      ),
+    );
+    setZona2(
+      formatRangeFromSeconds(
+        zoneByLabel.M.fastSeconds,
+        zoneByLabel.M.slowSeconds,
+      ),
+    );
+    setZona3(
+      formatRangeFromSeconds(
+        zoneByLabel.T.fastSeconds,
+        zoneByLabel.T.slowSeconds,
+      ),
+    );
+    setZona4(
+      formatRangeFromSeconds(
+        zoneByLabel.I.fastSeconds,
+        zoneByLabel.I.slowSeconds,
+      ),
+    );
+    setZona5(
+      formatRangeFromSeconds(
+        zoneByLabel.R.fastSeconds,
+        zoneByLabel.R.slowSeconds,
+      ),
+    );
 
     const parsedRestHr = Number(restHr);
     const parsedMaxHr = Number(maxHr);
@@ -214,46 +528,56 @@ export default function ZoneKalkulator() {
       parsedRestHr > 0 &&
       parsedMaxHr > parsedRestHr;
 
+    let hrZoneDetails = null;
+
     if (hasHrInput) {
+      hrZoneDetails = HR_ZONE_RANGES.map((range) =>
+        karvonenRangeDetails(parsedRestHr, parsedMaxHr, range.low, range.high),
+      );
       setZona1Hr(
-        karvonenRange(
-          parsedRestHr,
-          parsedMaxHr,
-          HR_ZONE_RANGES[0].low,
-          HR_ZONE_RANGES[0].high,
-        ),
+        hrZoneDetails[0]?.label ||
+          karvonenRange(
+            parsedRestHr,
+            parsedMaxHr,
+            HR_ZONE_RANGES[0].low,
+            HR_ZONE_RANGES[0].high,
+          ),
       );
       setZona2Hr(
-        karvonenRange(
-          parsedRestHr,
-          parsedMaxHr,
-          HR_ZONE_RANGES[1].low,
-          HR_ZONE_RANGES[1].high,
-        ),
+        hrZoneDetails[1]?.label ||
+          karvonenRange(
+            parsedRestHr,
+            parsedMaxHr,
+            HR_ZONE_RANGES[1].low,
+            HR_ZONE_RANGES[1].high,
+          ),
       );
       setZona3Hr(
-        karvonenRange(
-          parsedRestHr,
-          parsedMaxHr,
-          HR_ZONE_RANGES[2].low,
-          HR_ZONE_RANGES[2].high,
-        ),
+        hrZoneDetails[2]?.label ||
+          karvonenRange(
+            parsedRestHr,
+            parsedMaxHr,
+            HR_ZONE_RANGES[2].low,
+            HR_ZONE_RANGES[2].high,
+          ),
       );
       setZona4Hr(
-        karvonenRange(
-          parsedRestHr,
-          parsedMaxHr,
-          HR_ZONE_RANGES[3].low,
-          HR_ZONE_RANGES[3].high,
-        ),
+        hrZoneDetails[3]?.label ||
+          karvonenRange(
+            parsedRestHr,
+            parsedMaxHr,
+            HR_ZONE_RANGES[3].low,
+            HR_ZONE_RANGES[3].high,
+          ),
       );
       setZona5Hr(
-        karvonenRange(
-          parsedRestHr,
-          parsedMaxHr,
-          HR_ZONE_RANGES[4].low,
-          HR_ZONE_RANGES[4].high,
-        ),
+        hrZoneDetails[4]?.label ||
+          karvonenRange(
+            parsedRestHr,
+            parsedMaxHr,
+            HR_ZONE_RANGES[4].low,
+            HR_ZONE_RANGES[4].high,
+          ),
       );
     } else {
       setZona1Hr("");
@@ -262,6 +586,20 @@ export default function ZoneKalkulator() {
       setZona4Hr("");
       setZona5Hr("");
     }
+
+    setZoneChartData(
+      ZONE_ORDER.map((tag, index) => {
+        const zone = zoneByLabel[tag];
+        const hrZone = hrZoneDetails?.[index] || null;
+        return {
+          tag,
+          fastSeconds: zone?.fastSeconds,
+          slowSeconds: zone?.slowSeconds,
+          hrMin: hrZone ? hrZone.min : null,
+          hrMax: hrZone ? hrZone.max : null,
+        };
+      }),
+    );
   };
   return (
     <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
@@ -284,7 +622,7 @@ export default function ZoneKalkulator() {
               style={{
                 flexDirection: "column",
                 width: "100%",
-                maxWidth: "900px",
+                maxWidth: "100%",
                 marginTop: "10px",
                 gap: "10px",
               }}
@@ -415,6 +753,7 @@ export default function ZoneKalkulator() {
                 setZona3Hr("");
                 setZona4Hr("");
                 setZona5Hr("");
+                setZoneChartData([]);
               }}
             >
               <Button
@@ -478,6 +817,7 @@ export default function ZoneKalkulator() {
                   delay={1500}
                   text="Repetition (R) tempo za kratke dionice i razvoj ekonomije trčanja."
                 />
+                <PaceZoneChartDelayed zones={zoneChartData} />
                 <ProjekcijaRez />
               </div>
             </div>{" "}
