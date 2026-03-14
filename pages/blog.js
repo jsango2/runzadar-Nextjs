@@ -350,6 +350,5 @@ export async function getStaticProps({ preview = false }) {
 
   return {
     props: { allPosts, preview },
-    revalidate: 300,
   };
 }
