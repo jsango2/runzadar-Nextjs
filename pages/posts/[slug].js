@@ -174,7 +174,6 @@ export const getStaticProps = async ({
     if (!data?.post?.slug) {
       return {
         notFound: true,
-        revalidate: 60,
       };
     }
 
@@ -183,14 +182,12 @@ export const getStaticProps = async ({
         post: data.post,
         // posts: data.posts,
       },
-      revalidate: 300,
     };
   } catch (error) {
     console.error("Failed to load post data", error);
 
     return {
       notFound: true,
-      revalidate: 60,
     };
   }
 };
@@ -201,14 +198,16 @@ export const getStaticPaths = async () => {
     const edges = allPosts?.edges || [];
 
     return {
-      paths: edges.map(({ node }) => `/posts/${node.slug}`),
-      fallback: "blocking",
+      paths: edges
+        .filter(({ node }) => node?.slug)
+        .map(({ node }) => `/posts/${node.slug}`),
+      fallback: false,
     };
   } catch (error) {
     console.error("Failed to load post slugs", error);
     return {
       paths: [],
-      fallback: "blocking",
+      fallback: false,
     };
   }
 };
