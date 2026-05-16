@@ -18,13 +18,18 @@ const Hero = () => {
         <source src="/kraciVideo.mp4" type="video/mp4" />
       </video>
       <HeroTitle>
-        <Lottie
+        {/* <Lottie
           animationData={
             size.width < 600 ? animacijaNaslova600 : animacijaNaslova1150
           }
           className="HeroNaslovAnimacija"
           loop={false}
-        />
+        /> */}
+        Trening trčanja za
+        <br />
+        početnike i rekreativce.
+        <br />
+        Prvi treninzi su <span style={{ color: "#f9ff00" }}>besplatni</span>.
       </HeroTitle>
       <Veza
         activeClass="active"

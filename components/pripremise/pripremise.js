@@ -51,12 +51,12 @@ const PripremiSe = () => {
             </Utrka> */}
             <Utrka>
               <a href="https://www.zadarnight.run">
-                <strong>11.04.</strong> Zadar Night Run 2026
+                <strong>3.4.2027.</strong> Zadar Night Run 2027
               </a>
             </Utrka>
             <Utrka>
               <a href="https://www.wingsforlife.com">
-                <strong>10.05.</strong> WIngs For Life 2026
+                <strong>10.05.</strong> WIngs For Life 2027
               </a>
             </Utrka>
             {/* <Utrka>
@@ -88,7 +88,7 @@ const PripremiSe = () => {
               style={{ textDecoration: "none", marginTop: "15px" }}
             >
               <Button
-                title="Zadar Night Run"
+                title="Zadar Night Run 2027"
                 width="270"
                 height="61"
                 fontWeight="700"
