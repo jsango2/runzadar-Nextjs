@@ -49,12 +49,12 @@ function callResend({ apiKey, payload }) {
           const ok = res.statusCode >= 200 && res.statusCode < 300;
           if (!ok) {
             return reject(
-              new Error(`Resend error ${res.statusCode}: ${rawData}`)
+              new Error(`Resend error ${res.statusCode}: ${rawData}`),
             );
           }
           return resolve(rawData);
         });
-      }
+      },
     );
 
     req.on("error", reject);
@@ -67,12 +67,12 @@ function buildEmailHtml({ fullName, firstName, birthYear }) {
   const greetingName = escapeHtml(firstName || fullName || "");
   const participantLine = fullName
     ? `<p style="margin:0 0 6px 0;"><strong>Polaznik:</strong> ${escapeHtml(
-        fullName
+        fullName,
       )}</p>`
     : "";
   const birthYearLine = birthYear
     ? `<p style="margin:0;"><strong>Godina rođenja:</strong> ${escapeHtml(
-        birthYear
+        birthYear,
       )}</p>`
     : "";
 
@@ -97,7 +97,9 @@ function buildEmailHtml({ fullName, firstName, birthYear }) {
 
             <tr>
               <td style="padding:24px 28px;">
-                <p style="margin:0 0 16px 0;">Poštovani${greetingName ? ` ${greetingName}` : ""},</p>
+                <p style="margin:0 0 16px 0;">Poštovani${
+                  greetingName ? ` ${greetingName}` : ""
+                },</p>
                 <p style="margin:0 0 14px 0;">
                   zahvaljujemo na ukazanom povjerenju i prijavi u Školu trčanja Zadar.
                   Želja nam je da vam trčanje postane ugodna navika, pa ćemo vam ga približiti postupno,
@@ -123,11 +125,11 @@ function buildEmailHtml({ fullName, firstName, birthYear }) {
 
                 <p style="margin:0 0 6px 0;"><strong>Popodne:</strong></p>
                 <ul style="margin:0 0 12px 20px;padding:0;">
-                  <li style="margin:0 0 4px 0;">Ponedjeljak - 19:30, Park Vladimira Nazora</li>
-                  <li style="margin:0 0 4px 0;">Utorak - 19:30, Park Vladimira Nazora</li>
-                  <li style="margin:0 0 4px 0;">Srijeda - 19:30, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)</li>
-                  <li style="margin:0 0 4px 0;">Četvrtak - 19:30, Park Vladimira Nazora</li>
-                  <li style="margin:0 0 4px 0;">Petak - 19:00, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Ponedjeljak - 20:00, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Utorak - 20:00, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Srijeda - 20:00, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)</li>
+                  <li style="margin:0 0 4px 0;">Četvrtak - 20:00, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Petak - 19:30, Park Vladimira Nazora</li>
                 </ul>
 
                 <p style="margin:0 0 12px 0;"><strong>Nedjelja:</strong> nema treninga.</p>
@@ -176,11 +178,11 @@ Ujutro:
 - Ponedjeljak / Srijeda / Subota - 8:00, Park Vladimira Nazora (sredina parka, 50 m od ribica)
 
 Popodne:
-- Ponedjeljak - 19:30, Park Vladimira Nazora
-- Utorak - 19:30, Park Vladimira Nazora
-- Srijeda - 19:30, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)
-- Četvrtak - 19:30, Park Vladimira Nazora
-- Petak - 19:00, Park Vladimira Nazora
+- Ponedjeljak - 20:00, Park Vladimira Nazora
+- Utorak - 20:00, Park Vladimira Nazora
+- Srijeda - 20:00, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)
+- Četvrtak - 20:00, Park Vladimira Nazora
+- Petak - 19:30, Park Vladimira Nazora
 
 Nedjelja: nema treninga.
 
