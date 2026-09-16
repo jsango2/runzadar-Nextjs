@@ -125,11 +125,11 @@ function buildEmailHtml({ fullName, firstName, birthYear }) {
 
                 <p style="margin:0 0 6px 0;"><strong>Popodne:</strong></p>
                 <ul style="margin:0 0 12px 20px;padding:0;">
-                  <li style="margin:0 0 4px 0;">Ponedjeljak - 20:00, Park Vladimira Nazora</li>
-                  <li style="margin:0 0 4px 0;">Utorak - 20:00, Park Vladimira Nazora</li>
-                  <li style="margin:0 0 4px 0;">Srijeda - 20:00, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)</li>
-                  <li style="margin:0 0 4px 0;">Četvrtak - 20:00, Park Vladimira Nazora</li>
-                  <li style="margin:0 0 4px 0;">Petak - 19:30, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Ponedjeljak - 19:30, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Utorak - 19:30, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Srijeda - 19:30, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)</li>
+                  <li style="margin:0 0 4px 0;">Četvrtak - 19:30, Park Vladimira Nazora</li>
+                  <li style="margin:0 0 4px 0;">Petak - 19:00, Park Vladimira Nazora</li>
                 </ul>
 
                 <p style="margin:0 0 12px 0;"><strong>Nedjelja:</strong> nema treninga.</p>
@@ -178,11 +178,11 @@ Ujutro:
 - Ponedjeljak / Srijeda / Subota - 8:00, Park Vladimira Nazora (sredina parka, 50 m od ribica)
 
 Popodne:
-- Ponedjeljak - 20:00, Park Vladimira Nazora
-- Utorak - 20:00, Park Vladimira Nazora
-- Srijeda - 20:00, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)
-- Četvrtak - 20:00, Park Vladimira Nazora
-- Petak - 19:30, Park Vladimira Nazora
+- Ponedjeljak - 19:30, Park Vladimira Nazora
+- Utorak - 19:30, Park Vladimira Nazora
+- Srijeda - 19:30, Atletska staza Višnjik (iza zapadnog gola, uz skakalište u vis)
+- Četvrtak - 19:30, Park Vladimira Nazora
+- Petak - 19:00, Park Vladimira Nazora
 
 Nedjelja: nema treninga.
 
