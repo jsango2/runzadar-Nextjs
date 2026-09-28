@@ -13,6 +13,7 @@ import {
   Box,
   Clanarina,
   Overlay,
+  SidrenaCijena,
 } from "./style.js";
 import LocationIcon from "../../svg/location.svg";
 import KosaCrta from "../../svg/kosacrta.svg";
@@ -74,6 +75,11 @@ const ZastoSkola = () => {
             maksimalnih trkačkih mogućnosti. Cijena za studente - 24 Eura.
           </div>
         </Clanarina>
+        <SidrenaCijena>
+          <div style={{ margin: "auto" }}>
+            Cijena 10. 9. 2026.: 28 Eur/mjesečno
+          </div>
+        </SidrenaCijena>
       </WrapDiv>
     </WrapAll>
   );

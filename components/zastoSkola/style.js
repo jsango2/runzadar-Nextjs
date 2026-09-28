@@ -185,11 +185,11 @@ export const WrapNaslovRaspored = styled.div`
 `;
 export const Clanarina = styled.div`
   width: 70%;
-  height: 270px;
+  height: auto;
   font-family: "Montserrat", sans-serif;
   font-size: 21px;
   text-align: center;
-  margin: auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -197,6 +197,26 @@ export const Clanarina = styled.div`
   @media only screen and (max-width: 600px) {
     width: 85%;
     height: 220px;
+    font-size: 14px;
+  }
+  /* @media only screen and (max-width: 420px) {
+    font-size: 14px;
+  } */
+`;
+export const SidrenaCijena = styled.div`
+  width: 70%;
+  height: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  text-align: center;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 600px) {
+    width: 85%;
+    height: auto;
     font-size: 14px;
   }
   /* @media only screen and (max-width: 420px) {
